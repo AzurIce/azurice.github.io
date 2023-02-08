@@ -1,0 +1,3 @@
+[submodule "themes/hugo-theme-stack"]
+	path = themes/hugo-theme-stack
+	url = git@github.com:AzurIce/hugo-theme-stack.git
