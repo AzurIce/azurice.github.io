@@ -308,7 +308,7 @@ Mix = false
 [page.comment]
 enable = true
 [page.comment.giscus]
-enable = false
+enable = true
 repo = "AzurIce/azurice.github.io"
 repoId = "R_kgDOI7WMeQ"
 category = "Giscus"
