@@ -1,71 +1,448 @@
-# Pages placed under these sections will be shown on homepage and archive page.
-mainSections = ["post"]
+version = "0.2.X"
+description = "「留存诗意于心，恪守初心于路」"
+keywords = ["Blog", "Hugo", "FixIt", "AzurIce", "博客", "Azur冰弦", "Aoike", "青之池"]
+gitRepo = "https://github.com/AzurIce/azurice.github.io.git"
+
+# 应用图标配置
+[app]
+# 当添加到 iOS 主屏幕或者 Android 启动器时的标题，覆盖默认标题
+title = "Aoike青之池"
+noFavicon = false
+svgFavicon = ""
+# Safari 图标颜色
+iconColor = "#5bbad5"
+# Windows v8-10 磁贴颜色
+tileColor = "#da532c"
+# Android 浏览器主题色
+[app.themeColor]
+light = "#f8f8f8"
+dark = "#252627"
+
+# 搜索配置
+[search]
+enable = true
+type = "fuse"
+contentLength = 4000
+placeholder = ""
+maxResultLength = 10
+snippetLength = 30
+highlightTag = "em"
+absoluteURL = false
+[search.fuse] # See https://fusejs.io/api/options.html
+# Fuzzy Matching Options
+threshold = 0.3
+ignoreLocation = true
+useExtendedSearch = true
+
+[header]
+desktopMode = "sticky"
+mobileMode = "auto"
+[header.title]
+logo = "img/avatar.png"
+name = "Aoike青之池"
+pre = " "
+post = ""
+typeit = false
+[header.subtitle]
+name = "「留存诗意于心，恪守初心于路」"
+typeit = false
 
 [footer]
+enable = true
+custom = ""
+hugo = true
+copyright = true
+author = true
 since = 2022
-customText = ""
+wordCount = true
+gov = ""
+icp = ""
+license = '<a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+[footer.siteTime]
+enable = true
+animate = true
+icon = "fa-solid fa-bolt-lightning"
+pre = "网站在各种灾难中运行了"
+value = "2022-02-15T13:13:00+08:00"
+[footer.order]
+powered = 0
+copyright = 0
+statistics = 0
+visitor = 0
+beian = 0
 
-[dateFormat]
-published = "Jan 02, 2006"
-lastUpdated = "Jan 02, 2006 15:04 MST"
+# posts
+[section]
+paginate = 20
+dateFormat = "01-02"
+rss = 10
+[section.recentlyUpdated]
+enable = true
+rss = true
+days = 30
+maxCount = 10
 
-[sidebar]
-emoji = "✨"
+# tag or category page
+[list]
+# special amount of posts in each list page
+paginate = 20
+# date format (month and day)
+dateFormat = "01-02"
+# amount of RSS pages
+rss = 10
+
+# In tags page
+[tagcloud]
+enable = true
+min = 14 # Minimum font size in px
+max = 32 # Maximum font size in px
+peakCount = 10 # Maximum count of posts per tag
+orderby = "name" # Order of tags, optional values: ["name", "count"]
+
+# Home page config
+[home]
+rss = 10
+[home.profile]
+enable = true
+gravatarEmail = "973562770@qq.com"
+avatarURL = ""
+avatarMenu = ""
+title = "Aoike青之池"
 subtitle = "「留存诗意于心，恪守初心于路」"
+typeit = true
+social = true
+disclaimer = ""
+[home.posts]
+enable = true
+paginate = 7
 
-[article]
-math = true
+[social]
+GitHub = "https://github.com/AzurIce"
+Linkedin = ""
+Twitter = ""
+Instagram = ""
+Facebook = ""
+Telegram = ""
+Medium = ""
+Gitlab = ""
+Youtubelegacy = ""
+Youtubecustom = ""
+Youtubechannel = ""
+Tumblr = ""
+Quora = ""
+Keybase = ""
+Pinterest = ""
+Reddit = ""
+Codepen = ""
+FreeCodeCamp = ""
+Bitbucket = ""
+Stackoverflow = ""
+Weibo = ""
+Odnoklassniki = ""
+VK = ""
+Flickr = ""
+Xing = ""
+Snapchat = ""
+Soundcloud = ""
+Spotify = ""
+Bandcamp = ""
+Paypal = ""
+Fivehundredpx = ""
+Mix = ""
+Goodreads = ""
+Lastfm = ""
+Foursquare = ""
+Hackernews = ""
+Kickstarter = ""
+Patreon = ""
+Steam = ""
+Twitch = ""
+Strava = ""
+Skype = ""
+Whatsapp = ""
+Zhihu = ""
+Douban = ""
+Angellist = ""
+Slidershare = ""
+Jsfiddle = ""
+Deviantart = ""
+Behance = ""
+Dribbble = ""
+Wordpress = ""
+Vine = ""
+Googlescholar = ""
+Researchgate = ""
+Mastodon = ""
+Thingiverse = ""
+Devto = ""
+Gitea = ""
+XMPP = ""
+Matrix = ""
+Bilibili = "https://space.bilibili.com/46452693"
+ORCID = ""
+Liberapay = ""
+Ko-Fi = ""
+BuyMeaCoffee = ""
+Linktree = ""
+QQ = "973562770"
+QQGroup = "" # https://qun.qq.com/join.html
+Diaspora = ""
+CSDN = ""
+Discord = ""
+DiscordInvite = ""
+Lichess = ""
+Pleroma = ""
+Kaggle = ""
+MediaWiki= ""
+Plume = ""
+HackTheBox = ""
+RootMe = ""
+Feishu = ""
+TryHackMe = ""
+Douyin = ""
+TikTok = ""
+Phone = "18710099602"
+Email = "973562770@qq.com"
+RSS = true
 
-[article.license]
-enabled = true
-default = "Licensed under CC BY-NC-SA 4.0"
 
-## Widgets
-# Widget Search
-[[widgets.homepage]]
-type = "search"
 
-# Widget Archives
-[[widgets.homepage]]
-type = "archives"
+[page]
+hiddenFromHomePage = false
+hiddenFromSearch = false
+twemoji = false
+lightgallery = false
+ruby = true
+fraction = true
+fontawesome = true
+license = '<a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+linkToMarkdown = true
+rssFullText = false
+pageStyle = "normal"
+gravatarForce = false
+autoBookmark = true
+wordCount = true
+readingTime = true
+endFlag = "——The End——"
+instantPage = false
 
-[widgets.homepage.params]
-limit = 5
-
-# Widget Categories
-[[widgets.homepage]]
-type = "categories"
-
-[widgets.homepage.params]
-limit = 10
-
-# Widget Tag Cloud
-[[widgets.homepage]]
-type = "tag-cloud"
-
-[widgets.homepage.params]
-limit = 10
-
-# Widget TOC
-[[widgets.page]]
-type = "toc"
-
-## Comments
-[comments]
-enabled = true
-provider = "giscus"
-
-[comments.giscus]
+[page.repost]
+enable = false
+url = ""
+[page.toc]
+enable = true
+keepStatic = false
+auto = true
+position = "right"
+[page.expirationReminder]
+enable = true
+reminder = 90
+warning = 180
+closeComment = false
+[page.math]
+enable = true
+# default inline delimiter is $ ... $ and \( ... \)
+inlineLeftDelimiter = ""
+inlineRightDelimiter = ""
+# default block delimiter is $$ ... $$, \[ ... \], \begin{equation} ... \end{equation} and some other functions
+blockLeftDelimiter = ""
+blockRightDelimiter = ""
+copyTex = true
+mhchem = true
+[page.code]
+copy = true
+edit = true
+maxShownLines = 10
+[page.edit]
+enable = false
+url = ""
+[page.mapbox] # TODO:
+accessToken = ""
+lightStyle = "mapbox://styles/mapbox/light-v9"
+darkStyle = "mapbox://styles/mapbox/dark-v9"
+navigation = true
+geolocate = true
+scale = true
+fullscreen = true
+[page.reward] # TODO:
+enable = false
+animation = false
+position = "after"
+# comment = "Buy me a coffee"
+[page.reward.ways]
+# wechatpay = "/images/wechatpay.png"
+# alipay = "/images/alipay.png"
+# paypal = "/images/paypal.png"
+# bitcoin = "/images/bitcoin.png"
+# FixIt 0.2.0 | CHANGED social share links in post page
+[page.share]
+enable = true
+Twitter = false
+Facebook = false
+Linkedin = false
+Whatsapp = false
+Pinterest = false
+Tumblr = false
+HackerNews = false
+Reddit = false
+VK = false
+Buffer = false
+Xing = false
+Line = false
+Instapaper = false
+Pocket = false
+Digg = false
+Stumbleupon = false
+Flipboard = false
+Weibo = true
+Renren = false
+Myspace = false
+Blogger = false
+Baidu = false
+Odnoklassniki = false
+Evernote = true
+Skype = false
+Trello = false
+Mix = false
+# FixIt 0.2.15 | CHANGED Comment config
+[page.comment]
+enable = true
+[page.comment.giscus]
+enable = false
 repo = "AzurIce/azurice.github.io"
-repoID = "R_kgDOI7WMeQ"
+repoId = "R_kgDOI7WMeQ"
 category = "Giscus"
-categoryID = "DIC_kwDOI7WMec4CUE3s"
+categoryId = "DIC_kwDOI7WMec4CUE3s"
 mapping = "pathname"
-strict = 0
-lightTheme = ""
-darkTheme = ""
-reactionsEnabled = 1
-emitMetadata = 0
-inputPosition = "top"
-lang = "zh-CN"
+term = ""
+reactionsEnabled = "1"
+emitMetadata = "0"
+inputPosition = "top" # ["top", "bottom"]
+lightTheme = "light"
+darkTheme = "dark"
+lazyLoad = true
+
+[page.library]
+[page.library.css]
+[page.library.js]
+[page.seo] # TODO:
+images = []
+[page.seo.publisher]
+name = ""
+logoUrl = ""
+
+[typeit]
+speed = 100
+cursorSpeed = 1000
+cursorChar = "|"
+duration = -1
+
+[mermaid]
+themes = ["neutral", "dark"]
+
+[pangu] # TODO:
+enable = false
+selector = "article"
+
+[watermark] # TODO:
+enable = false
+content = ""
+opacity = 0.1
+appendTo = ".wrapper>main"
+width = 150
+height = 20
+rowSpacing = 60
+colSpacing = 30
+rotate = 15
+fontSize = 0.85
+fontFamily = "inherit"
+
+[ibruce]
+enable = true
+enablePost = false
+
+# Site verification code config for Google/Bing/Yandex/Pinterest/Baidu/360/Sogou
+[verification]
+google = ""
+bing = ""
+yandex = ""
+pinterest = ""
+baidu = ""
+so = ""
+sogou = ""
+
+[seo] # TODO:
+# image URL
+image = ""
+# thumbnail URL
+thumbnailUrl = ""
+
+[analytics] # TODO:
+enable = false
+[analytics.google]
+id = ""
+anonymizeIP = true
+[analytics.fathom]
+id = ""
+server = ""
+
+# FixIt 0.2.7 | NEW Cookie consent config
+[cookieconsent]
+enable = true
+[cookieconsent.content] # TODO:
+message = ""
+dismiss = ""
+link = ""
+
+[cdn]
+data = ""
+
+[compatibility]
+polyfill = false
+objectFit = false
+
+[githubCorner]
+enable = true
+permalink = "https://github.com/AzurIce/azurice.github.io"
+title = ""
+position = "right" # ["left", "right"]
+
+[gravatar]
+host = "www.gravatar.com" # ["cn.gravatar.com", "gravatar.loli.net", ...]
+style = "" # ["", "mp", "identicon", "monsterid", "wavatar", "retro", "blank", "robohash"]
+
+[backToTop]
+enable = true
+scrollpercent = true
+
+[readingProgress]
+enable = true
+# Available values: ["left", "right"]
+start = "left"
+# Available values: ["top", "bottom"]
+position = "top"
+reversed = false
+light = ""
+dark = ""
+height = "2px"
+
+[pace]
+enable = false
+# All available colors:
+# ["black", "blue", "green", "orange", "pink", "purple", "red", "silver", "white", "yellow"]
+color = "blue"
+# All available themes:
+# ["barber-shop", "big-counter", "bounce", "center-atom", "center-circle", "center-radar", "center-simple",
+# "corner-indicator", "fill-left", "flash", "flat-top", "loading-bar", "mac-osx", "material", "minimal"]
+theme = "minimal"
+
+[customFilePath]
+
+[dev]
+enable = false
+c4u = false
+githubToken = ""
+[dev.mDevtools]
+enable = false
+type = "vConsole"
 

@@ -1,4 +1,12 @@
 baseURL = 'http://azurice.github.io/'
-languageCode = 'zh-cn'
+defaultContentLanguage = "zh-cn"
+languageCode = 'zh-CN'
 title = 'Aoike青之池'
-theme = 'hugo-theme-stack'
+theme = 'FixIt'
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML", "MarkDown"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  taxonomyTerm = ["HTML"]
