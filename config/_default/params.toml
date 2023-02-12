@@ -117,7 +117,7 @@ enable = true
 paginate = 7
 
 [social]
-GitHub = "https://github.com/AzurIce"
+GitHub = "AzurIce"
 Linkedin = ""
 Twitter = ""
 Instagram = ""
@@ -178,7 +178,7 @@ Devto = ""
 Gitea = ""
 XMPP = ""
 Matrix = ""
-Bilibili = "https://space.bilibili.com/46452693"
+Bilibili = "46452693"
 ORCID = ""
 Liberapay = ""
 Ko-Fi = ""
