@@ -55,8 +55,8 @@ copyright = true
 author = true
 since = 2022
 wordCount = true
-gov = ""
-icp = ""
+gov = '	<div style="margin:0; padding:20px 0; display:inline-flex;"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502048910" style="display:inline;text-decoration:none;height:20px;line-height:20px;"><img alt="备案图标" src="/备案图标.png" style=""/><span style="margin-left: 5px;">京公网安备 11010502048910号</span></a></div>'
+icp = '<a target="_blank" href="https://beian.miit.gov.cn/" style="display:inline;text-decoration:none;height:20px;line-height:20px;">京ICP备2022004147号-1</a>'
 license = '<a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 [footer.siteTime]
 enable = true
