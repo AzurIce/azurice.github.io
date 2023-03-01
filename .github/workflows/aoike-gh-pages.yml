@@ -27,7 +27,7 @@ jobs:
       - name: Download aoike
         uses: actions/checkout@v3
         with:
-          repository: azurice/aoike.git
+          repository: azurice/aoike
           ref: master
 
       - run: pip install -e aoike
