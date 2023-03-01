@@ -24,7 +24,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4.5.0
     
-      - name: Check out my other private repo
+      - name: Download aoike
         uses: actions/checkout@v3
         with:
           repository: azurice/aoike.git
