@@ -29,8 +29,10 @@ jobs:
         with:
           repository: azurice/aoike
           ref: master
+    
+      - run: ls
 
-      - run: pip install -e aoike
+      - run: pip install -e .
       
       - uses: actions/checkout@v3
         with:
