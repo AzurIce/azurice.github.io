@@ -25,9 +25,10 @@ jobs:
         uses: actions/setup-python@v4.5.0
     
       - name: Check out my other private repo
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
         with:
           repository: azurice/aoike
+          ref: master
 
       - run: pip install -e aoike
       
