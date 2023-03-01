@@ -9,17 +9,25 @@ tags:
     - testTag2
 ---
 
-目前正在折腾博客，迁移了部分文章，有一些图片链接还未修复。
-接下来要做的：
+目前啃了啃 [mkdocs/mkdocs: Project documentation with Markdown](https://github.com/mkdocs/mkdocs) 的码，搓了一个 [AzurIce/aoike](https://github.com/AzurIce/aoike)，基于 Python 的静态博客生成器。
+目前还比较简陋，慢慢加功能。
 
-- 搞定CDN 加速
-- 把博客迁移完成
-  - 文章
-  - 图片资源
-- 折腾折腾博客主题以及组织结构和设置
+现在迁移了部分文章，有一些图片链接还未修复。
+接下来要做的：
+- [x] 搞定CDN 加速
+- [ ] 把博客迁移完成
+  - [ ] 文章
+  - [ ] 图片资源
+- [ ] aoike 功能实现
+  - [x] 评论
+  - [ ] 标签云
+  - [ ] 分类
+  - [ ] 基础主题完善
+
+到时候再搞定 aoike 的可配置性，以后说不定会把它搓成一个新的静态博客框架（
 
 ---
-下面时测试
+下面是一些测试
 ---
 
 # First level heading
