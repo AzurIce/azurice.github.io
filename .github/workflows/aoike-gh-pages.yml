@@ -32,7 +32,7 @@ jobs:
     
       - run: ls
 
-      - run: pip install -e .
+      - run: pip install .
       
       - uses: actions/checkout@v3
         with:
