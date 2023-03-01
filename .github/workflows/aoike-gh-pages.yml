@@ -41,7 +41,7 @@ jobs:
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: 🔨 Aoike Build Site
-        run: python -m aioke build
+        run: aoike build
 
       - name: ⏫ Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v1.0.7
