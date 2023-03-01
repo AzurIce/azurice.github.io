@@ -1,6 +1,1 @@
-.hugo_build.lock
-resources/_gen/
-public/
-
-node_modules/
-components.d.ts
+site/
