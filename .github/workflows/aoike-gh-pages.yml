@@ -24,17 +24,11 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4.5.0
     
-      #- name: Git Clone Action
-        # You may pin to the exact commit or the version.
-        # uses: sudosubin/git-clone-action@8a93ce24d47782e30077508cccacf8a05a891bae
-      #  uses: sudosubin/git-clone-action@v1.0.1
-      #  with:
-          # Repository owner and name. Ex: sudosubin/git-clone-action
-      #    repository: azurice/aoike
-      - run: git config --global user.name "AzurIce"
-      - run: git config --global user.email "973562770@qq.com"
-      - run: git clone https://github.com/azurice/aoike.git
-      
+      - name: Check out my other private repo
+        uses: actions/checkout@master
+        with:
+          repository: azurice/aoike
+
       - run: pip install -e aoike
       
       - uses: actions/checkout@v3
