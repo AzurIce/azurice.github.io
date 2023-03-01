@@ -31,7 +31,7 @@ jobs:
       #  with:
           # Repository owner and name. Ex: sudosubin/git-clone-action
       #    repository: azurice/aoike
-      - run: git config --global user.username "AzurIce"
+      - run: git config --global user.name "AzurIce"
       - run: git config --global user.email "973562770@qq.com"
       - run: git clone https://github.com/azurice/aoike.git
       
