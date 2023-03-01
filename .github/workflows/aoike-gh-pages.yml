@@ -27,7 +27,7 @@ jobs:
       - name: Check out my other private repo
         uses: actions/checkout@v3
         with:
-          repository: azurice/aoike
+          repository: azurice/aoike.git
           ref: master
 
       - run: pip install -e aoike
