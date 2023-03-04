@@ -1,0 +1,203 @@
+# Neovim插件 自动补全nvim-cmp + LSP + Snippet
+
+
+
+## 一、自动补全 nvim-cmp
+
+github：[hrsh7th/nvim-cmp: A completion plugin for neovim coded in Lua. (github.com)](https://github.com/hrsh7th/nvim-cmp)
+
+**nvim-cmp** 是一个100%由 **lua** 实现的 neovim 自动补全插件。
+
+使用 `packer.nvim` 管理：
+
+```lua
+require('packer').startup(function()
+    -- nvim-cmp 本体
+	use 'hrsh7th/nvim-cmp'
+    
+    -- nvim-cmp 的各种 source
+    use 'hrsh7th/cmp-buffer'  -- buffer 补全源
+    use 'hrsh7th/cmp-path'    -- 路径    补全源
+    use 'hrsh7th/cmp-cmdline' -- vim命令 补全源
+        
+    -- snippet engine 补全所使用的代码片段引擎
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip' -- 用以连接 LuaSnip 与 cmp
+end)
+```
+
+```lua
+local cmp = require'cmp'
+cmp.setup({
+    snippet = {
+        expand = function(args)
+            require'luasnip'.lsp_expand(args.body)
+        end
+    },
+    mapping = {
+        ['<C-j>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+        ['<C-k>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+        ['<C-e>'] = cmp.mapping(cmp.mapping.close(), { 'i', 'c' }),
+        -- Accept currently selected item. If none selected, `select` first item.
+        -- Set `select` to `false` to only confirm explicitly selected items.
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<TAB>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+    },
+    sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+        { name = 'buffer' },
+        { name = 'path' }
+    })
+})
+
+cmp.setup({
+    mapping = {
+        -- Accept currently selected item. If none selected, `select` first item.
+        -- Set `select` to `false` to only confirm explicitly selected items.
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    },
+    sources = cmp.config.sources({
+		{ name = 'buffer' },
+        { name = 'path' }
+    })
+})
+
+-- 设置命令补全源（以':'开头）
+cmp.setup.cmdline(':', {
+	sources = cmp.config.sources({
+		{ name = 'path' },
+		{ name = 'cmdline' }
+	})
+})
+
+-- 设置vim命令行处补全（以'/'开头）
+cmp.setup.cmdline('/', {
+	sources = cmp.config.sources({
+		{ name = 'buffer' }
+	})
+})
+```
+
+除使用 `cmp.setup(config: cmp.ConfigSchema)` 进行全局设置，还可以单独设置 cmdline（vim命令行），buffer（缓冲区）和 filetype（特定文件类型）的补全：
+
+- `cmd.setup.cmdline(cmdtype: string, config: cmp.ConfigSchema)` 设置 cmdline 的补全外
+- `cmd.setup.filetype(filetype: string, config: cmp.ConfigSchema)` 设置 特定filetype 的补全
+- `cmp.setup.buffer(config: cmp.ConfigSchema)` 设置 buffer 的补全
+
+### config中有的项
+
+太多啦看文档叭~
+
+[nvim-cmp/cmp.txt at main · hrsh7th/nvim-cmp (github.com)](https://github.com/hrsh7th/nvim-cmp/blob/main/doc/cmp.txt)
+
+### 一些 built-in 的 mapping helpers
+
+ *cmp.mapping.close* ()
+    Same as |cmp.close|
+
+  *cmp.mapping.abort* ()
+    Same as |cmp.abort|
+
+  *cmp.mapping.select_next_item* (option: { behavior = cmp.SelectBehavior })
+    Same as |cmp.select_next_item|
+
+  *cmp.mapping.select_prev_item* (option: { behavior = cmp.SelectBehavior })
+    Same as |cmp.select_prev_item|
+
+  *cmp.mapping.scroll_docs* (delta: number)
+    Same as |cmp.scroll_docs|
+
+  *cmp.mapping.complete* (option: cmp.CompleteParams)
+    Same as |cmp.complete|
+
+  *cmp.mapping.complete_common_string* ()
+    Same as |cmp.complete_common_string|
+
+  *cmp.mapping.confirm* (option: cmp.ConfirmOption)
+    Same as |cmp.confirm|
+
+### 一些函数
+
+`cmp.visible()` 返回补全菜单是否可见
+
+`cmp.close()` 关闭补全菜单
+
+`cmp.abort()` 关闭补全菜单，并且恢复当前行为此次补全前的状态
+
+`cmp.get_selected_entry()` 返回选择的补全项入口（包括预选择）
+
+`cmp.get_active_entry()`   返回选择的补全项入口（不包括预选择）
+
+`cmp.select_next_item(option: { behavior = cmp.SelectBehavior })` 字面意思
+
+`cmp.select_prev_item(option: { behavior = cmp.SelectBehavior })` 字面意思
+
+`cmp.scroll_docs(delta: number)` 如果文档窗口可见，滚动number行
+
+
+
+`cmp.complete(option: { reason = cmp.ContextReason, config = cmp.ConfigSchema })` 触发补全
+
+> 例：只触发 snippet 补全
+>
+> ```lua
+> cmp.setup {
+>     mapping = {
+>       ['<C-s>'] = cmp.mapping.complete({
+>         config = {
+>           sources = {
+>             { name = 'vsnip' }
+>           }
+>         }
+>       })
+>     }
+>   }
+> ```
+>
+> 
+
+`cmp.complete_common_string()` Complete common string as like as shell completion behavior.
+
+> 例：
+>
+> ```lua
+> cmp.setup {
+>     mapping = {
+>       ['<C-l>'] = cmp.mapping(function(fallback)
+>         if cmp.visible() then
+>           return cmp.complete_common_string()
+>         end
+>         fallback()
+>       end, { 'i', 'c' }),
+>     }
+>   }
+> ```
+>
+> 
+
+`cmp.confirm(option: cmp.ConfirmOption, callback: function)` 接受当前选择的补全项（若没有选择任何项，但设定了 `{select = true}`，则会自动选择第一项）
+
+`cmp.event:on('%EVENT_NAME%, callback)` 订阅事件：
+
+- `complete_done` 在当前补全完成时被发起
+- `confirm_done` 在确认完成时发起
+
+### 我借助函数实现的一些按键绑定
+
+```lua
+-- 关闭补全窗口
+keymap('i', '<ESC>', 'v:lua.require\'cmp\'.visible() ? v:lua.require\'cmp\'.close() : "<ESC>"',
+    { noremap = true, expr = true })
+-- 文档下翻
+keymap('n', '<C-j>', 'v:lua.require\'cmp\'.visible() ? v:lua.require\'cmp\'.scroll_docs(4)  : "<C-w>j"', {noremap = true, expr = true})
+-- 文档上翻
+keymap('n', '<C-k>', 'v:lua.require\'cmp\'.visible() ? v:lua.require\'cmp\'.scroll_docs(-4) : "<C-w>k"', {noremap = true, expr = true})
+```
+
+## 二、LSP 
+
+[neovim/nvim-lspconfig: Quickstart configurations for the Nvim LSP client (github.com)](https://github.com/neovim/nvim-lspconfig)
+
+[williamboman/nvim-lsp-installer: Neovim plugin that allows you to seamlessly manage LSP servers with :LspInstall. With full Windows support! (github.com)](https://github.com/williamboman/nvim-lsp-installer)
+
