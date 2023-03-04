@@ -6,10 +6,6 @@ tags:
     - 背包
 ---
 
-
-
-# CodeForces 19B Checkout Assistant
-
 CodeForces：[Problem - 19B - Codeforces](https://codeforces.com/problemset/problem/19/B)
 
 洛谷：[CF19B Checkout Assistant - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/CF19B)

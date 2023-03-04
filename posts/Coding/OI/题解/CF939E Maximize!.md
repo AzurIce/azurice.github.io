@@ -6,8 +6,6 @@ tags:
     - 贪心
 ---
 
-# CF939E Maximize!
-
 Codeforces：[Problem - 939E - Codeforces](https://codeforces.com/problemset/problem/939/E)
 
 ## 题意

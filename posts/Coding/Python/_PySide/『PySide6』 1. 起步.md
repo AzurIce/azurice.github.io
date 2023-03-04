@@ -1,5 +1,3 @@
-# 『PySide6』 1. 起步
-
 ## 一、安装 PySide6
 
 ```shell

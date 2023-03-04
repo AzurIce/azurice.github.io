@@ -5,8 +5,6 @@ tags:
     - 二分
 ---
 
-# P1182 数列分段 Section II
-
 洛谷：[P1182 数列分段 Section II - 洛谷](https://www.luogu.com.cn/problem/P1182)
 
 ## 题意

@@ -7,8 +7,6 @@ tags:
     - 差分
 ---
 
-# CF1201C Maximum Median
-
 Codeforces：[Problem - 1201C - Codeforces](https://codeforces.com/problemset/problem/1201/C)
 
 ## 题意

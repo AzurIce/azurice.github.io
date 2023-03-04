@@ -6,8 +6,6 @@ tags:
     - 贪心
 ---
 
-# CF1223C Save the Nature
-
 洛谷：
 Codeforces：[Problem - 1223C - Codeforces](https://codeforces.com/problemset/problem/1223/C)
 
