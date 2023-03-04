@@ -1,3 +1,10 @@
+---
+title: PostgreSQL安装
+date: 2023-03-04T13:53:00+08:00
+---
+
+
+
 > 官网：[PostgreSQL: The world's most advanced open source database](https://www.postgresql.org/)
 
 > 相关信息：
