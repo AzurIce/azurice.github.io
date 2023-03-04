@@ -1,9 +1,6 @@
 ---
 title: "old test"
 date: 2021-02-08T23:17:14+08:00
-draft: true
-categories:
-    - Logs
 tags:
     - testTag1
     - testTag2
@@ -19,7 +16,7 @@ tags:
 - 折腾折腾博客主题以及组织结构和设置
 
 ---
-下面时测试
+下面是测试
 ---
 
 # First level heading
