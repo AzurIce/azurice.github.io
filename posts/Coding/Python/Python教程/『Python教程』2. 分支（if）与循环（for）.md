@@ -46,8 +46,8 @@ else:
 ```
 Traceback (most recent call last):
   File "C:/Users/xiaob/Desktop/test.py", line 2, in <module>
-    if 90 <= score:
-TypeError: '<=' not supported between instances of 'int' and 'str'
+    if score < 60:
+TypeError: '<' not supported between instances of 'str' and 'int'
 ```
 
 这是因为input获取到的内容时str（字符串）类型的，python把它当作若干个字符的序列，而非一个数字。使用 `eval()` 可以将字符串的内容当作python表达式并得到这个表达式的结果，即 `eval('9 + 9 * 10')` 的结果是数字类型的 `99`。
