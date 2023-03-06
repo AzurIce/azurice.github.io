@@ -75,7 +75,7 @@ type(值) # 获取 值 的数据类型
 > print(type(9.99))   # 输出 <class 'float'>
 > print(type('??'))   # 输出 <class 'str'>
 > print(type(True))   # 输出 <class 'bool'>
-> print(type(2.3+2j)) # 输出 <class 'bool'>
+> print(type(2.3+2j)) # 输出 <class 'complex'>
 > ```
 
 ## 三、 类型转换
