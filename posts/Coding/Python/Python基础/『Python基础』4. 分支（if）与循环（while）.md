@@ -99,7 +99,7 @@ else:
 
 与 `if` 很像，不过每次执行完内部语句后都会回来检查条件是否为真，若为真则再执行一次内部语句，以此循环。
 
-```
+```python
 while expression:
     something you want to do
     some other thing you want to do
