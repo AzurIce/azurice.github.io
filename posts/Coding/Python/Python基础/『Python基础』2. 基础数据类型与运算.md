@@ -11,6 +11,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 这其实就是进入了 Python解释器的 **交互模式**。
 
+> 退出方式为按 Ctrl + Z 或输入 `exit()` 后按回车。
+
 你输入的每一行都会被作为 Python语句解析、执行，并将语句返回的结果显示出来。
 
 比如我们输入 `2 + 2`，这个语句被执行后返回的结果便是 `4`：
