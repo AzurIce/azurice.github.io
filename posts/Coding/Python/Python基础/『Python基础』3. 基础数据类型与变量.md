@@ -51,33 +51,6 @@ print(f'Now my mame is {name}')
 
 ## 二、存储数据的类型
 
-Python 种有如下4种基础数据类型：
-
-
-| 类型    | 名称                                   | 描述                             |
-| ------- | -------------------------------------- | -------------------------------- |
-| int     | Integer 整型                           | 存储整数                         |
-| float   | Floating Point Number 浮点型（双精度） | 存储小数                         |
-| complex | Complex 复数型                         | 存储复数（表示方法例如`3 + 2j`） |
-| str     | String 字符串                          | 存储字符串                       |
-| bool    | Boolean 布尔型                         | 存储True或False                  |
-
-> 还有4种高级数据类型：List列表，Tuple元组，Set集合，Dictionary字典。
-
-```python
-type(值) # 获取 值 的数据类型
-```
-
-> 例：
->
-> ```python
-> print(type(9))      # 输出 <class 'int'>
-> print(type(9.99))   # 输出 <class 'float'>
-> print(type('??'))   # 输出 <class 'str'>
-> print(type(True))   # 输出 <class 'bool'>
-> print(type(2.3+2j)) # 输出 <class 'complex'>
-> ```
-
 ## 三、 类型转换
 
 ### 1. 隐式

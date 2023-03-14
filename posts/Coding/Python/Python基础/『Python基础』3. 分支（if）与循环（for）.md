@@ -1,23 +1,4 @@
----
-title: 『Python教程』2. 分支（if）与循环（for）
-date: 2022-03-06T18:59:00+08:00
----
 
-## 〇、比较运算 和 布尔运算
-
-### 1. 比较运算
-
-`>`，`<`，`>=`，`<=`，`==`，`!=`  大于 小于 大于等于 小于等于 等于 不等于
-
-### 2. 布尔运算
-
-`not expression` 若 *expression* 为真，则 `not expression` 为假，若为假，则为真。
-
-`expression1 and expression2` 只有 都为真才是真，其他情况为假
-
-`or` 有一者为真则为真，都为假才是假。
-
-> 计算机中常用 **布尔值** 表示 **满足** 与 **不满足**，满足为 True（真），不满足为 False（假）。
 
 ## 一、分支（if）
 
@@ -50,7 +31,7 @@ Traceback (most recent call last):
 TypeError: '<' not supported between instances of 'str' and 'int'
 ```
 
-这是因为input获取到的内容时str（字符串）类型的，python把它当作若干个字符的序列，而非一个数字。使用 `eval()` 可以将字符串的内容当作python表达式并得到这个表达式的结果，即 `eval('9 + 9 * 10')` 的结果是数字类型的 `99`。
+这是因为 `input()` 获取到的内容是 str（字符串）类型的，python把它当作若干个字符的序列，而非一个数字。使用 `eval()` 可以将字符串的内容当作 python表达式 并得到这个表达式的结果，即 `eval('9 + 9 * 10')` 的结果是数字类型的 `99`。
 
 ```python
 score = eval(input("Please input youre score: "))
@@ -59,8 +40,6 @@ if score < 60:
 else:
     print("Pass")
 ```
-
-
 
 如果你想要实现更多的分支可以使用 `elif`：
 
@@ -90,7 +69,7 @@ elif score < 60:
     print("F")
 ```
 
-其实分支条件还可以简化：
+其实分支条件还可以简化，因为下一个 `elif` 判断时注定不满足前一个条件：
 
 ```python
 score = eval(input("Please input youre score: "))

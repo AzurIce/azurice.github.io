@@ -7,6 +7,8 @@
 
 本文将使用 WSL2。
 
+> **系统要求**：Windows 10 2004（内部版本 19041）及以上或 Windows 11
+
 ## 一、安装
 
 在终端中运行以下命令：
@@ -14,6 +16,22 @@
 ```powershell
 wsl --install
 ```
+
+> WSL 默认安装的 Linux 发行版是 Ubuntu，如果想安装其他的发行版可以使用 `wsl --install -d <Distribution Name>`。
+>
+> 所有发行版名称的有效列表可以通过 `wsl --list --online` 来获取。
+>
+> 所有已安装的发行版名称的有效列表可以通过 `wsl --list --verbose` 来获取。
+>
+> （可以安装多个发行版，并在其之间切换）
+
+## 二、使用
+
+咕
+
+## 三、导入任何 Linux 发行版
+
+
 
 
 
