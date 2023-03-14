@@ -105,7 +105,7 @@ while expression:
     some other thing you want to do
 ```
 
-那么对于上面的程序，就可以补充一个“如果输入不在0~100之间则重新要求输入”的功能：
+那么对于上面的程序，就可以补充一个“如果输入不在 0~100 之间则重新要求输入”的功能：
 
 ```python
 score = eval(input("Please input youre score: "))
