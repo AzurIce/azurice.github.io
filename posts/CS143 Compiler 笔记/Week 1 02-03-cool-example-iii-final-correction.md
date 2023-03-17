@@ -1,5 +1,7 @@
 这一节主要是用 cool 实现了个列表类型，用于理解 cool 和类相关的东西，懒得细看，所以先撇这儿。
 
+（下面这个不是视频里写的代码，是我直接从 example 目录扣出来的
+
 ```cool
 (*
  *  This file shows how to implement a list data type for lists of integers.
