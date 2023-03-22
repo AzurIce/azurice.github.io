@@ -16,7 +16,7 @@ CREATE TABLE weather (
 
 PostgreSQL 支持标准 SQL 类型 `int`、`smallint`、`real`、`double precision`、`char(N)`、`varchar(N)`、`date`、`time`、`timestamp`、`interval`，以及一些方便的工具类型和几何类型，同时也支持用户添加类型，详细的见数据类型一篇。
 
-如果要删除 weather表：gh
+如果要删除 weather表：
 
 ```postgresql
 DROP TABLE weather
