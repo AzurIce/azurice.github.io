@@ -167,3 +167,6 @@ sa
 
 > 最后使用 `CTRL-C` 退出时得到输出。
 
+## 参考
+
+[词法分析器flex - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/52290783)
