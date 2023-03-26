@@ -1,5 +1,5 @@
 ---
-title: CF1201C Maximum Median
+
 date: 2022-08-01T15:16:00+08:00
 tags:
     - 贪心

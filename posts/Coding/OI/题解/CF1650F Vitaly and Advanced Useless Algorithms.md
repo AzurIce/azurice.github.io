@@ -1,5 +1,4 @@
 ---
-title: CodeForces 1650F Vitaly and Advanced Useless Algorithms
 date: 2022-03-20T16:53:00+08:00
 tags:
     - dp

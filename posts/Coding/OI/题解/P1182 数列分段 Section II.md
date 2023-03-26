@@ -1,5 +1,4 @@
 ---
-title: P1182 数列分段 Section II
 date: 2022-08-01T15:19:00+08:00
 tags:
     - 二分

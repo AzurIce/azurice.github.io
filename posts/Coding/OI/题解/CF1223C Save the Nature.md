@@ -1,5 +1,4 @@
 ---
-title: CF1223C Save the Nature
 date: 2022-08-01T15:18:00+08:00
 tags:
     - 二分

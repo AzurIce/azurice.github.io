@@ -1,5 +1,4 @@
 ---
-title: CF19B Checkout Assistant
 date: 2022-03-20T16:59:00+08:00
 tags:
     - dp

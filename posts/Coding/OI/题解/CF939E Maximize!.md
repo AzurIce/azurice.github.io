@@ -1,5 +1,4 @@
 ---
-title: CF939E Maximize!
 date: 2022-08-01T15:15:00+08:00
 tags:
     - 二分
