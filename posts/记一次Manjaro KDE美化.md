@@ -1,5 +1,5 @@
 ---
-title: "记一次Manjaro KDE美化"
+
 date: 2020-10-13T22:47:00+08:00
 tags:
     - Linux
@@ -15,13 +15,13 @@ tags:
 
 1. 切换镜像源至中国
 
-	`sudo pacman-mirrors -i -c China -m rank` 
+	sudo pacman-mirrors -i -c China -m rank
 
-	在弹出的窗口中选一个最快的源
+在弹出的窗口中选一个最快的源
 
 2. 更新
 
-	`sudo pacman -Syyu`
+	sudo pacman -Syyu
 
 ## 一、好东西们
 
@@ -64,41 +64,41 @@ sudo pacman -S yay    # 一些pacman无法安装的包可以用这个来安装
 
 1. 安装 `fcitx5` 输入法框架
 
-	`pacman -S fcitx5 fcitx5-qt fcitx5-gtk fcitx5-configtool`
+`pacman -S fcitx5 fcitx5-qt fcitx5-gtk fcitx5-configtool`
 
-	配置环境变量，编辑 `~/.xprofile` ，写入：
+配置环境变量，编辑 `~/.xprofile` ，写入：
 
-	```
-	export GTK_IM_MODULE=fcitx5
-	export QT_IM_MODULE=fcitx5
-	export XMODIFIERS="@im=fcitx5"
-	
-	export LANG="zh_CN.UTF-8"
-	export LC_CTYPE="zh_CN.UTF-8"
-	```
+```
+export GTK_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx5
+export XMODIFIERS="@im=fcitx5"
 
-	> 配置开机启动，系统设置->工作区->开机和关机->自动启动->添加程序，添加 `fcitx5`
+export LANG="zh_CN.UTF-8"
+export LC_CTYPE="zh_CN.UTF-8"
+```
+
+> 配置开机启动，系统设置->工作区->开机和关机->自动启动->添加程序，添加 `fcitx5`
 
 2. 安装 `rime`
 
-	`pacman -S fcitx-rime`
+`pacman -S fcitx-rime`
 
 3. 配置 `cloverpinyin` 输入方案
 
-	到 https://github.com/fkxxyz/rime-cloverpinyin/releases 下载最新的release，并直接解压到 `~/.local/share/fcitx5/rime` 目录中。
+到 https://github.com/fkxxyz/rime-cloverpinyin/releases 下载最新的release，并直接解压到 `~/.local/share/fcitx5/rime` 目录中。
 
-	> rime初次初始化完成后才会有这个目录
+> rime初次初始化完成后才会有这个目录
 
-	在相同目录创建 `default.custom.yaml` ，写入：
+在相同目录创建 `default.custom.yaml` ，写入：
 
-	```yaml
-	patch:
-	  "menu/page_size": 9
-	  schema_list:
-	    - schema: clover
-	```
+```yaml
+patch:
+  "menu/page_size": 9
+  schema_list:
+    - schema: clover
+```
 
-	> `"manu/page_size"` 为每页候选词数目，可根据自己习惯设为1~9。
+> `"manu/page_size"` 为每页候选词数目，可根据自己习惯设为1~9。
 
 现在，找到一个可以打字的地方，切换到 `rime` 输入法，右键系统托盘的图标，点击重新部署，待加载完成可以看到出现 `🍀四叶草简体拼音` 。
 
@@ -108,45 +108,45 @@ sudo pacman -S yay    # 一些pacman无法安装的包可以用这个来安装
 
 1. 修改默认 shell 为 zsh
 
-  `chsh -s /usr/bin/zsh`
+`chsh -s /usr/bin/zsh`
 
 2. 安装 `oh-my-zsh`
 
-	`wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh`
+`wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh`
 
-    > 如果多次提示被拒绝，就修改 `/etc/hosts` ：
-    >
-    > ```
-    > # GitHub Start
-    > 151.101.76.133 raw.githubusercontent.com
-    > # GitHub End
-    > ```
+> 如果多次提示被拒绝，就修改 `/etc/hosts` ：
+>
+> ```
+> # GitHub Start
+> 151.101.76.133 raw.githubusercontent.com
+> # GitHub End
+> ```
 
-	> 重启后即会生效
-	
+> 重启后即会生效
+
 3. 优化体验
 
-	- 命令高亮 `zsh-syntax-highlighting`
+- 命令高亮 `zsh-syntax-highlighting`
 
-		```
-		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-		```
+    ```
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    ```
 
-	- 记住之前使用过的命令 `autosuggestions`
+- 记住之前使用过的命令 `autosuggestions`
 
-		```text
-		git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-		```
+    ```text
+    git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    ```
 
-	修改 `~/.zshrc` 启用插件
+修改 `~/.zshrc` 启用插件
 
-	```
-	plugins=(git zsh-syntax-highlighting zsh-autosuggestions sudo extract)
-	```
+```
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions sudo extract)
+```
 
-	> **sudo** 是自带插件，双击Esc在输入命令开头添加 `sudo`
-	>
-	> **extract** 也是，不同文件可以直接使用 `extract xxx` 来解压
+> **sudo** 是自带插件，双击Esc在输入命令开头添加 `sudo`
+>
+> **extract** 也是，不同文件可以直接使用 `extract xxx` 来解压
 
 ### 3. 录视频、截图、写文章相关
 
@@ -174,63 +174,63 @@ sudo pacman -S yay    # 一些pacman无法安装的包可以用这个来安装
 
 1. 删除默认面板
 
-	右键下方面板 -> 编辑面板 -> More Options... -> 删除面板
+右键下方面板 -> 编辑面板 -> More Options... -> 删除面板
 
 2. 创建空面板
 
-	右键桌面 -> 添加面板 -> 空面板
+右键桌面 -> 添加面板 -> 空面板
 
-	右键面板 -> 编辑面板 -> 点击并按住屏幕边缘，拖至上方。
+右键面板 -> 编辑面板 -> 点击并按住屏幕边缘，拖至上方。
 
-	>  自行调整高度
+>  自行调整高度
 
 3. 向面板添加部件，我的布局为：
 
 	程序启动器 - 数字时钟 - 全局菜单 - **间距** （在面板编辑中点击添加间距） - *Panon* - **间距** - *Netspeed Widget* - 系统托盘 - 调度器
 
-	这里会用到两个需要安装的很棒的部件：
+这里会用到两个需要安装的很棒的部件：
 
-	>  在添加部件界面最下方点击 获取新部件 -> 下载新 Plasma 部件 ，搜索安装即可
+>  在添加部件界面最下方点击 获取新部件 -> 下载新 Plasma 部件 ，搜索安装即可
 
-	- **Panon** 一个可视化不同频率声音的 ~装B（划掉）~ 部件
+- **Panon** 一个可视化不同频率声音的 ~装B（划掉）~ 部件
 
-	  > 需要前置 `sudo pacman -S qt5-websockets python-docopt python-numpy python-pyaudio python-cffi python-websockets`
+  > 需要前置 `sudo pacman -S qt5-websockets python-docopt python-numpy python-pyaudio python-cffi python-websockets`
 
-	  我的配置是宽度770，中立（反）方向北，视觉特效bar1ch,width7，width2，decay0.007，音频数据源PulseAudio，输入设备混合所有麦克风和扬声器，减小低音权重，音域0~9000Hz
+  我的配置是宽度770，中立（反）方向北，视觉特效bar1ch,width7，width2，decay0.007，音频数据源PulseAudio，输入设备混合所有麦克风和扬声器，减小低音权重，音域0~9000Hz
 
-	- **Netspeed Widget** 一个显示实时上/下载速度的部件
-	
-		我的配置：kayoutSidebyside，FontSize80%
+- **Netspeed Widget** 一个显示实时上/下载速度的部件
+
+    我的配置：kayoutSidebyside，FontSize80%
 
 ### Dock部分
 
 1. 安装 **Latte-Dock**
 
-	```
-	sudo pacman -S latte-dock
-	```
+```
+sudo pacman -S latte-dock
+```
 
 2. 配置
 
-	右键，布局 -> 我的布局（或者新建一个）
+右键，布局 -> 我的布局（或者新建一个）
 
-	右键，面板设置，先选择为面板
+右键，面板设置，先选择为面板
 
-	打开高级
+打开高级
 
-	行为：底部，两端对齐，避开活动窗口，延迟显示100隐藏50，悬停时显示标题提示
+行为：底部，两端对齐，避开活动窗口，延迟显示100隐藏50，悬停时显示标题提示
 
-	外观：绝对大小48鼠标悬停时放大0最大46%边距5%高度20%，颜色Plasma，背景大小100%不透明度45%
+外观：绝对大小48鼠标悬停时放大0最大46%边距5%高度20%，颜色Plasma，背景大小100%不透明度45%
 
-	特效：阴影大小30%不透明度70%，任务指示装饰Latte，Latte指示装饰选项中样式为直线，光晕关掉，为最小化窗口使用不同颜色，窗口活动室显示额外的点。任务：动作悬停预览和高亮窗口
+特效：阴影大小30%不透明度70%，任务指示装饰Latte，Latte指示装饰选项中样式为直线，光晕关掉，为最小化窗口使用不同颜色，窗口活动室显示额外的点。任务：动作悬停预览和高亮窗口
 
 3. 我的布局
 
-	应用程序面板 - *Latte Separator* - 对齐分割器 - 固定的应用 - 对其分割器 - *Latte Separator* - 回收站
+应用程序面板 - *Latte Separator* - 对齐分割器 - 固定的应用 - 对其分割器 - *Latte Separator* - 回收站
 
-	这里又会用到一个小部件：
+这里又会用到一个小部件：
 
-	- **Latte Separator** 安装方式同上面的两个。
+- **Latte Separator** 安装方式同上面的两个。
 
 ### KDE主题部分
 
