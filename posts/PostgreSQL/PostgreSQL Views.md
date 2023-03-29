@@ -1,0 +1,1 @@
+> 参考：[PostgreSQL: Documentation: 15: 41.2. Views and the Rule System](https://www.postgresql.org/docs/15/rules-views.html)
