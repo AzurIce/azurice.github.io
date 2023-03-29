@@ -304,3 +304,80 @@ CREATE TABLE order_items (
 ### 6. Exclusion 约束
 
 咕
+
+## 五、修改表
+
+### 1. 添加列
+
+```postgresql
+ALTER TABLE products ADD COLUMN description text;
+```
+
+### 2. 删除列
+
+```postgresql
+ALTER TABLE products DROP COLUMN description;
+```
+
+对于被引用的记录，可以使用 `CASCADE` 来删除依赖于此列的列：
+
+```postgresql
+ALTER TABLE products DROP COLUMN description CASCADE;
+```
+
+### 3. 添加约束
+
+```postgresql
+ALTER TABLE products ADD CHECK (name <> '');
+ALTER TABLE products ADD CONSTRAINT some_name UNIQUE (product_no);
+ALTER TABLE products ADD FOREIGN KEY (product_group_id) REFERENCES product_groups;
+```
+
+对于 `NOT NULL` 这种不能被写为表约束的约束，可以用修改列的语法来写：
+
+```postgresql
+ALTER TABLE products ALTER COLUMN product_no SET NOT NULL;
+```
+
+### 4. 删除约束
+
+```postgresql
+ALTER TABLE products DROP CONSTRAINT some_name;
+```
+
+对于 `NOT NULL`：
+
+```postgresql
+ALTER TABLE products ALTER COLUMN product_no DROP NOT NULL;
+```
+
+### 5. 改变某一列的默认值
+
+```postgresql
+ALTER TABLE products ALTER COLUMN price SET DEFAULT 7.77;
+```
+
+或者删除默认值：
+
+```postgresql
+ALTER TABLE products ALTER COLUMN price DROP DEFAULT;
+```
+
+### 6. 改变某一列的数据类型
+
+```postgresql
+ALTER TABLE products ALTER COLUMN price TYPE numeric(10,2);
+```
+
+### 7. 重命名某一列
+
+```postgresql
+ALTER TABLE products RENAME COLUMN product_no TO product_number;
+```
+
+### 8. 重命名表
+
+```postgresql
+ALTER TABLE products RENAME TO items;
+```
+
