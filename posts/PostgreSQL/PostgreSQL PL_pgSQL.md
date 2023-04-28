@@ -62,7 +62,7 @@ $$ LANGUAGE plpgsql;
 
 ## 表达式
 
-所有在 PL/pgSQL 语句中实用的表达式都会使用服务器的主 SQL 执行器处理。
+所有在 PL/pgSQL 语句中使用的表达式都会使用服务器的主 SQL 执行器处理。
 比如如果你写了一个像下面这样的 PL/pgSQL 语句：
 
 ```postgresql
