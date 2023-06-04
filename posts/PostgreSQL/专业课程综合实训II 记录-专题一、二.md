@@ -441,15 +441,26 @@ CREATE TABLE teaching (
 
 9. 创建视图 View_80，存放成绩高于 80 分的选课信息, 显示学号、课程号和成绩，使用 with check option 选项。
 
-   
+   ```postgresql
+   CREATE VIEW View_80 AS SELECT sno, cno, grade FROM sc WHERE grade > 80 WITH CHECK OPTION;
+   ```
 
 10. 在视图 View_80 中查询成绩高于 90 的选课信息。
 
+    ```postgresql
+    SELECT * FROM View_80 WHERE grade > 90;
+    ```
+
 11. 在视图 View_80 中依次插入如下元组：
 
-    08301168，810011，87（可插入成功）
+    08301168，810011，87（可插入成功）<font color="red">会违反外键约束，hai shi</font>
 
     08301167，810011，78（插入不成功）
+
+    ```postgresql
+    INSERT INTO View_80 VALUES ('08301168', '810011', 87);
+    INSERT INTO View_80 VALUES ('08301167', '810011', 78);
+    ```
 
 12. 在视图 View_80 中依次修改如下元组：
 
@@ -457,15 +468,242 @@ CREATE TABLE teaching (
 
     将（08301168，810011）所对应的成绩改为 70；（修改不成功）
 
+    ```postgresql
+    UPDATE View_80 SET grade=90 WHERE sno='08301168' AND cno='810011';
+    UPDATE View_80 SET grade=70 WHERE sno='08301168' AND cno='810011';
+    ```
+
 13. 在视图 View_80 中删除如下元组：sno=08301168，cno=810011
+
+    ```postgresql
+    DELETE FROM View_80 WHERE sno='08301168' AND cno='810011';
+    ```
+
 14. 查询所有在“1980-01-01”之前出生的女同学的学号、姓名、性别、出生日期
+
+    
+
 15. 查询所有姓“李”的男同学的学号、姓名、性别、出生日期
+
 16. 查询所有用英文授课的教师号、姓名及英语授课的门数
+
 17. 查询所有职称不是“讲师”的教师号、姓名、职称
+
 18. 查询虽然选修了课程，但未参加考试的所有同学的学号
+
 19. 查询所有考试不及格的同学的学号、成绩，并按成绩降序排列
+
 20. 查询在 1970 年出生的教师号、姓名、出生日期
+
 21. 查询各个课程号的选课人数
+
 22. 查询讲授 2 门课以上的教师号
+
 23. 查询选修了 800001 课程的学生平均分数、最低分数和最高分数
+
 24. 查询 1960 年以后出生的，职称为讲师的教师的姓名、出生日期，并按出生日期升序排列。
+
+## 四、复杂数据查询 30条
+
+## 五、用数据操作语言 DML 完成对表的更新操作 7条
+
+## 六、存储过程 6条
+
+1. 创 建 一 个 能 向 学 生 表 student 中 插 入 一 条 记 录 的 存 储 过 程 insert_student，该过程需要 5 个参数，分别用来传递学号、姓名、性
+   别、出生日期、班级号。
+   写出调用存储过程 insert_student 的 SQL 语句，向数据表 student 中插
+   入一个新同学，并提供相应的实参值。
+
+   ```postgresql
+   CREATE OR REPLACE PROCEDURE insert_student(sno text, sname text, ssex text, sbirthday date, classno text) AS
+   $$
+   BEGIN
+   	INSERT INTO student(sno, sname, ssex, sbirthday, classno) VALUES (sno, sname, ssex, sbirthday, classno);
+   END;
+   $$
+   LANGUAGE plpgsql;
+   ```
+
+   ```postgresql
+   CALL insert_student('123123', 'sb', '男', '2023-05-30', 'Rj0801');
+   ```
+
+2. 创 建 一 个 向 课 程 表 course 中 插 入 一 门 新 课 程 的 存 储 过 程
+   insert_course，该存储过程需要三个参数，分别用来传递课程号、课程名、学分，但允许参数“学分”的默认值为 4，即当调用存储过程 insert_course 时，未给第三个参数“学分”提供实参值时，存储过程将按默认值 4 进行运算。调用存储过程 insert_course，向课程表 course 中插入一门新课程。分两种情况（给出第三个参数和未给出第三个参数）写出相应的 SQL 命令，并比较结果。
+
+   ```postgresql
+   CREATE OR REPLACE PROCEDURE insert_course(cno text, cname text, ccredit smallint DEFAULT 4) AS
+   $$
+   BEGIN
+   	INSERT INTO course(cno, cname, ccredit) VALUES (cno, cname, ccredit);
+   END;
+   $$
+   LANGUAGE plpgsql;
+   ```
+
+   ```postgresql
+   CALL insert_course('321', '123', cast(3 as smallint));
+   ```
+
+3. 创建一个名称为 query_student 的存储过程，该存储过程的功能是从
+   数据表 student 中根据学号查询某一同学的姓名、性别、出生日期、班级号。
+   调用存储过程 query_student，查询学号为“08301050”的姓名、性别、
+   出生日期、班级号，并写出完成此功能的 SQL 命令。
+
+   ```postgresql
+   CREATE OR REPLACE PROCEDURE query_student(qsno text) AS
+   $$
+   DECLARE
+   	_sname text;
+   	_ssex text;
+   	_sbirthday date;
+   	_classno text;
+   BEGIN
+   	SELECT sname, ssex, sbirthday, classno INTO _sname, _ssex, _sbirthday, _classno FROM student WHERE sno=qsno;
+   	RAISE NOTICE 'sname: %, ssex: %, sbirthday: %, classno: %', _sname, _ssex, _sbirthday, _classno;
+   END;
+   $$
+   LANGUAGE plpgsql;
+   ```
+
+   ```postgresql
+   CALL query_student('08300010');
+   ```
+
+4. 建立存储过程，输出平均成绩大于 80 分的学生的姓名、性别、年龄和平均成绩。调用该存储过程，并输出相应的结果。
+
+   ```postgresql
+   CREATE OR REPLACE PROCEDURE proc4() AS
+   $$
+   DECLARE
+   	curs CURSOR FOR SELECT sname, ssex, age, avg(grade) AS avg_grade FROM (student NATURAL JOIN sc) GROUP BY sname, ssex, age HAVING avg(grade) > 80;
+   BEGIN
+   	FOR record IN curs LOOP
+       	RAISE NOTICE 'sname: %, ssex: %, age: %, avg_grade: %', record.sname, record.ssex, record.age, record.avg_grade;
+   	END LOOP;
+   END;
+   $$
+   LANGUAGE plpgsql;
+   ```
+
+5. 写存储过程显示所有选择了给定学生姓名选择的全部课程的学生的学号、姓名、选课数、平均成绩、总学分
+
+   ```postgresql
+   CREATE OR REPLACE PROCEDURE proc5(qsname text) AS
+   $$
+   BEGIN
+   	SELECT sno, sname, count(cno), avg(grade), totalcredit
+   	FROM student NATURAL JOIN sc GROUP BY sno, sname
+   	WHERE exists SELECT * FROM;
+   END;
+   $$
+   LANGUAGE plpgssql;
+   ```
+
+
+## 七、触发器 8条
+
+1. 创建一个当向学生表 student 中插入一新同学时能自动列出全部同学信
+   息的触发器 display_trigger。
+   执行存储过程 insert_student，向学生表中插入一个新同学，看触发器
+   display_trigger 是否被触发。
+
+   ```postgresql
+   CREATE OR REPLACE FUNCTION display_student() RETURNS trigger AS
+   $$
+   DECLARE
+   	curs CURSOR FOR SELECT * FROM student;
+   BEGIN
+   	FOR record IN curs LOOP
+   		RAISE NOTICE '%', record;
+   	END LOOP;
+   	RETURN NULL;
+   END;
+   $$
+   LANGUAGE plpgsql;
+   ```
+
+   ```postgresql
+   CREATE TRIGGER display_trigger AFTER INSERT
+   	ON student
+   	EXECUTE FUNCTION display_student();
+   ```
+
+   ```postgresql
+   CALL insert_student('123', '23232', '女', '1000-01-02', 'Rj0801');
+   ```
+
+2. 创建一个触发器，当向学生表 student 中插入一新同学时能自动更新（增
+   加 1）class 班级表中该生所在班级的总人数。
+
+   ```postgresql
+   CREATE OR REPLACE FUNCTION update_class_student_cnt() RETURNS trigger AS
+   $$
+   DECLARE
+   	cnt integer;
+   BEGIN
+   	-- RAISE NOTICE '%', NEW;
+   	SELECT count(*) FROM student INTO cnt WHERE classno = NEW.classno;
+   	RAISE NOTICE '%', cnt;
+   	UPDATE class SET studentnumber = cnt WHERE classno = NEW.classno;
+   	RETURN NULL;
+   END;
+   $$
+   LANGUAGE plpgsql;
+   ```
+
+   <font color="red">不对，nmd 是增加一，不是根据 student 表更新</font>
+
+   ```postgresql
+   CREATE OR REPLACE FUNCTION update_class_student_cnt() RETURNS trigger AS
+   $$
+   DECLARE
+   	cnt integer;
+   BEGIN
+   	-- RAISE NOTICE '%', NEW;
+   	-- SELECT count(*) FROM student INTO cnt WHERE classno = NEW.classno;
+   	-- RAISE NOTICE '%', cnt;
+   	UPDATE class SET studentnumber = studentnumber + 1 WHERE classno = NEW.classno;
+   	RETURN NULL;
+   END;
+   $$
+   LANGUAGE plpgsql;
+   ```
+
+   
+
+   ```postgresql
+   CREATE TRIGGER update_class_student_cnt_trigger AFTER INSERT
+   	ON student FOR EACH ROW
+   	EXECUTE FUNCTION update_class_student_cnt();
+   ```
+
+3. 略
+
+4. 略
+
+5. 略
+
+6. 写一个触发器阻止将学生成绩降低
+
+   RAISE EXCEPTION 'xxx' 即可
+
+   来自 New Bing：
+
+   ```postgresql
+   -- 创建触发器函数
+   CREATE OR REPLACE FUNCTION check_update_trigger_func() RETURNS TRIGGER AS $$
+   BEGIN
+     -- 假设 score 表有 id 和 grade 两个字段
+     IF NEW.grade < OLD.grade THEN
+       RAISE EXCEPTION 'Cannot decrease the grade';
+     END IF;
+     RETURN NEW;
+   END;
+   $$ LANGUAGE plpgsql;
+   
+   -- 创建触发器
+   CREATE TRIGGER check_update_trigger BEFORE UPDATE ON score FOR EACH ROW EXECUTE PROCEDURE check_update_trigger_func();
+   ```
+
+   
