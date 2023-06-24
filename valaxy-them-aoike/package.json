@@ -1,0 +1,29 @@
+{
+  "name": "valaxy-theme-aoike",
+  "version": "0.0.1",
+  "packageManager": "pnpm@7.5.0",
+  "author": {
+    "email": "973562770@qq.com",
+    "name": "AzurIce",
+    "url": "https://www.azurice.com"
+  },
+  "homepage": "https://starter.valaxy.site",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YunYouJun/valaxy-theme-starter"
+  },
+  "keywords": [
+    "valaxy",
+    "theme",
+    "vue"
+  ],
+  "main": "client/index.ts",
+  "types": "types/index.d.ts",
+  "dependencies": {
+    "@iconify-json/ant-design": "^1.1.5",
+    "@iconify-json/simple-icons": "^1.1.51"
+  },
+  "devDependencies": {
+    "valaxy": "^0.14.28"
+  }
+}

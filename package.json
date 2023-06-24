@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "valaxy": "0.14.36",
+    "valaxy-theme-aoike": "link:valaxy-them-aoike",
     "valaxy-theme-yun": "0.14.36"
   },
   "devDependencies": {
