@@ -1,9 +1,10 @@
 ---
 title: "old test"
+hide: false
 date: 2021-02-08T23:17:14+08:00
 tags:
-    - testTag1
-    - testTag2
+  - testTag1
+  - testTag2
 ---
 
 目前正在折腾博客，迁移了部分文章，有一些图片链接还未修复。
