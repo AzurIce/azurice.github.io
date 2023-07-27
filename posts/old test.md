@@ -25,7 +25,7 @@ tags:
 
 ### Third level heading
 
-## Hello Hugo!
+## Hello!
 
 | test | table |
 |------|-------|
