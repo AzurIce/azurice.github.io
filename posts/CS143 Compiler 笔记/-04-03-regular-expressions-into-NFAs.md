@@ -1,3 +1,8 @@
+---
+date_update: 2023-03-26
+date: 2023-03-23
+---
+
 <img src="04-03-regular-expressions-into-NFAs.assets/image-20230323111911317.png" alt="image-20230323111911317" style="zoom:67%;" />
 
 

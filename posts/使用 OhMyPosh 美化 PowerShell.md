@@ -1,3 +1,7 @@
+---
+date: 2023-06-21
+---
+
 > 官网：[Home | Oh My Posh](https://ohmyposh.dev/)
 >
 > Github：[JanDeDobbeleer/oh-my-posh: The most customisable and low-latency cross platform/shell prompt renderer (github.com)](https://github.com/jandedobbeleer/oh-my-posh)

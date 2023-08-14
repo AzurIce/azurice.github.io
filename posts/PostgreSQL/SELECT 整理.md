@@ -1,3 +1,7 @@
+---
+date: 2023-04-28
+---
+
 > https://www.postgresql.org/docs/15/sql-select.html
 
 `SELECT`可以从一个或多个表获取行。

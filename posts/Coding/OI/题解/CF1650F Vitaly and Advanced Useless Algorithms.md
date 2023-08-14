@@ -1,10 +1,10 @@
 ---
-date: 2022-03-20T16:53:00+08:00
+date: 2022-03-20
 tags:
     - dp
     - 背包
 ---
-
+T16:53:00+08:00
 CodeForces：[Problem - F - Codeforces](https://codeforces.com/contest/1650/problem/F)
 
 洛谷：[CF1650F Vitaly and Advanced Useless Algorithms - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/CF1650F)

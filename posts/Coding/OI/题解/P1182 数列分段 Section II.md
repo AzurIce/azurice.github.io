@@ -1,9 +1,9 @@
 ---
-date: 2022-08-01T15:19:00+08:00
+date: 2022-08-01
 tags:
     - 二分
 ---
-
+T15:19:00+08:00
 洛谷：[P1182 数列分段 Section II - 洛谷](https://www.luogu.com.cn/problem/P1182)
 
 ## 题意

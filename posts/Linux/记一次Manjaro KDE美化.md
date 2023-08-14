@@ -1,12 +1,11 @@
 ---
-
-date: 2020-10-13T22:47:00+08:00
+date: 2020-10-13
 tags:
     - Linux
     - Manjaro
     - KDE
 ---
-
+T22:47:00+08:00
 ![Screenshot_20201108_093301](./记一次Manjaro KDE美化.assets/Screenshot_20201108_093301.png)
 
 ![深度截图_plasmashell_20201108123817](./记一次Manjaro KDE美化.assets/深度截图_plasmashell_20201108123817.png)

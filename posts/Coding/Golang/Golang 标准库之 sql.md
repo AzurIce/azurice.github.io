@@ -1,3 +1,7 @@
+---
+date: 2023-04-09
+---
+
 Golang 标准库中的 `database/sql` 包提供了访问 SQL（或类 SQL）数据库的通用接口，需要与数据库驱动[^1]结合使用。
 
 本文以 PostgreSQL 数据库为例，使用 [jackc/pgx: PostgreSQL driver and toolkit for Go (github.com)](https://github.com/jackc/pgx) 并假设已在本机安装了 PostgreSQL并监听本机的 5432 端口。

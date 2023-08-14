@@ -1,3 +1,7 @@
+---
+date: 2023-06-27
+---
+
 # 配置 paddlepaddle-gpu
 
 > [Windows 下的 PIP 安装-使用文档-PaddlePaddle深度学习平台](https://www.paddlepaddle.org.cn/documentation/docs/zh/install/pip/windows-pip.html#shouxianqingninxuanzenindebanben)

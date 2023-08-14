@@ -1,8 +1,8 @@
 ---
 
-date: 2022-02-25T17:45:00+08:00
+date: 2022-02-25
 ---
-
+T17:45:00+08:00
 [BJTU-2021届新生寒训 STL专题 - Virtual Judge (vjudge.net)](https://vjudge.net/contest/481856)
 
 题源 Codeforces

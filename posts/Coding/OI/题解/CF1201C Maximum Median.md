@@ -1,12 +1,12 @@
 ---
 
-date: 2022-08-01T15:16:00+08:00
+date: 2022-08-01
 tags:
     - 贪心
     - 模拟
     - 差分
 ---
-
+T15:16:00+08:00
 Codeforces：[Problem - 1201C - Codeforces](https://codeforces.com/problemset/problem/1201/C)
 
 ## 题意

@@ -1,3 +1,8 @@
+---
+date: 2023-05-27
+---
+# WSL —— 在Windows 中使用 Linux 系统
+
 **WSL（Windows Subsystem for Linux）** ，又叫做 **适用于 Linux 的 Windows 子系统**，可以在 Windows 中运行 GNU/Linux 环境，且不产生传统虚拟机或者双系统的启动开销。
 
 它历经两个版本：

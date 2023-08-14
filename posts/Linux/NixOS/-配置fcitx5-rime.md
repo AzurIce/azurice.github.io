@@ -1,3 +1,7 @@
+---
+date: 2023-04-28
+---
+
 ## Fcitx5 theme customization
 
 > https://fcitx-im.org/wiki/Theme_Customization/zh-cn

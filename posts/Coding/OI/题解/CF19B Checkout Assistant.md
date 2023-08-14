@@ -1,10 +1,10 @@
 ---
-date: 2022-03-20T16:59:00+08:00
+date: 2022-03-20
 tags:
     - dp
     - 背包
 ---
-
+T16:59:00+08:00
 CodeForces：[Problem - 19B - Codeforces](https://codeforces.com/problemset/problem/19/B)
 
 洛谷：[CF19B Checkout Assistant - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)](https://www.luogu.com.cn/problem/CF19B)

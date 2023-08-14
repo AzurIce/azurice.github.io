@@ -1,3 +1,7 @@
+---
+date: 2023-04-01
+---
+
 # Chapter 6. Our First Derivation
 
 从文件系统的角度来看，Derivation 是 Nix 系统的组成部分，而 Nix 语言就是用于描述它的。

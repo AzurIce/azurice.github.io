@@ -1,10 +1,10 @@
 ---
-date: 2022-08-01T15:15:00+08:00
+date: 2022-08-01
 tags:
     - 二分
     - 贪心
 ---
-
+T15:15:00+08:00
 Codeforces：[Problem - 939E - Codeforces](https://codeforces.com/problemset/problem/939/E)
 
 ## 题意

@@ -1,10 +1,10 @@
 ---
-date: 2022-08-01T15:18:00+08:00
+date: 2022-08-01
 tags:
     - 二分
     - 贪心
 ---
-
+T15:18:00+08:00
 洛谷：
 Codeforces：[Problem - 1223C - Codeforces](https://codeforces.com/problemset/problem/1223/C)
 
