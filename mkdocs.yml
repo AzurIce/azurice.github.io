@@ -1,0 +1,36 @@
+site_name: Aoike 青池
+repo_name: AzurIce/azurice.github.io
+repo_url: https://github.com/AzurIce/azurice.github.io
+edit_uri: edit/main/docs/
+
+theme:
+  icon:
+    repo: fontawesome/brands/github
+  language: zh
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.path
+    - navigation.sections
+    - toc.follow
+    - navigation.top
+    - search.suggest
+    - search.share
+    - content.action.edit
+    - content.action.view
+
+nav:
+  - Blog:
+    - blog/index.md 
+
+plugins:
+  - blog
+  - search
+  - git-revision-date-localized:
+      type: iso_datetime
+      enable_creation_date: true
+      fallback_to_build_date: true
+  - git-committers:
+      repository: AzurIce/azurice.github.io
+      branch: main
