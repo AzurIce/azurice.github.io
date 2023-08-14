@@ -12,6 +12,7 @@ theme:
   name: material
   custom_dir: overrides
   features:
+    - navigation.instant
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.path
@@ -27,8 +28,8 @@ theme:
     - content.code.annotate
 
 nav:
-  - Blog:
-    - blog/index.md 
+  - 主页: index.md
+  - 博客: blog/index.md 
 
 extra_javascript:
   - javascripts/katex.js 
