@@ -2,7 +2,7 @@ name: mkdocs github pages
 
 on:
   push:
-    branches: ["mkdocs"]  # Set a branch that will trigger a deployment
+    branches: ["master"]  # Set a branch that will trigger a deployment
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
