@@ -1,0 +1,88 @@
+site_name: Aoike 青池
+repo_name: AzurIce/azurice.github.io
+repo_url: https://github.com/AzurIce/azurice.github.io
+edit_uri: edit/main/docs/
+copyright: Copyright &copy; 2020 - 2023 AzurIce
+
+
+theme:
+  icon:
+    repo: fontawesome/brands/github
+  language: zh
+  name: material
+  custom_dir: overrides
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.path
+    - navigation.sections
+    - navigation.tracking
+    - toc.follow
+    - navigation.top
+    - search.suggest
+    - search.share
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
+    - content.code.annotate
+
+nav:
+  - Blog:
+    - blog/index.md 
+
+extra_javascript:
+  - javascripts/katex.js 
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+
+markdown_extensions:
+  # Images https://squidfunk.github.io/mkdocs-material/reference/images/
+  - attr_list
+  - md_in_html
+  - footnotes
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.caret # ^^insert^^ ^superscript^
+  - pymdownx.mark  # ==mark==
+  - pymdownx.tilde # ~~delete~~ ~subscript~
+  - pymdownx.keys  # ++key++
+  - pymdownx.details # collapsible admonition
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      use_pygments: true
+      auto_title: true
+      linenums: true
+      linenums_style: table
+      anchor_linenums: true
+  - pymdownx.inlinehilite # `:::language mycode` or `#!language mycode`
+  - pymdownx.tabbed: # === "Tab 1" or ===! "Start Tab"
+      alternate_style: true
+  # Lists
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+plugins:
+  # Insider, not available yet
+  # - meta
+  # TODO: feat social card
+  # - social:
+  #   concurrency: 4
+  - glightbox # image zoom
+  - blog:
+      archive_date_format: MMMM yyyy
+      archive_toc: true
+      categories_toc: true
+  - search
+  - git-revision-date-localized:
+      type: iso_datetime
+      enable_creation_date: true
+      fallback_to_build_date: true

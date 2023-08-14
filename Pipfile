@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+mkdocs-material = "==9.2.0b3"
+jieba = "*"
+mkdocs-git-revision-date-localized-plugin = "*"
+mkdocs-git-authors-plugin = "*"
+pymdown-extensions = "*"
+mkdocs-glightbox = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
