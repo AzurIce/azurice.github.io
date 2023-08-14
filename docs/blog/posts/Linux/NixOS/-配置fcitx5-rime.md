@@ -2,6 +2,8 @@
 date: 2023-04-28
 ---
 
+# -配置fcitx5-rime
+
 ## Fcitx5 theme customization
 
 > https://fcitx-im.org/wiki/Theme_Customization/zh-cn

@@ -2,6 +2,9 @@
 title: NBT格式
 date: 2022-08-30
 ---
+
+# NBT格式
+
 T21:43:31+08:00
 **NBT**（**N**amed **B**inary **T**ags）为MC向文件中存储数据的一种格式。
 

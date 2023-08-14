@@ -2,6 +2,8 @@
 date: 2023-03-29
 ---
 
+# PostgreSQL Views
+
 > 参考：[PostgreSQL: Documentation: 15: 41.2. Views and the Rule System](https://www.postgresql.org/docs/15/rules-views.html)
 
 视图是从其他表中导出的表，是一个虚表。数据库只保存视图的定义，而不保存视图的数据（因为视图其实可以理解为对子查询的一个别名）。

@@ -4,6 +4,9 @@ tags:
     - dp
     - 背包
 ---
+
+# CF1650F Vitaly and Advanced Useless Algorithms
+
 T16:53:00+08:00
 CodeForces：[Problem - F - Codeforces](https://codeforces.com/contest/1650/problem/F)
 

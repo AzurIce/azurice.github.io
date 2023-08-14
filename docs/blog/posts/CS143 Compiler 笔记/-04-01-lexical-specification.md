@@ -3,6 +3,8 @@ date_update: 2023-03-26
 date: 2023-03-22
 ---
 
+# -04-01-lexical-specification
+
 <img src="04-01-lexical-specification.assets/image-20230322181915841.png" alt="image-20230322181915841" style="zoom:67%;" />
 
 

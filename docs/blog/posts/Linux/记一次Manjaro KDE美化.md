@@ -5,6 +5,9 @@ tags:
     - Manjaro
     - KDE
 ---
+
+# 记一次Manjaro KDE美化
+
 T22:47:00+08:00
 ![Screenshot_20201108_093301](./记一次Manjaro KDE美化.assets/Screenshot_20201108_093301.png)
 

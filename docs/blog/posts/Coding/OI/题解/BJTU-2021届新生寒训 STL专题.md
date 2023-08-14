@@ -2,6 +2,9 @@
 
 date: 2022-02-25
 ---
+
+# BJTU-2021届新生寒训 STL专题
+
 T17:45:00+08:00
 [BJTU-2021届新生寒训 STL专题 - Virtual Judge (vjudge.net)](https://vjudge.net/contest/481856)
 

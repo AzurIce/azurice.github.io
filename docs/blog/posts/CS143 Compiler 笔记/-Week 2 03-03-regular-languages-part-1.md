@@ -2,6 +2,8 @@
 date: 2023-03-18
 ---
 
+# -Week 2 03-03-regular-languages-part-1
+
 之前讲到 **词法单元的类型（Token Class）**就是若干字符串组成的集合。
 
 

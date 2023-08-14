@@ -2,6 +2,8 @@
 date: 2023-03-28
 ---
 
+# Debian服务器配置Postgresql远程访问
+
 以华为云 HECS 云耀云服务器 Debian 11.1.0 64-bit 为例。
 
 首先进行安装：

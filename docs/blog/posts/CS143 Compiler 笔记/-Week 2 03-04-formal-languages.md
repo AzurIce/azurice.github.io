@@ -2,6 +2,8 @@
 date: 2023-03-18
 ---
 
+# -Week 2 03-04-formal-languages
+
 语义函数 $L$ 将 语法 映射到 语义
 $$
 L(e) = M

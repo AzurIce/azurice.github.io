@@ -2,6 +2,8 @@
 date: 2023-06-21
 ---
 
+# 使用 OhMyPosh 美化 PowerShell
+
 > 官网：[Home | Oh My Posh](https://ohmyposh.dev/)
 >
 > Github：[JanDeDobbeleer/oh-my-posh: The most customisable and low-latency cross platform/shell prompt renderer (github.com)](https://github.com/jandedobbeleer/oh-my-posh)

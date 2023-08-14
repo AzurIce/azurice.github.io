@@ -2,6 +2,8 @@
 date: 2023-03-29
 ---
 
+# PostgreSQL Data Defination
+
 > 参考：[PostgreSQL: Documentation: 15: 5.4. Constraints](https://www.postgresql.org/docs/15/ddl-constraints.html)
 
 ## 二、默认值

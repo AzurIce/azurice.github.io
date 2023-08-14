@@ -6,6 +6,9 @@ tags:
     - 模拟
     - 差分
 ---
+
+# CF1201C Maximum Median
+
 T15:16:00+08:00
 Codeforces：[Problem - 1201C - Codeforces](https://codeforces.com/problemset/problem/1201/C)
 

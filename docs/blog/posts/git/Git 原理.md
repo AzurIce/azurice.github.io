@@ -1,6 +1,10 @@
 ---
 date: 2023-03-24
+comments: true
 ---
+
+# Git 原理
+
 [Book (git-scm.com)](https://git-scm.com/book) 的笔记。
 
 一个 Git仓库 中的 `.git/` 目录下一般有四个关键的文件/目录：

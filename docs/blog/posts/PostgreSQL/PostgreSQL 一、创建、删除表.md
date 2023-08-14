@@ -2,6 +2,9 @@
 date_update: 2023-03-22
 date: 2023-03-21
 ---
+
+# PostgreSQL 一、创建、删除表
+
 你可以通过指定表名和所有列名及其类型来创建一个新表，下面创建一个 weather 表：
 
 ```postgresql

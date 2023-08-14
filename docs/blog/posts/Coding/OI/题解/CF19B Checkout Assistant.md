@@ -4,6 +4,9 @@ tags:
     - dp
     - 背包
 ---
+
+# CF19B Checkout Assistant
+
 T16:59:00+08:00
 CodeForces：[Problem - 19B - Codeforces](https://codeforces.com/problemset/problem/19/B)
 

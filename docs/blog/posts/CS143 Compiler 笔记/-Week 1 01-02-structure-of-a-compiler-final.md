@@ -1,6 +1,9 @@
 ---
 date: 2023-03-26
 ---
+
+# -Week 1 01-02-structure-of-a-compiler-final
+
 [Week 1 01-02-structure-of-a-compiler-final_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1NE411376V?p=2)
 
 编译器工作的五个主要阶段：

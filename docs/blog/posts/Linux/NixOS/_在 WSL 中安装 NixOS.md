@@ -2,6 +2,8 @@
 date: 2023-05-26
 ---
 
+# _在 WSL 中安装 NixOS
+
 [nix-community/NixOS-WSL: NixOS on WSL(2) maintainer=@nzbr (github.com)](https://github.com/nix-community/NixOS-WSL)
 
 首先下载最新的 `nixos-wsl-installer.tar.gz`。‘

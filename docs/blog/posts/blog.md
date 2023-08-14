@@ -8,6 +8,9 @@ tags:
     - testTag1
     - testTag2
 ---
+
+# 博客日志
+
 T23:17:14+08:00
 目前啃了啃 [mkdocs/mkdocs: Project documentation with Markdown](https://github.com/mkdocs/mkdocs) 的码，搓了一个 [AzurIce/aoike](https://github.com/AzurIce/aoike)，基于 Python 的静态博客生成器。
 目前还比较简陋，慢慢加功能。

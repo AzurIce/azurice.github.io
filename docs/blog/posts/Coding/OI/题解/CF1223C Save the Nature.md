@@ -4,6 +4,9 @@ tags:
     - 二分
     - 贪心
 ---
+
+# CF1223C Save the Nature
+
 T15:18:00+08:00
 洛谷：
 Codeforces：[Problem - 1223C - Codeforces](https://codeforces.com/problemset/problem/1223/C)

@@ -2,6 +2,8 @@
 date: 2023-03-04
 ---
 
+# 『PySide6』 1. 起步
+
 ## 一、安装 PySide6
 
 ```shell
