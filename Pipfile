@@ -9,6 +9,7 @@ jieba = "*"
 mkdocs-git-revision-date-localized-plugin = "*"
 mkdocs-git-authors-plugin = "*"
 pymdown-extensions = "*"
+mkdocs-glightbox = "*"
 
 [dev-packages]
 

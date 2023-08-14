@@ -1,9 +1,8 @@
-name: aoike github pages
+name: mkdocs github pages
 
 on:
   push:
-    branches: ["master"]  # Set a branch that will trigger a deployment
-  pull_request:
+    branches: ["mkdocs"]  # Set a branch that will trigger a deployment
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -21,26 +20,13 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-      - name: Setup Python
-        uses: actions/setup-python@v4.5.0
-    
-      - name: Download aoike
-        uses: actions/checkout@v3
-        with:
-          repository: azurice/aoike
-          ref: master
-    
-      - run: ls
-
-      - run: pip install .
-      
       - uses: actions/checkout@v3
-        with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+      - uses: actions/setup-python@v4.5.0
+    
+      - run: pip install pipenv
 
       - name: 🔨 Aoike Build Site
-        run: aoike build
+        run: pipenv run mkdocs build
 
       - name: ⏫ Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v1.0.7
