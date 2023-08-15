@@ -4,6 +4,7 @@ repo_url: https://github.com/AzurIce/azurice.github.io
 edit_uri: edit/master/docs/
 copyright: Copyright &copy; 2020 - 2023 AzurIce
 
+dev_addr: 127.0.0.1:9000
 
 theme:
   icon:
@@ -32,12 +33,19 @@ nav:
   - 博客: blog/index.md 
 
 extra_javascript:
-  - javascripts/katex.js 
+  # Katex
+  - js/katex.js 
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+  # Custom Mermaid rendering
+  - https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js
+  - js/diagram.js
 
 extra_css:
+  # Katex
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+  # Custom Mermaid rendering
+  - css/diagram.css
 
 markdown_extensions:
   # Images https://squidfunk.github.io/mkdocs-material/reference/images/
@@ -55,7 +63,7 @@ markdown_extensions:
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
-          class: mermaid
+          class: diagram
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight:
       use_pygments: true
