@@ -49,6 +49,9 @@ extra_css:
 
 markdown_extensions:
   # Images https://squidfunk.github.io/mkdocs-material/reference/images/
+  - toc:
+      permalink: true
+      slugify: !!python/name:pymdownx.slugs.uslugify
   - attr_list
   - md_in_html
   - footnotes
