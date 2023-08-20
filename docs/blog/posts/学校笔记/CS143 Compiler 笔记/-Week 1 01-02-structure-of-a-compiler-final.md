@@ -1,5 +1,7 @@
 ---
 date: 2023-03-26
+categories:
+  - School/Compiler
 ---
 
 # -Week 1 01-02-structure-of-a-compiler-final
@@ -18,6 +20,8 @@ date: 2023-03-26
 即识别词语。
 
 例如对于一个句子：
+
+<!-- more -->
 
 ```
 This is a sentence

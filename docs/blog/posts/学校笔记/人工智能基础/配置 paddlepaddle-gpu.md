@@ -1,7 +1,7 @@
 ---
 date: 2023-06-27
 categories:
-  - 学校笔记/人工智能基础
+  - School/AI
 ---
 
 # 配置 paddlepaddle-gpu

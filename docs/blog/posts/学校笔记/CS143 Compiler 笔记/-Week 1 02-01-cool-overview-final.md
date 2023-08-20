@@ -1,5 +1,7 @@
 ---
 date: 2023-03-26
+categories:
+  - School/Compiler
 ---
 
 # -Week 1 02-01-cool-overview-final
@@ -14,6 +16,8 @@ date: 2023-03-26
 - 代码生成
 
 MIPS 是一个用于 20世纪80年代设计的机器的指令集，而现在有一个用于 MIPS 的可以运行在各种设备的模拟器 SPIN。
+
+<!-- more -->
 
 ---
 

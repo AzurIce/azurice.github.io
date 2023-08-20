@@ -1,6 +1,8 @@
 ---
 date_update: 2023-03-26
 date: 2023-03-22
+categories:
+  - School/Compiler
 ---
 
 # -04-01-lexical-specification

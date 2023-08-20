@@ -1,7 +1,7 @@
 ---
 date: 2023-03-24
 categories:
-  - git
+  - Git
 ---
 
 # Git 原理

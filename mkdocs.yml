@@ -51,7 +51,7 @@ markdown_extensions:
   # Images https://squidfunk.github.io/mkdocs-material/reference/images/
   - toc:
       permalink: true
-      slugify: !!python/name:pymdownx.slugs.uslugify
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
   - attr_list
   - md_in_html
   - footnotes
@@ -90,7 +90,6 @@ plugins:
   #   concurrency: 4
   - glightbox # image zoom
   - blog:
-      archive_date_format: MMMM yyyy
       archive_toc: true
       categories_toc: true
   - search

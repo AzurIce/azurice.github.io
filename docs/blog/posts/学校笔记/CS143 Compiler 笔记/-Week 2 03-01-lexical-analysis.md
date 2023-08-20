@@ -1,6 +1,8 @@
 ---
 date_update: 2023-03-18
 date: 2023-03-17
+categories:
+  - School/Compiler
 ---
 
 # -Week 2 03-01-lexical-analysis
@@ -28,7 +30,7 @@ date: 2023-03-17
 
 而对于编程语言来说：就是区分出关键字、标识符、左右括号、各种常亮等。
 
-
+<!-- more -->
 
 **词法单元的类型（Token Class）** 对应的就是字符串的集合，下面是一些例子：
 

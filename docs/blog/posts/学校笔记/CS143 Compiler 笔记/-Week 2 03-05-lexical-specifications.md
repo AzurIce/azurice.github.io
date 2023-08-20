@@ -1,5 +1,7 @@
 ---
 date: 2023-03-22
+categories:
+  - School/Compiler
 ---
 
 # -Week 2 03-05-lexical-specifications

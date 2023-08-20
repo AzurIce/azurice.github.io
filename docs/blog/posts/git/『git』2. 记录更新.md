@@ -2,12 +2,12 @@
 title: 『git』2. 记录更新
 date: 2023-03-06
 categories:
-  - git
+  - Git
 tags:
     - git
 ---
 
-# 『git』2. 记录更新
+# 『Git』2. 记录更新
 
 T21:48:00+08:00
 本节内容：

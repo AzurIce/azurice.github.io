@@ -1,5 +1,7 @@
 ---
 date: 2023-04-14
+categories:
+  - School/PostgreSQL
 ---
 
 # PostgreSQL PL_pgSQL
@@ -114,5 +116,4 @@ DELETE ... RETURNING expressions INTO [STRICT] target;
 ```
 
 其中 `target` 可以是一个记录变量、行变量、逗号分割的简单变量和记录/行字段。
-
 

@@ -1,6 +1,8 @@
 ---
 date_update: 2023-03-22
 date: 2023-03-21
+categories:
+  - School/PostgreSQL
 ---
 
 # PostgreSQL 一、创建、删除表

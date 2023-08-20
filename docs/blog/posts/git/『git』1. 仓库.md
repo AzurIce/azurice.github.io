@@ -2,12 +2,12 @@
 title: 『git』1. 仓库
 date: 2023-03-06
 categories:
-  - git
+  - Git
 tags:
     - git
 ---
 
-# 『git』1. 仓库
+# 『Git』1. 仓库
 
 T21:47:00+08:00
 本节内容：

@@ -1,6 +1,8 @@
 ---
 title: PostgreSQL安装
 date: 2023-03-04
+categories:
+  - School/PostgreSQL
 ---
 
 # PostgreSQL安装

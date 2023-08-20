@@ -1,6 +1,8 @@
 ---
 date_update: 2023-04-10
 date: 2023-03-29
+categories:
+  - School/PostgreSQL
 ---
 
 # 专业课程综合实训II 记录-专题一、二

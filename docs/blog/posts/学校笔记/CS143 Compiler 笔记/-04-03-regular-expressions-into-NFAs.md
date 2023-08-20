@@ -1,6 +1,8 @@
 ---
 date_update: 2023-03-26
 date: 2023-03-23
+categories:
+  - School/Compiler
 ---
 
 # -04-03-regular-expressions-into-NFAs

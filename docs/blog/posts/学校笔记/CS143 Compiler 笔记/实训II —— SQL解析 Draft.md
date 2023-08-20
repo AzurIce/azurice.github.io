@@ -1,5 +1,7 @@
 ---
 date: 2023-05-26
+categories:
+  - School/Compiler
 ---
 
 # 实训II —— SQL解析 Draft
@@ -26,6 +28,8 @@ date: 2023-05-26
 
 
 生成的 `lex.yy.cc` 文件中会引入一个 `FlexLexer.h` 头文件，其中定义了一个 `FlexLexer` 类，这是一个抽象的基类，定义了一般的扫描器类接口，在该类中提供了以下成员函数：
+
+<!-- more -->
 
 - `const char* YYText()` 等价于原来的 `yytext`
 

@@ -1,5 +1,7 @@
 ---
 date: 2023-05-31
+categories:
+  - School/PostgreSQL
 ---
 
 # PostgreSQL Trigger

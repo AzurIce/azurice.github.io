@@ -1,5 +1,7 @@
 ---
 date: 2023-03-28
+categories:
+  - School/PostgreSQL
 ---
 
 # Debian服务器配置Postgresql远程访问

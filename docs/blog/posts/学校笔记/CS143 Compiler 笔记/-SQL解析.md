@@ -1,5 +1,7 @@
 ---
 date: 2023-05-26
+categories:
+  - School/Compiler
 ---
 
 # -SQL解析
@@ -30,7 +32,7 @@ void yyerror(char *s, ...);
 
 ```
 
-
+<!-- more -->
 
 ## 基本词法单元
 

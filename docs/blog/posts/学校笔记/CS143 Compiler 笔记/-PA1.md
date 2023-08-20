@@ -1,6 +1,8 @@
 ---
 date_update: 2023-03-26
 date: 2023-03-25
+categories:
+  - School/Compiler
 ---
 
 # -PA1
@@ -16,13 +18,11 @@ date: 2023-03-25
 
 然后会多出来一些文件和符号链接。
 
-
-
 需要我们完成的只有 `cool.flex`（使用 C++）或 `cool.lex`（使用 Java）。
 
-
-
 如果要构建词法分析器，则需要运行 `make lexer`。
+
+<!-- more -->
 
 ## 要求
 

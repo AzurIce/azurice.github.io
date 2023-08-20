@@ -1,5 +1,7 @@
 ---
 date: 2023-03-29
+categories:
+  - School/PostgreSQL
 ---
 
 # PostgreSQL Views

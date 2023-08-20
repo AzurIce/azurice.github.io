@@ -1,5 +1,7 @@
 ---
 date: 2023-03-17
+categories:
+  - School/Compiler
 ---
 
 # -Week 1 02-02-cool-example-ii-final
@@ -23,6 +25,8 @@ class Main inherits A2I {
 coolc example2-1.cl ~/cool/examples/atoi.cl
 spim example2-1.s
 ```
+
+<!-- more -->
 
 ---
 

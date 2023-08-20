@@ -1,5 +1,7 @@
 ---
 date: 2023-03-18
+categories:
+  - School/Compiler
 ---
 
 # -Week 2 03-04-formal-languages
