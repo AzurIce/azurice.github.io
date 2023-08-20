@@ -1,5 +1,7 @@
 ---
 date: 2023-03-14
+categories:
+  - Coding/Python
 ---
 
 # 『Python基础』3. 变量

@@ -1,5 +1,7 @@
 ---
 date: 2023-04-14
+categories:
+  - Coding/Golang
 ---
 
 # GORM 源码阅读

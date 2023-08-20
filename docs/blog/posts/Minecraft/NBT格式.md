@@ -1,6 +1,8 @@
 ---
 title: NBT格式
 date: 2022-08-30
+categories:
+  - Minecraft
 ---
 
 # NBT格式

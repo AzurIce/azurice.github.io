@@ -1,6 +1,8 @@
 ---
 title: 『从C到Java』零 - 2. 完全不一样的“对象”和“类”
 date: 2022-01-13
+categories:
+  - Coding/Java
 ---
 
 # 『从C到Java』零 - 2. 完全不一样的“对象”和“类”

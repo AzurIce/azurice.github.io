@@ -1,9 +1,12 @@
 ---
 date_update: 2023-04-02
 date: 2023-04-01
+draft: true
+categories:
+  - Linux/NixOS
 ---
 
-# _第12章 Inputs 设计模式
+# Nix Pills 笔记 —— 第12章 Inputs 设计模式
 
 ## 一、单一仓库模式
 

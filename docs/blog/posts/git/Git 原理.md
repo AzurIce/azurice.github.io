@@ -1,6 +1,7 @@
 ---
 date: 2023-03-24
-comments: true
+categories:
+  - git
 ---
 
 # Git 原理

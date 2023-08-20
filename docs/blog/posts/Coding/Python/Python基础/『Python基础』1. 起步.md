@@ -1,6 +1,8 @@
 ---
 title: 『Python基础』1. 起步
 date: 2022-03-03
+categories:
+  - Coding/Python
 ---
 
 # 『Python基础』1. 起步

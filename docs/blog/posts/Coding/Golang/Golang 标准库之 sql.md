@@ -1,5 +1,7 @@
 ---
 date: 2023-04-09
+categories:
+  - Coding/Golang
 ---
 
 # Golang 标准库之 sql

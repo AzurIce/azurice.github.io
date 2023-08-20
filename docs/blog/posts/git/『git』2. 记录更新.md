@@ -1,6 +1,8 @@
 ---
 title: 『git』2. 记录更新
 date: 2023-03-06
+categories:
+  - git
 tags:
     - git
 ---

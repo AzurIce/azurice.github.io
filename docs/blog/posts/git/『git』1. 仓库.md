@@ -1,6 +1,8 @@
 ---
 title: 『git』1. 仓库
 date: 2023-03-06
+categories:
+  - git
 tags:
     - git
 ---

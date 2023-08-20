@@ -1,5 +1,6 @@
 ---
 date: 2023-05-27
+draft: true
 ---
 # WSL —— 在Windows 中使用 Linux 系统
 

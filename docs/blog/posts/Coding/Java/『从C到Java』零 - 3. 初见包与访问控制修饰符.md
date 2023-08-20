@@ -1,6 +1,8 @@
 ---
 title: 『从C到Java』零 - 3. 初见包与访问控制修饰符
 date: 2022-02-20
+categories:
+  - Coding/Java
 ---
 
 # 『从C到Java』零 - 3. 初见包与访问控制修饰符

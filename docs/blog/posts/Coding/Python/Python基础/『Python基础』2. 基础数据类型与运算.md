@@ -1,5 +1,7 @@
 ---
 date: 2023-03-14
+categories:
+  - Coding/Python
 ---
 
 # 『Python基础』2. 基础数据类型与运算

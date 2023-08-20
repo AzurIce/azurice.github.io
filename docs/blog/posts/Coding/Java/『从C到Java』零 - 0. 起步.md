@@ -1,6 +1,8 @@
 ---
 title: 『从C到Java』零 - 0. 起步
 date: 2022-01-10
+categories:
+  - Coding/Java
 ---
 
 # 『从C到Java』零 - 0. 起步

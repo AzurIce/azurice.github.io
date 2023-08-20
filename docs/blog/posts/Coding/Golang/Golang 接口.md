@@ -3,7 +3,7 @@ title: "Golang 接口"
 date: 2023-02-14
 draft: false
 categories:
-  - 笔记
+  - Coding/Golang
 tags:
   - Golang
 ---

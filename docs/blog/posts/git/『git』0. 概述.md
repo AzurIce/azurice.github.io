@@ -1,6 +1,8 @@
 ---
 title: 『git』0. 概述
 date: 2023-03-06
+categories:
+  - git
 tags:
     - git
 ---

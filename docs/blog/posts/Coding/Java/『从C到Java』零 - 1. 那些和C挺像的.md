@@ -1,6 +1,8 @@
 ---
 title: 『从C到Java』零 - 1. 那些和C挺像的
 date: 2022-01-12
+categories:
+  - Coding/Java
 ---
 
 # 『从C到Java』零 - 1. 那些和C挺像的

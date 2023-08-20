@@ -1,8 +1,10 @@
 ---
 date: 2023-04-01
+categories:
+  - Linux/NixOS
 ---
 
-# 第6~7章 Derivation
+# Nix Pills 笔记 —— 第6~7章 Derivation
 
 # Chapter 6. Our First Derivation
 

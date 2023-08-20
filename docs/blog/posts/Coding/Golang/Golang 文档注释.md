@@ -1,5 +1,7 @@
 ---
 date: 2023-05-01
+categories:
+  - Coding/Golang
 ---
 
 # Golang 文档注释

@@ -1,8 +1,10 @@
 ---
 date: 2023-05-27
+categories:
+  - Coding/Python
 ---
 
-# 大数据概论项目-Part1 爬数据
+# Python 爬虫入门
 
 通过 Python 获取网页数据的方法一般分为两大类：
 
@@ -45,19 +47,19 @@ date: 2023-05-27
 
 > 介绍一个重要的网站，上面包含一切 web 技术的文档：[MDN Web Docs (mozilla.org)](https://developer.mozilla.org/zh-CN/)
 >
-> <img src="大数据概论项目-Part1 爬数据.assets/image-20230526225418855.png" alt="image-20230526225418855" style="zoom:50%;" />
+> <img src="Python 爬虫入门.assets/image-20230526225418855.png" alt="image-20230526225418855" style="zoom:50%;" />
 
 在一般的浏览器中按 F12 选择 **元素** 一栏，便可以看到网页整个的 HTML 代码。
 
 也可以通过在目标元素处右键 -> 检查，来快速定位到其对应的 HTML 代码位置。
 
-<img src="大数据概论项目-Part1 爬数据.assets/image-20230526225745841.png" alt="image-20230526225745841" style="zoom:50%;" />
+<img src="Python 爬虫入门.assets/image-20230526225745841.png" alt="image-20230526225745841" style="zoom:50%;" />
 
 ### 2. 引入
 
 比如对于这个页面：https://space.bilibili.com/46452693
 
-![image-20230526225556972](大数据概论项目-Part1 爬数据.assets/image-20230526225556972.png)
+![image-20230526225556972](Python 爬虫入门.assets/image-20230526225556972.png)
 
 我想爬取他的关注、粉丝、获赞等信息。
 
@@ -307,11 +309,11 @@ https://wqbook.wqxuetang.com/read/pdf?bid=2135236
 
 然后我们可以发现，pdf的内容都被显示在 `<img>` 标签中，而且还是 base64 编码的，这意味着我们直接获取字符串进行解码即可得到图片数据：
 
-<img src="大数据概论项目-Part1 爬数据.assets/image-20230527001646983.png" alt="image-20230527001646983" style="zoom: 67%;" />
+<img src="Python 爬虫入门.assets/image-20230527001646983.png" alt="image-20230527001646983" style="zoom: 67%;" />
 
 但是。。等一下。这并不是真实的页面，这是一张清晰度极低的预览图，而页面真正的图片被纵向切分成了 6 份：
 
-<img src="大数据概论项目-Part1 爬数据.assets/image-20230527001809857.png" alt="image-20230527001809857" style="zoom: 50%;" />
+<img src="Python 爬虫入门.assets/image-20230527001809857.png" alt="image-20230527001809857" style="zoom: 50%;" />
 
 这就意味着，我们需要分辨出这六分的顺序，分别解码对应的图片，再进行拼接才能得到一张完整的页面。
 
@@ -325,11 +327,11 @@ https://wqbook.wqxuetang.com/read/pdf?bid=2135236
 
 第四层，这个输入页码的地方。
 
-<img src="大数据概论项目-Part1 爬数据.assets/image-20230527002104678.png" alt="image-20230527002104678" style="zoom:67%;" />
+<img src="Python 爬虫入门.assets/image-20230527002104678.png" alt="image-20230527002104678" style="zoom:67%;" />
 
 它只有在被点击后才会显示出要输入页码的元素：
 
-<img src="大数据概论项目-Part1 爬数据.assets/image-20230527002137350.png" alt="image-20230527002137350" style="zoom:67%;" />
+<img src="Python 爬虫入门.assets/image-20230527002137350.png" alt="image-20230527002137350" style="zoom:67%;" />
 
 而且还被折叠在 `div` 块中，想要将其展开看一看里面的标签长什么样又会由于这个点击使得这个输入页码的地方隐藏。
 
@@ -552,15 +554,15 @@ if __name__ == '__main__':
 
 在网络这一栏中我们可以寻找一下数据的请求：
 
-<img src="大数据概论项目-Part1 爬数据.assets/image-20230527002524494.png" alt="image-20230527002524494" style="zoom:67%;" />
+<img src="Python 爬虫入门.assets/image-20230527002524494.png" alt="image-20230527002524494" style="zoom:67%;" />
 
 于是我们很快的就找到了（这里也是有一些技巧，比如一般是属于 Fetch/XHR 类型的，选上它可以排除掉大部分请求）：
 
-<img src="大数据概论项目-Part1 爬数据.assets/image-20230527002654812.png" alt="image-20230527002654812" style="zoom:67%;" />
+<img src="Python 爬虫入门.assets/image-20230527002654812.png" alt="image-20230527002654812" style="zoom:67%;" />
 
 可以发现是这样的一个请求：
 
-<img src="大数据概论项目-Part1 爬数据.assets/image-20230527002802911.png" alt="image-20230527002802911" style="zoom:67%;" />
+<img src="Python 爬虫入门.assets/image-20230527002802911.png" alt="image-20230527002802911" style="zoom:67%;" />
 
 于是事情变得简单了起来：
 
@@ -588,7 +590,7 @@ print(data)
 
 但是这里只有关注数和粉丝数，这是因为其他在另一个接口中：
 
-<img src="大数据概论项目-Part1 爬数据.assets/image-20230527003617804.png" alt="image-20230527003617804" style="zoom:67%;" />
+<img src="Python 爬虫入门.assets/image-20230527003617804.png" alt="image-20230527003617804" style="zoom:67%;" />
 
 但是如果我们直接请求：
 
@@ -619,7 +621,7 @@ print(data)
 
 可以通过在浏览器登陆后将浏览器的 cookie 设置给 python 来做到伪装登录：
 
-<img src="大数据概论项目-Part1 爬数据.assets/image-20230527003353978.png" alt="image-20230527003353978" style="zoom:67%;" />
+<img src="Python 爬虫入门.assets/image-20230527003353978.png" alt="image-20230527003353978" style="zoom:67%;" />
 
 ```diff
 import requests

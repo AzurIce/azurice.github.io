@@ -1,5 +1,7 @@
 ---
 date: 2023-06-27
+categories:
+  - 学校笔记/人工智能基础
 ---
 
 # 配置 paddlepaddle-gpu
@@ -46,4 +48,4 @@ python -m pip install paddlepaddle-gpu==2.4.2 -i https://pypi.tuna.tsinghua.edu.
 
 然后下载 cuDNN 解压并复制内容到 CUDA 安装路径下。
 
-然后理论上就O
+然后理论上就OK了
