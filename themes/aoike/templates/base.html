@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%- block meta %}
+        <meta charset="utf-8">
+    {%- endblock %}
+
+    {%- block title %}
+        <title>aoike</title>
+    {%- endblock %}
+
+    {%- block styles %}
+        <!--  Katex  -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+              integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
+              crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+                integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
+                crossorigin="anonymous"></script>
+        <script>
+            (function () {
+                'use strict';
+
+                var katexMath = (function () {
+                    var maths = document.querySelectorAll('.arithmatex'),
+                        tex;
+
+                    for (var i = 0; i < maths.length; i++) {
+                        tex = maths[i].textContent || maths[i].innerText;
+                        if (tex.startsWith('\\(') && tex.endsWith('\\)')) {
+                            katex.render(tex.slice(2, -2), maths[i], {'displayMode': false});
+                        } else if (tex.startsWith('\\[') && tex.endsWith('\\]')) {
+                            katex.render(tex.slice(2, -2), maths[i], {'displayMode': true});
+                        }
+                    }
+                });
+
+                (function () {
+                    var onReady = function onReady(fn) {
+                        if (document.addEventListener) {
+                            document.addEventListener("DOMContentLoaded", fn);
+                        } else {
+                            document.attachEvent("onreadystatechange", function () {
+                                if (document.readyState === "interactive") {
+                                    fn();
+                                }
+                            });
+                        }
+                    };
+
+                    onReady(function () {
+                        if (typeof katex !== "undefined") {
+                            katexMath();
+                        }
+                    });
+                })();
+
+            }());
+
+        </script>
+        <!-- mermaid.js -->
+        <script type="module">
+            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+            mermaid.initialize({startOnLoad: true});
+        </script>
+
+        <link rel="stylesheet" href="{{ rel_root_path }}/css/main.css">
+    {%- endblock %}
+</head>
+<body>
+
+<div class="navbar">
+    <div style="display: flex; align-items: baseline">
+        <span>Aoike 青之池</span>
+        <span style="color: #bbbbbb; font-size: 60%">「留存诗意于心，恪守初心于路」</span>
+    </div>
+    {% block navbar %}
+        <div style="display: flex; gap: 20px;">
+            <a href="{{ rel_root_path }}/index.html">主页</a>
+            <a href="{{ rel_root_path }}/categories.html">分类 & 标签</a>
+        </div>
+    {% endblock %}
+</div>
+
+{% block header %}
+{% endblock %}
+
+{% block main %}
+{% endblock %}
+
+<footer>
+    {%- block footer %}
+        <hr>
+        <p>Copyright &copy; 2022 Azur冰弦</p>
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502048910">
+            <img alt="备案图标" src="{{ rel_rootpath }}/images/备案图标.png" style=""/>
+            <span style="margin-left: 5px;">京公网安备 11010502048910号</span>
+        </a>
+        |
+        <a target="_blank" href="https://beian.miit.gov.cn/"
+           style="display:inline;text-decoration:none;height:20px;line-height:20px;">
+            京ICP备2022004147号-1
+        </a>
+        <a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+            <div style="display:flex; align-items:center; justify-content: center; padding: auto 0;">
+                本网站由
+                <img height="30" alt="upyun_logo" src="{{ rel_rootpath }}/images/又拍云_logo2.png"/>
+                提供CDN加速/云存储服务
+            </div>
+        </a>
+        <p>Built with <a href="https://github.com/AzurIce/aoike">Aoike</a>.</p>
+    {%- endblock %}
+</footer>
+</body>
+</html>

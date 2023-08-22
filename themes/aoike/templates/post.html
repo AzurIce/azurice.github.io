@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{%- block title %}
+    <title>aoike - {{ post.title }}</title>
+{%- endblock %}
+
+
+{% block main %}
+<div class="main">
+    <div class="markdown-body">
+        <h1>{{ post.title }}</h1>
+        Create: {{ post.create_time }}<br/>
+        Update: {{ post.update_time }}<br/>
+        
+        {# <!-- {% if meta.tags | length %}
+        <div style="display: flex; gap: 2px;">
+            Tags: {% for tag in meta.tags %}
+            <span>{{ tag }}</span>
+            {% endfor %}
+        </div>
+        {% endif %} --> #}
+        {{ post.document | safe }}
+    </div>
+    {# <!-- {% include "components/comment.html" %} --> #}
+</div>
+{% endblock %}
