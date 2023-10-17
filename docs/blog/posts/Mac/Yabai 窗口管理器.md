@@ -1,4 +1,5 @@
 ---
+title: 「Mac」Yabai 窗口管理器
 date: 2023-09-13
 draft: false
 Categories:
