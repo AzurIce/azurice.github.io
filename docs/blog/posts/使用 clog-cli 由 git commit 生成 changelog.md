@@ -5,6 +5,8 @@ tags:
   - git
 ---
 
+# 使用 clog-cli 由 git 提交生成 changelog
+
 https://github.com/clog-tool/clog-cli
 
 https://github.com/conventional-changelog/conventional-changelog/blob/a5505865ff3dd710cf757f50530e73ef0ca641da/conventions/angular.md

@@ -27,15 +27,30 @@ theme:
     - content.action.view
     - content.code.copy
     - content.code.annotate
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
 
 nav:
   - 主页: index.md
-  - 博客: blog/index.md 
+  - 博客: blog/index.md
   - 笔记:
-    - 主页: index.md
+    - 主页: notes/index.md
     - 机器学习:
-      - 主页: MachineLearning/index.md
-      - 第三章 感知机与神经网络: MachineLearning/ch3.md
+      - 主页: notes/MachineLearning/index.md
+      - 贝叶斯分类: notes/MachineLearning/naive_bayes_classifier.md
 
 extra_javascript:
   # Katex
@@ -101,4 +116,4 @@ plugins:
   - git-revision-date-localized:
       type: iso_datetime
       enable_creation_date: true
-      这里是一些我的笔记fallback_to_build_date: true
+      fallback_to_build_date: true
