@@ -49,8 +49,10 @@ nav:
   - 笔记:
     - 主页: notes/index.md
     - 机器学习:
-      - 主页: notes/MachineLearning/index.md
       - 贝叶斯分类: notes/MachineLearning/naive_bayes_classifier.md
+    - 计算机网络:
+      - IP 协议: notes/ComputerNetwork/Internet Protocol.md
+      - traceroute: notes/ComputerNetwork/traceroute.md
 
 extra_javascript:
   # Katex
