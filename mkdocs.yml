@@ -5,6 +5,7 @@ edit_uri: edit/master/docs/
 copyright: Copyright &copy; 2020 - 2023 AzurIce
 
 dev_addr: 127.0.0.1:9000
+use_directory_urls: false
 
 theme:
   icon:
@@ -50,6 +51,7 @@ nav:
     - 主页: notes/index.md
     - 机器学习:
       - 贝叶斯分类: notes/MachineLearning/naive_bayes_classifier.md
+      - 决策树: notes/MachineLearning/decision_tree.md
     - 计算机网络:
       - IP 协议: notes/ComputerNetwork/Internet Protocol.md
       - traceroute: notes/ComputerNetwork/traceroute.md
