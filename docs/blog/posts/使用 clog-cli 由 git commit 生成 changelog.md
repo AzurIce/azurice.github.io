@@ -13,7 +13,7 @@ https://github.com/conventional-changelog/conventional-changelog/blob/a5505865ff
 
 `clog` 能够使用本地 git 仓库的信息自动生成 changelog：
 
-<img src="./使用 clog-cli 由 git commit 生成 changelog.assets/image-20230927135701954.png" alt="image-20230927135701954" style="zoom: 33%;" />
+<img src="./assets/image-20230927135701954.png" alt="image-20230927135701954" style="zoom: 33%;" />
 
 只需要确保你的每一次提交都满足 conventional 格式，之后在希望更新 changelog 的时候只需要简单地运行 clog 即可。
 

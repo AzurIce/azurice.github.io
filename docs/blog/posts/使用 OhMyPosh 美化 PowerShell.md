@@ -8,7 +8,7 @@ date: 2023-06-21
 >
 > Github：[JanDeDobbeleer/oh-my-posh: The most customisable and low-latency cross platform/shell prompt renderer (github.com)](https://github.com/jandedobbeleer/oh-my-posh)
 
-![image-20230621210715832](使用 OhMyPosh 美化 PowerShell.assets/image-20230621210715832.png)
+![image-20230621210715832](./assets/image-20230621210715832.png)
 
 「可定制性最强、延迟最低的跨平台 / Shell 提示符渲染器」
 
@@ -37,7 +37,7 @@ scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/downl
 >
 > Github：[ryanoasis/nerd-fonts: Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts: Hack, Source Code Pro, more. Glyph collections: Font Awesome, Material Design Icons, Octicons, & more (github.com)](https://github.com/ryanoasis/nerd-fonts)
 
-<img src="使用 OhMyPosh 美化 PowerShell.assets/image-20230621211655960.png" alt="image-20230621211655960" style="zoom: 67%;" />
+<img src="./assets/image-20230621211655960.png" alt="image-20230621211655960" style="zoom: 67%;" />
 
 Oh My Posh 显示图标需要 Nerd Fonts 字体，所以这一步我们需要安装一款 Nerd Fonts 字体并设置终端使用它。Nerd Fonts 字体并不是一个具体的字体，而是一系列字体。其中的每一个字体都可以看作是 某一个流行字体 + 一系列图标字体（如上图）。同时，Nerd Fonts 中大部分经过修改后的字体会拥有一个新的名字，但是和原本的名字很像，比如很知名的 SourceCodePro，在 Nerd Fonts 中经过“改造后”就被称为 SauceCodePro Nerd Font，很有趣。
 
@@ -59,7 +59,7 @@ sudo scoop install -g nerd-fonts/JetBrainsMono-NF-Mono
 
 然后在 Windows Terminal 中设置使用它：
 
-<img src="使用 OhMyPosh 美化 PowerShell.assets/image-20230621212703076.png" alt="image-20230621212703076" style="zoom: 67%;" />
+<img src="./assets/image-20230621212703076.png" alt="image-20230621212703076" style="zoom: 67%;" />
 
 ### 3. 修改 prompt
 
@@ -90,7 +90,7 @@ oh-my-posh init pwsh | Invoke-Expression
 
 可以看到效果已经生效了：
 
-<img src="使用 OhMyPosh 美化 PowerShell.assets/image-20230621214422522.png" alt="image-20230621214422522" style="zoom:67%;" />
+<img src="./assets/image-20230621214422522.png" alt="image-20230621214422522" style="zoom:67%;" />
 
 ## 二、配置
 
@@ -116,7 +116,7 @@ oh-my-posh init pwsh --config 'https://raw.githubusercontent.com/JanDeDobbeleer/
 
 比如我们切换使用 catppuccin 主题：
 
-![catppuccin](使用 OhMyPosh 美化 PowerShell.assets/catppuccin-e6b13f45b9f0ba4af47085120726a4b9.png)
+![catppuccin](./assets/catppuccin-e6b13f45b9f0ba4af47085120726a4b9.png)
 
 ```powershell
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/catppuccin.omp.json" | Invoke-Expression

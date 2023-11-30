@@ -38,9 +38,9 @@ pacman -S python
 
 要学会看官网、看 Github 的 README：
 
-<img src="./告别繁琐安装界面，使用Scoop管理Windows软件.assets/image-20230307100417399.png" alt="image-20230307100417399" style="zoom:67%;" />
+<img src="./assets/image-20230307100417399.png" alt="image-20230307100417399" style="zoom:67%;" />
 
-<img src="./告别繁琐安装界面，使用Scoop管理Windows软件.assets/image-20230307100435037.png" alt="image-20230307100435037" style="zoom:67%;" />
+<img src="./assets/image-20230307100435037.png" alt="image-20230307100435037" style="zoom:67%;" />
 
 总而言之就是在 PowerShell 中运行下面一行简单的命令：
 
@@ -88,13 +88,13 @@ scoop list
 
 我怎么知道我可以用 Scoop 安装什么软件呢？可以到官网（[Scoop](https://scoop.sh/)）去查：
 
-<img src="./告别繁琐安装界面，使用Scoop管理Windows软件.assets/image-20230307100935495.png" alt="image-20230307100935495" style="zoom:67%;" />
+<img src="./assets/image-20230307100935495.png" alt="image-20230307100935495" style="zoom:67%;" />
 
 在这里搜软件的名字。
 
 比如可以查到刚才安装的 Python：
 
-<img src="./告别繁琐安装界面，使用Scoop管理Windows软件.assets/image-20230307101315527.png" alt="image-20230307101315527" style="zoom:67%;" />
+<img src="./assets/image-20230307101315527.png" alt="image-20230307101315527" style="zoom:67%;" />
 
 比如我们还想安装 jdk，就搜 jdk。
 
@@ -102,7 +102,7 @@ scoop list
 
 这里搜索 `oraclejdk` 为例：
 
-<img src="./告别繁琐安装界面，使用Scoop管理Windows软件.assets/image-20230307101249022.png" alt="image-20230307101249022" style="zoom:67%;" />
+<img src="./assets/image-20230307101249022.png" alt="image-20230307101249022" style="zoom:67%;" />
 
 这里又会发现，名字后面的 `in xxx` 和刚才有区别，刚才是 `python in main`，现在是 `oraclejdk in java`，这里就引入 Scoop 中 Bucket 的概念。
 
@@ -110,7 +110,7 @@ scoop list
 
 Scoop 将各种软件分门别类的放在了不同的仓库中，每一个仓库就是一个 Bucket。你可以在 ScoopInstaller 的 Github 中看到每个 Buckets 的仓库：
 
-<img src="./告别繁琐安装界面，使用Scoop管理Windows软件.assets/image-20230307101726755.png" alt="image-20230307101726755" style="zoom:67%;" />
+<img src="./assets/image-20230307101726755.png" alt="image-20230307101726755" style="zoom:67%;" />
 
 当然在官网你还可以方便地找到一些非官方的 Buckets。
 
@@ -144,7 +144,7 @@ scoop install oraclejdk
 
 前面提到 Scoop 会将软件安装到 `~/scoop/`（即 `C:\Users\<YOURUSERNAME>\scoop`），我们可以打开这个目录看看：
 
-<img src="./告别繁琐安装界面，使用Scoop管理Windows软件.assets/image-20230307103948890.png" alt="image-20230307103948890" style="zoom:67%;" />
+<img src="./assets/image-20230307103948890.png" alt="image-20230307103948890" style="zoom:67%;" />
 
 - `apps/`：存放安装的软件的目录
 - `buckets/`：存放 Bucket 信息的目录
@@ -154,7 +154,7 @@ scoop install oraclejdk
 
 如果你到 `apps/python/` 里去看一看，它会长下面这样：
 
-<img src="./告别繁琐安装界面，使用Scoop管理Windows软件.assets/image-20230307104241749.png" alt="image-20230307104241749" style="zoom:67%;" />
+<img src="./assets/image-20230307104241749.png" alt="image-20230307104241749" style="zoom:67%;" />
 
 刚才安装的 Python 3.11.2 就在 `3.11.2/` 这个目录下，那这个长得像快捷方式但又不是快捷方式的 `current/` 又是什么？它其实是一个“链接”，指向真正的版本。
 

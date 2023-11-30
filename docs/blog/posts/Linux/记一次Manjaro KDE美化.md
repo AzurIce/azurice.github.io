@@ -11,9 +11,9 @@ tags:
 # 记一次Manjaro KDE美化
 
 T22:47:00+08:00
-![Screenshot_20201108_093301](./记一次Manjaro KDE美化.assets/Screenshot_20201108_093301.png)
+![Screenshot_20201108_093301](./assets/Screenshot_20201108_093301.png)
 
-![深度截图_plasmashell_20201108123817](./记一次Manjaro KDE美化.assets/深度截图_plasmashell_20201108123817.png)
+![深度截图_plasmashell_20201108123817](./assets/深度截图_plasmashell_20201108123817.png)
 
 ## 〇、配置国内源
 

@@ -8,7 +8,7 @@ date: 2023-08-15
 
 在折腾 MkDocs + Material for MkDocs 里的 Mermaid 渲染时，发现如果直接按照 Material for MkDocs 文档[^1]来做，那么甘特图内容时间跨度较大、宽度较长时会被渲染得很小（甚至包括 Mermaid 的官方文档[^2]也是这样）
 
-![image-20230815154258622](./mermaid 甘特图渲染过小踩坑记录.assets/image-20230815154258622.png)
+![image-20230815154258622](./assets/image-20230815154258622.png)
 
 <!-- more -->
 

@@ -12,9 +12,9 @@ Categories:
 
 ​	本篇文章中所用设备为 MacBook Pro M2 Max。
 
-![Banner](https://github.com/koekeishiya/yabai/raw/master/assets/banner/banner.svg)
+![Banner](./assets/banner.svg)
 
-![screenshot.png](https://github.com/koekeishiya/yabai/blob/master/assets/screenshot.png?raw=true)
+![screenshot.png](./assets/screenshot.png)
 
 Yabai 是一个 Mac 下的平铺窗口管理器，它作为 MacOS 内置的窗口管理器的扩展运行，可以使得窗口、空间、显示控制变得十分高效。
 

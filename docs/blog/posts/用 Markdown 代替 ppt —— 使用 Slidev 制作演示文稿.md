@@ -5,7 +5,7 @@ comments: true
 
 # 用 Markdown 代替 ppt —— 使用 Slidev 制作演示文稿
 
-![image-20230701134009108](用 Markdown 代替 ppt —— 使用 Slidev 制作演示文稿.assets/image-20230701134009108.png)
+![image-20230701134009108](./assets/image-20230701134009108.png)
 
 ## 一、概述
 

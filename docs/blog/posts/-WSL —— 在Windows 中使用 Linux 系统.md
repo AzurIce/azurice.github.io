@@ -33,7 +33,7 @@ wsl --install
 
 随后会提示进行重启，重启后会自动弹出一个窗口要求你设定用户名和密码：
 
-![image-20230525033040813](-WSL —— 在Windows 中使用 Linux 系统.assets/image-20230525033040813.png)
+![image-20230525033040813](./assets/image-20230525033040813.png)
 
 输入完毕后便会进入到 WSL 的 Shell，就可以当作普通的 Linux 系统来使用了。
 
@@ -47,7 +47,7 @@ WSL 一大好处就是可以无缝与 Windows 的文件系统交互，我们可�
 
 在 Windows中任意目录下空白位置按住 Shift 按右键，选择打开 Linux Shell 即可在当前目录打开 WSL 的 Shell：
 
-<img src="-WSL —— 在Windows 中使用 Linux 系统.assets/image-20230525032226948.png" alt="image-20230525032226948" style="zoom: 67%;" />
+<img src="./assets/image-20230525032226948.png" alt="image-20230525032226948" style="zoom: 67%;" />
 
 ### 2. 与 vscode 连接
 
