@@ -55,6 +55,7 @@ nav:
     - 计算机网络:
       - IP 协议: notes/ComputerNetwork/Internet Protocol.md
       - traceroute: notes/ComputerNetwork/traceroute.md
+      - TCP 协议: notes/ComputerNetwork/Transmission Control Protocol.md
 
 extra_javascript:
   # Katex
