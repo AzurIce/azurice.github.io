@@ -8,7 +8,7 @@ categories:
 
 ## 一、Python解释器的交互模式
 
-`python` 在命令行中有很多种使用方式，最基本的就是通过 `python 文件名.py` 来执行脚本，在 [起步](『Python教程』1. 起步) 一篇中我们还以仅仅一个 `python` 的方式使用过，结果是出现了这些输出：
+`python` 在命令行中有很多种使用方式，最基本的就是通过 `python 文件名.py` 来执行脚本，在 [起步](『Python教程』1. 起步.md) 一篇中我们还以仅仅一个 `python` 的方式使用过，结果是出现了这些输出：
 
 ```console
 PS C:\Users\xiaob> python

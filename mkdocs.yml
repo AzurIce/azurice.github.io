@@ -56,6 +56,9 @@ nav:
       - IP 协议: notes/ComputerNetwork/Internet Protocol.md
       - traceroute: notes/ComputerNetwork/traceroute.md
       - TCP 协议: notes/ComputerNetwork/Transmission Control Protocol.md
+    - 操作系统:
+      - 进程: notes/OperatingSystem/processes.md
+      - 主存: notes/OperatingSystem/main-memory.md
 
 extra_javascript:
   # Katex
