@@ -59,6 +59,9 @@ nav:
     - 操作系统:
       - 进程: notes/OperatingSystem/processes.md
       - 主存: notes/OperatingSystem/main-memory.md
+    - 项目管理与产品运维:
+      - 进度管理:
+        - 关键路径法: notes/ProjectManagement/critical-path-methodology.md
 
 extra_javascript:
   # Katex
@@ -76,6 +79,7 @@ extra_css:
   - css/diagram.css
 
 markdown_extensions:
+  - admonition
   # Images https://squidfunk.github.io/mkdocs-material/reference/images/
   - toc:
       permalink: true
