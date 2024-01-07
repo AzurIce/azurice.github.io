@@ -40,7 +40,7 @@ new --> ready : admitted
 ready --> running : scheduler displatch
 waiting --> ready: I/O or event completion
 running --> waiting: I/O or event wait
-running --> ready: interrupt2
+running --> ready: interrupt
 running --> terminated: exit
 terminated --> [*]
 ```
@@ -106,10 +106,37 @@ PCB 中存储了进程的当前状态，可以说是进程执行状态及所处�
 
 主要有两种方式：
 
+| Method          | Overhead                                | Difficulty to implement | Conveniency to use                             |
+| --------------- | --------------------------------------- | ----------------------- | ---------------------------------------------- |
+| Shared memory   | few syscall                             | difficult               | convenient (simply r/w f/t RAM)                |
+| Message-passing | one syscall per communication operation | easy                    | sometime cumbersome (many send/recv operation) |
+
 - 共享内存
-- 消息队列
+
+- 消息传递
+
+  直接通信：进程间直接建立连接（需要 name each other explicityly）
+
+  间接：通过一个 mailbox 中转
 
 ![image-20231217171341344](./assets/image-20231217171341344.png)
+
+#### 生产者-消费者问题
+
+可以考虑缓冲区为两种情况，空时消费者阻塞，满时消费者阻塞：
+
+- unbounded-buffer
+- bounded-buffer
+
+##### > 共享内存解决方案
+
+可以使用一个循环数组：
+
+![image-20240106182141663](assets/image-20240106182141663.png)
+
+##### > 消息传递
+
+更简单了，消息队列本身就是一个生产者-消费者模型。
 
 ### 6. 进程同步
 
