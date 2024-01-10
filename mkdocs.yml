@@ -63,6 +63,8 @@ nav:
       - 进度管理:
         - 关键路径法: notes/ProjectManagement/critical-path-methodology.md
         - 挣值分析: notes/ProjectManagement/earned-value-analysis.md
+    - 软件测试与质量保证:
+      - 黑盒测试: notes/SoftwareTesting/black-box.md
 
 extra_javascript:
   # Katex
