@@ -1,181 +1,133 @@
 @import "font.css";
 @import "variables.css";
-@import "github-markdown.css";
-@import "highlight.css";
 
 .navbar {
-    z-index: 7;
-    font-size: 115%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  z-index: 7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    width: 100%;
-    height: 3.5rem;
-    padding: 10px;
-    border-bottom: 1px solid #cccccc;
-    position: sticky;
-    top: 0;
+  width: 100%;
+  height: 3.5rem;
+  padding: 10px;
+  border-bottom: 1px solid #cccccc;
+  position: sticky;
+  top: 0;
 
-    background: white;
-    box-shadow: 0 0 0.2rem #0000001a, 0 0.2rem 0.4rem #0003;
-    box-sizing: border-box;
+  background: white;
+  box-shadow: 0 0 0.2rem #0000001a, 0 0.2rem 0.4rem #0003;
+  box-sizing: border-box;
 }
 
 .header {
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    height: 20rem;
-    padding: 100px 0;
-    background-image: url("../images/wallhaven-5weyz8.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 20rem;
+  padding: 100px 0;
+  background-image: url("../images/wallhaven-5weyz8.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .moveup {
-    margin-top: -2rem;
+  margin-top: -2rem;
 }
 
 
 .main {
-    width: 65%;
-    background-color: white;
-    padding: 2rem 10%;
-    /*display: block;*/
-    display: flex;
-    flex-direction: column;
-    /*align-items: center;*/
-    gap: 8px;
-    box-sizing: border-box;
-    border-radius: 0.5rem;
-    box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  width: 65%;
+  background-color: white;
+  padding: 2rem 10%;
+  /*display: block;*/
+  display: flex;
+  flex-direction: column;
+  /*align-items: center;*/
+  gap: 8px;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 a {
-    color: black;
+  color: black;
 }
 
 a:hover {
-    color: cornflowerblue;
+  color: cornflowerblue;
 }
 
 a.commit_id {
-    color: #bbbbbb
+  color: #bbbbbb
 }
 
 a.commit_id:hover {
-    color: cornflowerblue;
+  color: cornflowerblue;
 }
 
 a.draft {
-    color: #777777
+  color: #777777
 }
 
 a.draft:hover {
-    color: cornflowerblue;
+  color: cornflowerblue;
 }
 
 html {
-    height: 100%;
-    overflow-x: hidden;
-    font-family: var(--font-family)
+  height: 100%;
+  overflow-x: hidden;
+  font-family: var(--font-family)
 }
 
 body {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: 100%;
-    justify-content: stretch;
-    align-items: center;
-    margin: 0;
-    font-size: 110%;
-    line-height: 1.4;
-    letter-spacing: 0.02em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  justify-content: stretch;
+  align-items: center;
+  margin: 0;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
 }
 
 footer {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .post-card {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
 
-    border-radius: 0.25rem;
-    border: 1px solid #cccccc;
+  border-radius: 0.25rem;
+  border: 1px solid #cccccc;
 }
 
 .category_card {
-    display: flex;
-    flex-direction: column;
-    width: 45%;
-    gap: 8px;
-    padding: 10px;
-    border-radius: 0.25rem;
-    border: 1px solid #cccccc;
-}
-
-/*quote block*/
-.markdown-body blockquote:before {
-    display: block;
-    position: absolute;
-    content: '';
-    width: 4px;
-    left: 0;
-    top: 0;
-    height: 100%;
-    background-color: #61AFEF;
-    border-radius: 2px;
-}
-
-.markdown-body blockquote {
-    margin: 0;
-    color: #666666;
-    border-radius: 2px;
-    padding: 10px 16px;
-    background-color: rgba(185, 209, 248, 0.3);
-    position: relative;
-    border-left: none;
-}
-
-.markdown-body hr {
-    height: 2px;
-    padding: 0;
-    margin: 16px 0;
-    background-color: #cccccc;
-    border: 0 none;
-    overflow: hidden;
-    box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 0.25rem;
+  border: 1px solid #cccccc;
 }
 
 
 .markdown-body img {
-    max-width: 90%;
-    margin: 1.5rem auto;
-    display: block;
-    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
-    border-radius: 3px;
-    background-color: transparent;
-}
-
-.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
-    font-family: var(--title-font);
-}
-
-
-h1, h2, h3, h4, h5, h6 {
-    /*color: #ffffff;*/
-    margin-bottom: 0.75em;
-    margin-top: 2em;
+  max-width: 90%;
+  margin: 1.5rem auto;
+  display: block;
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  background-color: transparent;
 }
