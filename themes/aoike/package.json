@@ -1,0 +1,19 @@
+{
+  "name": "aoike",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "unocss --watch",
+    "build": "unocss"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@unocss/cli": "^0.58.3",
+    "@unocss/preset-uno": "^0.58.3",
+    "unocss": "^0.58.3"
+  }
+}
