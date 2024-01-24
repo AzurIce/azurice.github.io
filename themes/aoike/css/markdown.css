@@ -1,0 +1,75 @@
+@import "font.css";
+
+.markdown-body {
+  word-wrap: break-word;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--va-font-family-base);
+    font-weight: 900;
+  }
+
+  ul {
+    li>p {
+      margin-bottom: 0;
+    }
+  }
+
+  blockquote {
+    margin: 16px 0;
+    border-left: 4px solid var(--va-c-divider);
+    padding-left: 12px;
+
+    transition: border-color .5s p {
+      margin: 0;
+      font-size: 16px;
+      color: var(--vp-c-text-2);
+      transition: color .5s;
+    }
+  }
+
+  code:not(pre > code) {
+    color: var(--va-c-text-code);
+    background-color: var(--va-c-bg-mute);
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+
+    &::before {
+      content: none;
+    }
+
+    &::after {
+      content: none;
+    }
+  }
+
+  @counter-style lno {
+    system: extends decimal;
+    pad: 4 " ";
+  }
+
+  pre {
+    padding: 8px;
+    border-radius: 8px;
+    font-family: 'JetBrainsMono NFM';
+    overflow-x: auto;
+  }
+
+  pre span.line {
+    counter-increment: line;
+    box-decoration-break: clone;
+  }
+
+  pre span.line:before {
+    content: counter(line, lno);
+    border-right: 1px solid #ddd;
+    padding: 0 .5em;
+    margin-right: .5em;
+    color: #888
+  }
+}

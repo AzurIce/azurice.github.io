@@ -6,7 +6,12 @@
 
 
 {% block main %}
-<div class="main">
+<main class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+    <div class="markdown-body">
+        {{ post.document | safe }}
+    </div>
+</main>
+<!-- <div class="main">
     <div class="markdown-body">
         <h1>{{ post.title }}</h1>
         Create: {{ post.create_time }}<br/>
@@ -22,5 +27,5 @@
         {{ post.document | safe }}
     </div>
     {# <!-- {% include "components/comment.html" %} --> #}
-</div>
+</div> -->
 {% endblock %}
