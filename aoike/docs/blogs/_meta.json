@@ -1,0 +1,23 @@
+[
+    "index",
+    {
+        "type": "dir",
+        "name": "2023",
+        "label": "2023"
+    },
+    {
+        "type": "dir",
+        "name": "2022",
+        "label": "2022"
+    },
+    {
+        "type": "dir",
+        "name": "2021",
+        "label": "2021"
+    },
+    {
+        "type": "dir",
+        "name": "2020",
+        "label": "2020"
+    }
+]

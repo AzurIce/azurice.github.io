@@ -1,0 +1,18 @@
+{
+  "name": "rspress-doc-template",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "rspress dev",
+    "build": "rspress build",
+    "preview": "rspress preview"
+  },
+  "dependencies": {
+    "rehype-katex": "^7.0.0",
+    "remark-math": "^6.0.0",
+    "rspress": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16"
+  }
+}
