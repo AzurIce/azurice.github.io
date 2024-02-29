@@ -2,6 +2,11 @@
     "index",
     {
         "type": "dir",
+        "name": "2024",
+        "label": "2024"
+    },
+    {
+        "type": "dir",
         "name": "2023",
         "label": "2023"
     },
