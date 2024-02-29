@@ -1,0 +1,18 @@
+[
+    "index",
+    {
+        "type": "dir",
+        "name": "c",
+        "label": "C 语言教程"
+    },
+    {
+        "type": "dir",
+        "name": "java",
+        "label": "从 C 到 Java 教程"
+    },
+    {
+        "type": "dir",
+        "name": "python",
+        "label": "python 教程"
+    }
+]

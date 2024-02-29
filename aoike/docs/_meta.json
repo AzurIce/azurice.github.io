@@ -8,5 +8,10 @@
     "text": "Notes",
     "link": "/notes/",
     "activeMatch": "/notes/"
+  },
+  {
+    "text": "Books",
+    "link": "/books/",
+    "activeMatch": "/books/"
   }
 ]

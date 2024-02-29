@@ -4,5 +4,25 @@
         "type": "dir",
         "name": "courses",
         "label": "courses"
+    },
+    {
+        "type": "dir",
+        "name": "language",
+        "label": "language"
+    },
+    {
+        "type": "dir",
+        "name": "git",
+        "label": "git"
+    },
+    {
+        "type": "dir",
+        "name": "oi",
+        "label": "oi"
+    },
+    {
+        "type": "dir",
+        "name": "minecraft",
+        "label": "minecraft"
     }
 ]

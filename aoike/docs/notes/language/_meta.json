@@ -1,0 +1,12 @@
+[
+    {
+        "type": "dir",
+        "name": "golang",
+        "label": "golang"
+    },
+    {
+        "type": "dir",
+        "name": "rust",
+        "label": "rust"
+    }
+]
