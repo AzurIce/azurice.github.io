@@ -1,21 +1,37 @@
-Hello！这里是 Azur冰弦（AzurIce）🥰
-经过在各种博客系统之间的反复折腾，偶然发现 MkDocs Material 支持 Blog 了 🎉🎉🎉
+---
+pageType: home
 
-于是又双叒叕迁移了一回博客，MkDocs Material 的阅读体验还是顶的。
-
-目前文章太多了，还没有来得及全部修改以符合 MkDocs 以及 MkDocs Material 的要求，所以你可能会见到：
-
-- 文章摘要把整篇文章都摘了
-- 文章日期怪怪的
-- 文章里图片挂了
-- 文章里公式挂了
-- 文章标题没了
-- 文章里文字乱了
-- ......
-
-如果发现问题欢迎来给我提 Issue 和 PR！
-当然，本站也接入了 Giscus 评论系统，有什么想法都可以在页面最下面灌水🥳
-
-TODO: 把上面的提到的几个工具/技术加上链接
-~~现在不加是因为我是懒逼~~
-
+hero:
+  name: Aoike青池
+  text: AzurIce's Blog
+  tagline: 「看清世界的真相后仍热爱生活」
+  actions:
+    - theme: brand
+      text: Notes
+      link: /notes/
+    - theme: alt
+      text: Github
+      link: https://github.com/azurice/azurice.github.io
+  # image:
+  #   src: /rspress-icon.png
+  #   alt: Aoike Logo
+features:
+#   - title: Blazing fast build speed
+#     details: The core compilation module is based on the Rust front-end toolchain, providing a more ultimate development experience.
+#     icon: 🏃🏻‍♀️
+#   - title: Support for MDX content writing
+#     details: MDX is a powerful way to write content, allowing you to use React components in Markdown.
+#     icon: 📦
+#   - title: Built-in full-text search
+#     details: Automatically generates a full-text search index for you during construction, providing out-of-the-box full-text search capabilities.
+#     icon: 🎨
+#   - title: Simpler I18n solution
+#     details: With the built-in I18n solution, you can easily provide multi-language support for documents or components.
+#     icon: 🌍
+#   - title: Static site generation
+#     details: In production, it automatically builds into static HTML files, which can be easily deployed anywhere.
+#     icon: 🌈
+#   - title: Providing multiple custom capabilities
+#     details: Through its extension mechanism, you can easily extend theme UI and build process.
+#     icon: 🔥
+---
