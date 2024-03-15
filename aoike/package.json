@@ -1,0 +1,21 @@
+{
+  "name": "aoike",
+  "version": "1.0.0",
+  "dependencies": {
+    "solid-js": "^1.7.6"
+  },
+  "devDependencies": {
+    "@farmfe/cli": "^1.0.0",
+    "@farmfe/core": "^1.0.0",
+    "solid-refresh": "^0.5.3",
+    "vite-plugin-solid": "^2.7.0",
+    "farm-plugin-aoike": "workspace:*"
+  },
+  "scripts": {
+    "dev": "farm start",
+    "start": "farm start",
+    "build": "farm build",
+    "preview": "farm preview",
+    "clean": "farm clean"
+  }
+}

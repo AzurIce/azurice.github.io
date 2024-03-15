@@ -1,0 +1,54 @@
+{
+    "hidefiles.configurationType": "local",
+    "hidefiles.globalConfig": {
+        "profiles": [
+            {
+                "name": "Default",
+                "detail": "",
+                "description": "Test",
+                "hidden": [
+                    ".vscode/"
+                ]
+            },
+            {
+                "name": "Strict",
+                "detail": "Hide everything not immediately required",
+                "hidden": [
+                    "$Default"
+                ]
+            },
+            {
+                "hidden": [
+                    "requirements.lock",
+                    "requirements-dev.lock",
+                    "pyproject.toml",
+                    "Pipfile",
+                    "mkdocs.yml",
+                    ".python-version",
+                    "overrides/",
+                    ".venv/"
+                ],
+                "name": "mkdocs",
+                "description": "",
+                "detail": "",
+                "peek": []
+            }
+        ]
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "requirements.lock": true,
+        "requirements-dev.lock": true,
+        "pyproject.toml": true,
+        "Pipfile": true,
+        "mkdocs.yml": true,
+        ".python-version": true,
+        "overrides/": true,
+        ".venv/": true
+    },
+    "hidefiles.selectedProfile": "mkdocs"
+}

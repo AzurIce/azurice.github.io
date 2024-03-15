@@ -4,3 +4,4 @@ site/
 themes
 node_modules
 *.ts
+target
