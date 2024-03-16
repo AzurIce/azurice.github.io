@@ -1,7 +1,5 @@
 .DS_Store
 site/
-.gitGraph/
 themes
 node_modules
-*.ts
 target

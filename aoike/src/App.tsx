@@ -3,11 +3,14 @@ import solidLogo from "./assets/solid.svg";
 import farmLogo from "./assets/logo.png";
 import "./App.css";
 
+import page from "./docs/index.md";
+
 function App() {
   const [count, setCount] = createSignal(0);
 
   return (
     <>
+      {page()}
       <div>
         <a href="https://farm-fe.github.io/" target="_blank">
           <img src={farmLogo} class="logo" alt="Farm logo" />
