@@ -4,6 +4,7 @@ import farmLogo from "./assets/logo.png";
 import "./App.css";
 
 import page from "./docs/index.md";
+// import route from "virtual:route";
 
 function App() {
   const [count, setCount] = createSignal(0);

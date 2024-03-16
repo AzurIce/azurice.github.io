@@ -3,3 +3,5 @@ site/
 themes
 node_modules
 target
+*.node
+*.farm
