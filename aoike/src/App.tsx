@@ -4,15 +4,16 @@ import farmLogo from "./assets/logo.png";
 import "./App.css";
 
 import page from "./docs/index.md";
-// import route from "virtual:route";
+import Router from "AoikeRouter.tsx";
 
 function App() {
   const [count, setCount] = createSignal(0);
 
   return (
     <>
-      {page()}
-      <div>
+      {Router()}
+      {/* {page()} */}
+      {/* <div>
         <a href="https://farm-fe.github.io/" target="_blank">
           <img src={farmLogo} class="logo" alt="Farm logo" />
         </a>
@@ -31,7 +32,7 @@ function App() {
       </div>
       <p class="read-the-docs">
         Click on the Farm and Solid logos to learn more
-      </p>
+      </p> */}
     </>
   );
 }
