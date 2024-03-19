@@ -99,7 +99,7 @@ mod test {
   #[test]
   fn test_get_route() {
     // let root_dir = PathBuf::from("F:\\azurice.github.io\\aoike\\src\\docs");
-    let dir = PathBuf::from("F:\\azurice.github.io\\aoike\\src\\docs");
+    let dir = PathBuf::from("../aoike/src/docs");
     let content = parse_route(dir);
     println!("{}", content);
     // let route = super::get_route(root_dir, dir);

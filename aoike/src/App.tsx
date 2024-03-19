@@ -3,7 +3,6 @@ import solidLogo from "./assets/solid.svg";
 import farmLogo from "./assets/logo.png";
 import "./App.css";
 
-import page from "./docs/index.md";
 import Router from "AoikeRouter.tsx";
 
 function App() {
@@ -12,9 +11,11 @@ function App() {
   return (
     <>
       {Router()}
-      {/* {page()} */}
-      {/* <div>
-        <a href="https://farm-fe.github.io/" target="_blank">
+
+      <hr />
+
+      <div>
+        <a href="https://farmfe.org/" target="_blank">
           <img src={farmLogo} class="logo" alt="Farm logo" />
         </a>
         <a href="https://solidjs.com" target="_blank">
@@ -32,7 +33,7 @@ function App() {
       </div>
       <p class="read-the-docs">
         Click on the Farm and Solid logos to learn more
-      </p> */}
+      </p>
     </>
   );
 }

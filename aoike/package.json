@@ -2,14 +2,13 @@
   "name": "aoike",
   "version": "1.0.0",
   "dependencies": {
-    "@solidjs/router": "^0.13.0",
+    "@solidjs/router": "^0.13.1",
     "solid-js": "^1.8.15"
   },
   "devDependencies": {
-    "@farmfe/cli": "^1.0.0",
-    "@farmfe/core": "^1.0.0",
-    "@farmfe/js-plugin-solid": "^2.5.0",
     "@aoike/farm-plugin-aoike": "workspace:*",
+    "@farmfe/cli": "^1.0.0",
+    "@farmfe/core": "^1.0.2",
     "solid-refresh": "^0.5.3",
     "vite-plugin-solid": "^2.10.2"
   },

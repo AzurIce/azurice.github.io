@@ -9,5 +9,5 @@ export default defineConfig({
       '\\.md$',
     ]
   })],
-  plugins: ["farm-plugin-aoike"]
+  plugins: ["@aoike/farm-plugin-aoike"]
 });
