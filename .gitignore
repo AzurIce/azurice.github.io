@@ -4,3 +4,5 @@ site/
 themes
 node_modules
 *.ts
+book
+.direnv

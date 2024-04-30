@@ -1,0 +1,21 @@
+[book]
+title = "Aoike"
+authors = ["Azur冰弦"]
+description = "Aoike mdbook"
+language = "en"
+multilingual = false
+src = "src"
+
+[preprocessor.katex]
+after = ["links"]
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+# [preprocessor.bib]
+# bibliography = "my_biblio.bib"
+
+[output]
+
+[output.html]
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
