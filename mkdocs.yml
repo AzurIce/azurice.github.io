@@ -65,6 +65,8 @@ nav:
         - 挣值分析: notes/ProjectManagement/earned-value-analysis.md
     - 软件测试与质量保证:
       - 黑盒测试: notes/SoftwareTesting/black-box.md
+    - 数字图像处理:
+      - 傅立叶变换: notes/DigitalImageProcessing/fourier-transform.md
 
 extra_javascript:
   # Katex
