@@ -1,33 +1,20 @@
-[project]
-name = "azurice-github-io"
+[tool.poetry]
+name = "bjtuse-wiki"
 version = "0.1.0"
-description = "Add your description here"
-authors = [
-    { name = "Azur冰弦", email = "973562770@qq.com" }
-]
-dependencies = [
-    "mkdocs-material>=9.5.3",
-    "mkdocs-git-revision-date-localized-plugin>=1.2.2",
-    "mkdocs-git-authors-plugin>=0.7.2",
-    "pymdown-extensions>=10.7",
-    "mkdocs-glightbox>=0.3.6",
-    "slugify>=0.0.1",
-]
+description = ""
+authors = ["AzurIce <973562770@qq.com>"]
 readme = "README.md"
-requires-python = ">= 3.8"
 
-[project.scripts]
+[tool.poetry.dependencies]
+python = "^3.12"
+mkdocs = "^1.6.0"
+mkdocs-material = "^9.5.29"
+mkdocs-glightbox = "^0.4.0"
+mkdocs-git-revision-date-localized-plugin = "^1.2.6"
+mkdocs-git-committers-plugin-2 = "^2.3.0"
+mkdocs-mermaid2-plugin = "^1.1.1"
+
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.rye]
-managed = true
-dev-dependencies = []
-
-[tool.hatch.metadata]
-allow-direct-references = true
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/azurice_github_io"]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

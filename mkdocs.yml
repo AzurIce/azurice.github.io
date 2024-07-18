@@ -1,11 +1,36 @@
 site_name: Aoike 青池
 repo_name: AzurIce/azurice.github.io
 repo_url: https://github.com/AzurIce/azurice.github.io
-edit_uri: edit/master/docs/
-copyright: Copyright &copy; 2020 - 2023 AzurIce
+edit_uri: edit/main/docs/
+copyright: Copyright &copy; 2020 - 2024 AzurIce
 
 dev_addr: 127.0.0.1:9000
 use_directory_urls: false
+
+nav:
+  - 主页: index.md
+  - 博客: blog/index.md
+  - 笔记:
+    - 主页: notes/index.md
+    - 机器学习:
+      - 贝叶斯分类: notes/MachineLearning/naive_bayes_classifier.md
+      - 决策树: notes/MachineLearning/decision_tree.md
+    - 计算机网络:
+      - IP 协议: notes/ComputerNetwork/Internet Protocol.md
+      - traceroute: notes/ComputerNetwork/traceroute.md
+      - TCP 协议: notes/ComputerNetwork/Transmission Control Protocol.md
+    - 操作系统:
+      - 进程: notes/OperatingSystem/processes.md
+      - 主存: notes/OperatingSystem/main-memory.md
+    - 项目管理与产品运维:
+      - 进度管理:
+        - 关键路径法: notes/ProjectManagement/critical-path-methodology.md
+        - 挣值分析: notes/ProjectManagement/earned-value-analysis.md
+    - 软件测试与质量保证:
+      - 黑盒测试: notes/SoftwareTesting/black-box.md
+    - 数字图像处理:
+      - 傅立叶变换: notes/DigitalImageProcessing/fourier-transform.md
+
 
 theme:
   icon:
@@ -35,7 +60,6 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
-
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
@@ -43,68 +67,33 @@ theme:
         icon: material/weather-night
         name: Switch to light mode
 
-
-nav:
-  - 主页: index.md
-  - 博客: blog/index.md
-  - 笔记:
-    - 主页: notes/index.md
-    - 机器学习:
-      - 贝叶斯分类: notes/MachineLearning/naive_bayes_classifier.md
-      - 决策树: notes/MachineLearning/decision_tree.md
-    - 计算机网络:
-      - IP 协议: notes/ComputerNetwork/Internet Protocol.md
-      - traceroute: notes/ComputerNetwork/traceroute.md
-      - TCP 协议: notes/ComputerNetwork/Transmission Control Protocol.md
-    - 操作系统:
-      - 进程: notes/OperatingSystem/processes.md
-      - 主存: notes/OperatingSystem/main-memory.md
-    - 项目管理与产品运维:
-      - 进度管理:
-        - 关键路径法: notes/ProjectManagement/critical-path-methodology.md
-        - 挣值分析: notes/ProjectManagement/earned-value-analysis.md
-    - 软件测试与质量保证:
-      - 黑盒测试: notes/SoftwareTesting/black-box.md
-    - 数字图像处理:
-      - 傅立叶变换: notes/DigitalImageProcessing/fourier-transform.md
-
 extra_javascript:
-  # Katex
-  - js/katex.js 
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
-  # Custom Mermaid rendering
-  - https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js
-  - js/diagram.js
+  # katex
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+  - _js/katex.js
 
 extra_css:
-  # Katex
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
-  # Custom Mermaid rendering
-  - css/diagram.css
+  - _css/git-commiters.css
+  - _css/fonts.css
+  - https://unpkg.com/katex@0/dist/katex.min.css # katex
 
 markdown_extensions:
-  - admonition
-  # Images https://squidfunk.github.io/mkdocs-material/reference/images/
   - toc:
       permalink: true
-      slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
+      slugify: !!python/name:pymdownx.slugs.uslugify
+  # Images https://squidfunk.github.io/mkdocs-material/reference/images/
   - attr_list
   - md_in_html
   - footnotes
   - tables
-  - pymdownx.arithmatex:
-      generic: true
+  - pymdownx.critic # critic markup
   - pymdownx.caret # ^^insert^^ ^superscript^
   - pymdownx.mark  # ==mark==
   - pymdownx.tilde # ~~delete~~ ~subscript~
   - pymdownx.keys  # ++key++
+  - admonition
   - pymdownx.details # collapsible admonition
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: diagram
-          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight:
       use_pygments: true
       auto_title: true
@@ -112,10 +101,17 @@ markdown_extensions:
       linenums_style: table
       anchor_linenums: true
   - pymdownx.inlinehilite # `:::language mycode` or `#!language mycode`
-  - pymdownx.tabbed: # === "Tab 1" or ===! "Start Tab"
+  - pymdownx.blocks.tab:
       alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
   # Lists
   - def_list
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: diagram
+          format: !!python/name:mermaid2.fence_mermaid_custom
   - pymdownx.tasklist:
       custom_checkbox: true
 
@@ -125,12 +121,18 @@ plugins:
   # TODO: feat social card
   # - social:
   #   concurrency: 4
-  - glightbox # image zoom
   - blog:
       archive_toc: true
       categories_toc: true
   - search
-  - git-revision-date-localized:
+  - glightbox # image zoom (mkdocs-glightbox)
+  # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#document-dates
+  - git-revision-date-localized: # (mkdocs-git-revision-date-localized-plugin)
       type: iso_datetime
       enable_creation_date: true
       fallback_to_build_date: true
+  # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#document-contributors
+  - git-committers: # (mkdocs-git-committers-plugin-2)
+      repository: AzurIce/bjtuse-wiki
+      branch: main
+  - mermaid2

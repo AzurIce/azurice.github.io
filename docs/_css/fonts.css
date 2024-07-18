@@ -1,0 +1,20 @@
+@import './fonts/JetBrainsMonoNerdFontMono.css';
+@import './fonts/LXGWBright.css';
+
+:root {
+    --md-text-font: "LXGW Bright";
+    --md-code-font: "JetBrainsMono Nerd Font Mono";
+}
+
+/* .md-source {
+    font-size: .7rem;
+}
+
+.md-typeset {
+    font-size: .85rem;
+} */
+
+/* 连字渲染效果不是很好 */
+/* .md-typeset code {
+    font-variant-ligatures: contextual;
+} */
