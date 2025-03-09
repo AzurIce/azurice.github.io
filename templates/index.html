@@ -1,0 +1,10 @@
+{% extends "layouts/base.html" %}
+
+{% block main %}
+<article class="prose dark:prose-invert prose-neutral">
+{{ section.content | safe }}
+
+{% include "giscus.html" %}
+</article>
+
+{% endblock main %}

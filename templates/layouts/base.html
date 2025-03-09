@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  {# TODO: og metas #}
+
+  <!-- Favicon generated with https://favicon.io/favicon-converter -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="stylesheet" href="{{ get_url(path='uno.css') }}">
+  <link rel="stylesheet" href="{{ get_url(path='index.css') }}">
+  <link rel="stylesheet" href="{{ get_url(path='github-markdown.css') }}">
+
+  <!-- TODO: feed -->
+  <!-- {% if config.generate_feed %}
+    <link rel="alternate"
+      type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %}
+      title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
+    {% endif %} -->
+
+  <title>title</title>
+  {% block head_extensions %}{% endblock head_extensions %}
+</head>
+
+<body class="w-full m-x-auto">
+  <header class="flex sticky top-0 w-full bg-transparent z-800">
+    <div class="absolute size-full z-[-1] border-b border-b-slate-300 bg-white/90 backdrop-blur-md"></div>
+    <nav class="flex gap-2 items-center p-x-6 max-w-5xl h-14 w-full m-x-auto">
+      <a href="{{ get_url(path='/') }}" class="flex gap-2 m-r-auto nav-btn h-10 p-1 group">
+        {% if config.extra.avatar %}
+        <img src="{{config.extra.avatar}}" class="h-full rounded" />
+        {% endif %}
+        <div class="flex flex-col">
+          <span class="text-sm transition-transform duration-500 group-hover:-translate-y-1">{{ config.title |
+            default(value="Site Title") }}</span>
+          <span
+            class="text-xs text-slate-600 opacity-0 max-h-0 overflow-hidden transition-all duration-500 group-hover:opacity-100 group-hover:max-h-8">{{
+            config.description | default(value="site description") }}</span>
+        </div>
+      </a>
+
+      <div class="h-10 bg-gray-200 p-2 w-2xs nav-btn">TODO: Searching</div>
+      {% if config.extra.github_owner and config.extra.github_repo %}
+      <a href="https://github.com/{{config.extra.github_owner}}/{{config.extra.github_repo}}" target="_blank"
+        rel="noreferrer" class="size-10 gap-1 nav-btn">
+        <div class="i-fa6-brands-github text-2xl">
+        </div>
+      </a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main class="max-w-5xl w-full m-x-auto flex flex-col items-center p-8 gap-2">
+    <div class="flex items-stretch">
+      {% if config.extra.avatar %}
+      <img src="{{ config.extra.avatar }}" class="size-40 rounded" />
+      {% endif %}
+      <div class="flex flex-col items-center justify-around p-2 p-b-1 gap-3">
+        <span class="text-xl">
+          < {{ config.title | default(value="Site Title" ) }} />
+        </span>
+        <span class="text-sm">{{ config.description | default(value="Description") }}</span>
+        {% if config.extra.email %}
+        <div class="text-sm">📫 <a class="underline" href="mailto:973562770@qq.com">{{ config.extra.email }}</a></div>
+        {% endif %}
+        <div class="flex">
+          {% if config.extra.social.github and config.extra.github_owner %}
+          <a href="https://github.com/{{config.extra.github_owner}}" target="_blank" rel="noreferrer"
+            class="size-8 gap-1 nav-btn">
+            <div class="i-fa6-brands-github text-xl">
+            </div>
+          </a>
+          {% endif %}
+          {% if config.extra.social.bilibili %}
+          <a href="{{config.extra.social.bilibili}}" target="_blank" rel="noreferrer" class="size-8 gap-1 nav-btn">
+            <div class="i-fa6-brands-bilibili text-xl color-[#19a2d4] translate-x-0 translate-y-[1px]"></div>
+          </a>
+          {% endif %}
+          {% if config.extra.social.steam %}
+          <a href="{{config.extra.social.steam}}" target="_blank" rel="noreferrer" class="size-8 gap-1 nav-btn">
+            <div class="i-fa6-brands-steam text-xl bg-[#082256]"></div>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% block main %}
+    {% endblock main %}
+  </main>
+</body>
+
+</html>

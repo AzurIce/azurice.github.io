@@ -1,0 +1,9 @@
+@counter-style emoticon {
+  system: cyclic;
+  symbols: "(´▽`ʃ♡ƪ)" "ヾ(^▽^*)))" "ԅ(¯﹃¯ԅ)" "φ(゜▽゜*)♪" "_(:з)∠)_" "(*/ω＼*)" "(❁´◡`❁)" "Ψ(￣∀￣)Ψ" "～(∠・ω< )⌒☆";
+}
+
+.prose {
+  padding: 10px;
+  max-width: 80ch !important;
+}
