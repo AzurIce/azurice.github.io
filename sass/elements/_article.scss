@@ -1,0 +1,103 @@
+@counter-style emoticon {
+  system: cyclic;
+  symbols: "(´▽`ʃ♡ƪ)" "ヾ(^▽^*)))" "ԅ(¯﹃¯ԅ)" "φ(゜▽゜*)♪" "_(:з)∠)_" "(*/ω＼*)" "(❁´◡`❁)" "Ψ(￣∀￣)Ψ" "～(∠・ω< )⌒☆";
+}
+
+.markdown {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    line-height: 1.5;
+  }
+
+  // MARK: headings
+  $heading-size: 2em, 1.8em, 1.6em, 1.4em;
+  $heading-margin: 1rem 0, 1.75em 0 .5em, 1.5em 0 .5em, 1em 0;
+  $heading-before: '<', '##', '###', '####';
+  $heading-after: '/>', '', '', '';
+
+  @for $i from 1 through 4 {
+    h#{$i} {
+      font-size: nth($heading-size, $i);
+      margin: nth($heading-margin, $i) 0;
+      font-family: 'LXGW Bright', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+      a.zola-anchor {
+        transition: all 0.2s ease-in-out;
+        text-decoration-color: transparent;
+
+        &::before {
+          padding-right: 0.25em;
+          content: nth($heading-before, $i);
+        }
+
+        &::after {
+          padding-left: 0.3em;
+          content: nth($heading-after, $i);
+        }
+
+        &::before,
+        &::after {
+          display: inline-block;
+          transition: all 0.2s;
+          font-size: 0.8em;
+          color: var(--accent-color-light);
+        }
+
+        &:hover {
+          text-decoration: var(--accent-color) underline;
+
+          &::before,
+          &::after {
+            transform: scale(1.2);
+            color: var(--accent-color);
+          }
+        }
+      }
+    }
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  // MARK: hr
+  hr {
+    position: relative;
+    border-bottom: 1px solid #cccccc;
+    opacity: 66%;
+    counter-increment: hr;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5em;
+
+    &::after {
+      background-color: white;
+      content: counter(hr, emoticon);
+      line-height: 20px;
+      text-align: center;
+      padding: 0 4px;
+      letter-spacing: 0.1rem;
+    }
+  }
+
+  a {
+    :hover {
+      color: #f43f5e;
+    }
+  }
+
+  // MARK: code and pre
+  code {
+    font-family: "JetBrainsMono Nerd Font Mono", Consolas, monospace;
+  }
+
+  pre {
+    padding: 1em;
+    overflow-x: auto;
+    border-radius: 0.5rem;
+  }
+}

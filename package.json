@@ -6,6 +6,7 @@
   "dependencies": {},
   "devDependencies": {
     "@iconify-json/fa6-brands": "^1.2.5",
+    "@iconify-json/mdi": "^1.2.3",
     "@unocss/preset-attributify": "^66.1.0-beta.3",
     "@unocss/preset-icons": "^66.1.0-beta.3",
     "@unocss/preset-typography": "^66.1.0-beta.3",

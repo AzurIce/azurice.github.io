@@ -1,0 +1,9 @@
+{% extends "layouts/base.html" %}
+
+{% block main %}
+<article class="max-w-full markdown">
+  {{ page.content | safe }}
+
+  {% include "giscus.html" %}
+</article>
+{% endblock main %}

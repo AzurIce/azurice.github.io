@@ -1,10 +1,57 @@
 {% extends "layouts/base.html" %}
 
 {% block main %}
-<article class="prose dark:prose-invert prose-neutral">
-{{ section.content | safe }}
+<div class="flex items-stretch">
+  {% if config.extra.avatar %}
+  <img src="{{ config.extra.avatar }}" class="size-40 rounded" />
+  {% endif %}
+  <div class="flex flex-col items-center justify-around p-2 p-b-1 gap-3">
+    <span class="text-xl">
+      < {{ config.title | default(value="Site Title" ) }} />
+    </span>
+    <span class="text-sm">{{ config.description | default(value="Description") }}</span>
+    {% if config.extra.email %}
+    <div class="text-sm">📫 <a class="underline" href="mailto:973562770@qq.com">{{ config.extra.email }}</a></div>
+    {% endif %}
+    <div class="flex">
+      {% if config.extra.social.github and config.extra.github_owner %}
+      <a href="https://github.com/{{config.extra.github_owner}}" target="_blank" rel="noreferrer"
+        class="size-8 gap-1 nav-btn">
+        <div class="i-fa6-brands-github text-xl">
+        </div>
+      </a>
+      {% endif %}
+      {% if config.extra.social.bilibili %}
+      <a href="{{config.extra.social.bilibili}}" target="_blank" rel="noreferrer" class="size-8 gap-1 nav-btn">
+        <div class="i-fa6-brands-bilibili text-xl color-[#19a2d4] translate-x-0 translate-y-[1px]"></div>
+      </a>
+      {% endif %}
+      {% if config.extra.social.steam %}
+      <a href="{{config.extra.social.steam}}" target="_blank" rel="noreferrer" class="size-8 gap-1 nav-btn">
+        <div class="i-fa6-brands-steam text-xl bg-[#082256]"></div>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
 
-{% include "giscus.html" %}
+<div class="flex flex-col w-full p-2 markdown">
+  <h2 style="margin-top: 0">最新文章</h2>
+  <ul>
+    {% set page_section = get_section(path="posts/_index.md") %}
+    {% for page in page_section.pages | slice(end=5) %}
+      <li class="flex gap-8">
+        <span class="text-gray-600">{{page.date}}</span>
+        <a class="underline hover:underline-gray-400" href="{{ page.permalink }}">{{ page.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<article class="max-w-full markdown">
+  <hr class="m-t-0" />
+  {{ section.content | safe }}
+
+  {% include "giscus.html" %}
 </article>
-
 {% endblock main %}

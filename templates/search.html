@@ -1,0 +1,19 @@
+{% extends "layouts/base.html" %}
+
+{% block main %}
+<div class="h-10 bg-gray-200 w-2xs nav-btn relative">
+  <div class="flex-1 size-full float-end" role="search">
+    <form class="relative z-2 transition h-full" name="search">
+      <input
+        class="relative z-2 size-full ps-10 pe-8 text-ellipses transition placeholder:transition focus:outline-[#cccccc]"
+        type="text" name="query" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false"
+        aria-label="搜索" placeholder="搜索" required />
+      <div class="size-10 absolute top-0 inset-s-0 z-2 flex items-center justify-center">
+        <div class="i-mdi-magnify"></div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="search-results" class="max-w-[80ch] padding-[10px]"></div>
+{% endblock main %}

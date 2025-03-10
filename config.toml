@@ -4,13 +4,20 @@ description = "『看清世界的真相后仍热爱生活』"
 # The URL the site will be built for
 base_url = "https://azurice.github.io"
 
+compile_sass = true
+
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
+default_language = "zh_cn"
+
+[search]
+index_format = "fuse_javascript" # or "fuse_json"
 
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
+insert_anchor_links = "heading"
 
 [extra]
 # Put all your custom variables here
