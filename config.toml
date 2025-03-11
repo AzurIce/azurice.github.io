@@ -1,5 +1,6 @@
 title = "冰弦のBlog"
 description = "『看清世界的真相后仍热爱生活』"
+author = "Azur冰弦"
 
 # The URL the site will be built for
 base_url = "https://azurice.github.io"

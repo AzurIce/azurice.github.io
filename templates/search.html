@@ -1,5 +1,12 @@
 {% extends "layouts/base.html" %}
 
+{% block head_extensions %}
+<!-- Fuse searching -->
+<script src="{{ get_url(path='search_index.zh_cn.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0"></script>
+<script src="{{ get_url(path='search.js') }}"></script>
+{% endblock head_extensions %}
+
 {% block main %}
 <div class="h-10 bg-gray-200 w-2xs nav-btn relative">
   <div class="flex-1 size-full float-end" role="search">
