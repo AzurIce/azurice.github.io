@@ -6,10 +6,10 @@
   <img src="{{ config.extra.avatar }}" class="size-40 rounded" />
   {% endif %}
   <div class="flex flex-col items-center justify-around p-2 p-b-1 gap-3">
-    <span class="text-xl">
+    <span class="text-xl lxgw">
       < {{ config.title | default(value="Site Title" ) }} />
     </span>
-    <span class="text-sm">{{ config.description | default(value="Description") }}</span>
+    <span class="text-sm lxgw">{{ config.description | default(value="Description") }}</span>
     {% if config.extra.email %}
     <div class="text-sm">📫 <a class="underline" href="mailto:973562770@qq.com">{{ config.extra.email }}</a></div>
     {% endif %}
