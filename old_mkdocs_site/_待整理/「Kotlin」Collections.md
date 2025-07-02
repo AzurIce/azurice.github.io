@@ -1,2 +1,0 @@
-# 「Kotlin」Collections
-## 一、

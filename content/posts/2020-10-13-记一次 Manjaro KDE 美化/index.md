@@ -1,14 +1,10 @@
----
-date: 2020-10-13
-categories:
-  - Linux/Manjaro
-tags:
-    - Linux
-    - Manjaro
-    - KDE
----
++++
+title = "记一次 Manjaro KDE 美化"
+slug = "manjaro-kde-beautify"
+tags = ["Linux"]
++++
 
-# 记一次Manjaro KDE美化
+# 记一次 Manjaro KDE 美化
 
 T22:47:00+08:00
 ![Screenshot_20201108_093301](./assets/Screenshot_20201108_093301.png)
@@ -18,14 +14,16 @@ T22:47:00+08:00
 ## 〇、配置国内源
 
 1. 切换镜像源至中国
-
+	```
 	sudo pacman-mirrors -i -c China -m rank
+	```
 
 在弹出的窗口中选一个最快的源
 
 2. 更新
-
+	```
 	sudo pacman -Syyu
+	```
 
 ## 一、好东西们
 
@@ -68,7 +66,9 @@ sudo pacman -S yay    # 一些pacman无法安装的包可以用这个来安装
 
 1. 安装 `fcitx5` 输入法框架
 
-`pacman -S fcitx5 fcitx5-qt fcitx5-gtk fcitx5-configtool`
+```
+pacman -S fcitx5 fcitx5-qt fcitx5-gtk fcitx5-configtool
+```
 
 配置环境变量，编辑 `~/.xprofile` ，写入：
 
@@ -85,7 +85,9 @@ export LC_CTYPE="zh_CN.UTF-8"
 
 2. 安装 `rime`
 
-`pacman -S fcitx-rime`
+```
+pacman -S fcitx-rime
+```
 
 3. 配置 `cloverpinyin` 输入方案
 
@@ -112,11 +114,15 @@ patch:
 
 1. 修改默认 shell 为 zsh
 
-`chsh -s /usr/bin/zsh`
+```
+chsh -s /usr/bin/zsh
+```
 
 2. 安装 `oh-my-zsh`
 
-`wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh`
+```
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+```
 
 > 如果多次提示被拒绝，就修改 `/etc/hosts` ：
 >

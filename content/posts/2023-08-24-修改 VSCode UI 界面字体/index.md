@@ -1,6 +1,6 @@
 +++
-title="修改 VSCode UI 界面字体"
-slug="modify-vscode-ui-font"
+title = "修改 VSCode UI 界面字体"
+slug = "modify-vscode-ui-font"
 +++
 
 # 修改 VSCode UI 界面字体

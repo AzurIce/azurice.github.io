@@ -1,11 +1,10 @@
----
-date: 2022-03-20
-tags:
-    - dp
-    - 背包
----
++++
+title = "「题解」CF19B Checkout Assistant"
+slug = "solve-cf19b"
+tags = ["算法", "题解", "dp", "背包"]
++++
 
-# CF19B Checkout Assistant
+# 「题解」CF19B Checkout Assistant
 
 T16:59:00+08:00
 CodeForces：[Problem - 19B - Codeforces](https://codeforces.com/problemset/problem/19/B)

@@ -4,7 +4,7 @@
 {% set posts_section = get_section(path="posts/_index.md") %}
 {% set yearly_posts = posts_section.pages | group_by(attribute="year") %}
 {% for year, posts in yearly_posts %}
-<div class="archive-year">
+<div class="w-full">
   <h2 class="text-2xl font-bold">{{ year }}<sup class="text-sm text-gray-500">&nbsp;&nbsp;{{ posts | length }}</sup></h2>
   {% set monthly_posts = posts | group_by(attribute="month") %}
   {% for month, posts in monthly_posts %}
@@ -12,7 +12,7 @@
   <div class="flex p-4">
     <h3 class="text-xl font-bold w-[200px]">{{ month_name }}<sup class="text-sm text-gray-500">&nbsp;&nbsp;{{ posts | length }}</sup>
     </h3>
-    <div class="archive-posts">
+    <div class="flex flex-col gap-2">
       {% for post in posts %}
       {% set formatted_date_long = post.date | date(format="%Y-%m-%d %H:%M:%S %z") %}
       {% set formatted_date_short = post.date | date(format="%Y-%m-%d") %}

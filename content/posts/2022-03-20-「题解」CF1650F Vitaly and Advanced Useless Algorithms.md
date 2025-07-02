@@ -1,11 +1,10 @@
----
-date: 2022-03-20
-tags:
-    - dp
-    - 背包
----
++++
+title = "「题解」CF1650F Vitaly and Advanced Useless Algorithms"
+slug = "solve-cf1650f"
+tags = ["算法", "题解", "dp", "背包"]
++++
 
-# CF1650F Vitaly and Advanced Useless Algorithms
+# 「题解」CF1650F Vitaly and Advanced Useless Algorithms
 
 T16:53:00+08:00
 CodeForces：[Problem - F - Codeforces](https://codeforces.com/contest/1650/problem/F)

@@ -1,13 +1,10 @@
----
++++
+title = "「题解」CF1201C Maximum Median"
+slug = "solve-cf1201c"
+tags = ["算法", "题解", "贪心", "模拟", "差分"]
++++
 
-date: 2022-08-01
-tags:
-    - 贪心
-    - 模拟
-    - 差分
----
-
-# CF1201C Maximum Median
+# 「题解」CF1201C Maximum Median
 
 T15:16:00+08:00
 Codeforces：[Problem - 1201C - Codeforces](https://codeforces.com/problemset/problem/1201/C)

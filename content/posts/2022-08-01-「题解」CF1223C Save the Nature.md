@@ -1,11 +1,10 @@
----
-date: 2022-08-01
-tags:
-    - 二分
-    - 贪心
----
++++
+title = "「题解」CF1223C Save the Nature"
+slug = "solve-cf1223c"
+tags = ["算法", "题解", "二分", "贪心"]
++++
 
-# CF1223C Save the Nature
+# 「题解」CF1223C Save the Nature
 
 T15:18:00+08:00
 洛谷：

@@ -1,6 +1,7 @@
----
-date: 2023-06-21
----
++++
+title = "使用 OhMyPosh 美化 PowerShell"
+slug = "oh-my-posh"
++++
 
 # 使用 OhMyPosh 美化 PowerShell
 
