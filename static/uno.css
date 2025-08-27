@@ -1,5 +1,5 @@
 /* layer: properties */
-@supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))){*, ::before, ::after, ::backdrop{--un-bg-opacity:100%;--un-outline-opacity:100%;--un-ease:initial;--un-translate-x:initial;--un-translate-y:initial;--un-translate-z:initial;--un-text-opacity:100%;--un-line-opacity:100%;--un-border-bottom-opacity:100%;}}
+@supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))){*, ::before, ::after, ::backdrop{--un-bg-opacity:100%;--un-outline-opacity:100%;--un-ease:initial;--un-text-opacity:100%;--un-border-bottom-opacity:100%;--un-translate-x:initial;--un-translate-y:initial;--un-translate-z:initial;--un-line-opacity:100%;}}
 @property --un-text-opacity{syntax:"<percentage>";inherits:false;initial-value:100%;}
 @property --un-outline-opacity{syntax:"<percentage>";inherits:false;initial-value:100%;}
 @property --un-outline-style{syntax:"*";inherits:false;initial-value:solid;}
@@ -20,22 +20,22 @@
 --radius-DEFAULT: 0.25rem;
 --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 --colors-slate-200: oklch(92.9% 0.013 255.508);
---colors-gray-600: oklch(44.6% 0.03 256.802);
---text-xl-fontSize: 1.25rem;
---text-xl-lineHeight: 1.75rem;
---text-sm-fontSize: 0.875rem;
---text-sm-lineHeight: 1.25rem;
---colors-gray-400: oklch(70.7% 0.022 261.325);
 --fontWeight-bold: 700;
 --colors-gray-500: oklch(55.1% 0.027 264.364);
+--colors-gray-400: oklch(70.7% 0.022 261.325);
 --text-2xl-fontSize: 1.5rem;
 --text-2xl-lineHeight: 2rem;
+--text-sm-fontSize: 0.875rem;
+--text-sm-lineHeight: 1.25rem;
+--text-xl-fontSize: 1.25rem;
+--text-xl-lineHeight: 1.75rem;
 --text-xs-fontSize: 0.75rem;
 --text-xs-lineHeight: 1rem;
 --colors-white: #fff;
 --container-5xl: 64rem;
 --colors-slate-600: oklch(44.6% 0.043 257.281);
 --colors-slate-300: oklch(86.9% 0.022 252.894);
+--colors-gray-600: oklch(44.6% 0.03 256.802);
 --font-sans: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 --font-mono: JetBrainsMono NFM,Consolas,ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
 --default-font-family: var(--font-sans);
