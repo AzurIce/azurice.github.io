@@ -1,0 +1,18 @@
+[package]
+name = "azurice-blog"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+aoike.workspace = true
+aoike-sycamore.workspace = true
+console_error_panic_hook = "0.1.7"
+sycamore = "0.9.2"
+
+[build-dependencies]
+aoike = { workspace = true, features = ["build"] }
+aoike-sycamore = { workspace = true, features = ["build"] }
+
+[workspace.dependencies]
+aoike = { git = "https://github.com/azurice/aoike", branch = "main" }
+aoike-sycamore = { git = "https://github.com/azurice/aoike", branch = "main" }
