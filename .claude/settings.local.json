@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem docs/posts -ErrorAction SilentlyContinue)",
+      "Bash(Select-Object -First 5)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
