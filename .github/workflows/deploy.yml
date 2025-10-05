@@ -1,4 +1,4 @@
-name: Deploy Blog to GitHub Pages
+name: Deploy
 
 on:
   push:
@@ -18,35 +18,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Rust (nightly)
         uses: dtolnay/rust-toolchain@nightly
         with:
           targets: wasm32-unknown-unknown
 
-      - name: Cache cargo dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cargo/registry
-            ~/.cargo/git
-            target
-          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-cargo-
+      - uses: Swatinem/rust-cache@v2
+      - uses: taiki-e/install-action@trunk
 
-      - name: Install Trunk
-        run: cargo install trunk --locked
+      - name: Cargo build
+        run: cargo build --release --target wasm32-unknown-unknown
 
-      - name: Build with Trunk
+      - name: Trunk build
         run: trunk build --release
 
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v4
         with:
           path: './dist'
 
@@ -59,4 +51,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
