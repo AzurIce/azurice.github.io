@@ -55,8 +55,9 @@ checksum = "a23eb6b1614318a8071c9b2521f36b424b2c83db5eb3a0fead4a6c0809af6e61"
 [[package]]
 name = "aoike"
 version = "0.1.0"
-source = "git+https://github.com/azurice/aoike?branch=main#cc0fa73d65b5d6766045863e23398ea9226a1bec"
+source = "git+https://github.com/azurice/aoike?branch=main#d999ad5396507020d77a03a276aa0e69b00f9b2b"
 dependencies = [
+ "anyhow",
  "prettyplease",
  "proc-macro2",
  "pulldown-cmark",
@@ -73,7 +74,7 @@ dependencies = [
 [[package]]
 name = "aoike-sycamore"
 version = "0.1.0"
-source = "git+https://github.com/azurice/aoike?branch=main#cc0fa73d65b5d6766045863e23398ea9226a1bec"
+source = "git+https://github.com/azurice/aoike?branch=main#d999ad5396507020d77a03a276aa0e69b00f9b2b"
 dependencies = [
  "anyhow",
  "aoike",
