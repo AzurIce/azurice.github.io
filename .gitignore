@@ -3,3 +3,4 @@
 /target
 
 docsgen.rs
+.direnv/

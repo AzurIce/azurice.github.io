@@ -14,5 +14,7 @@ aoike = { workspace = true, features = ["build"] }
 aoike-sycamore = { workspace = true, features = ["build"] }
 
 [workspace.dependencies]
+# aoike = { path = "../aoike" }
+# aoike-sycamore = { path = "../aoike/packages/aoike-sycamore" }
 aoike = { git = "https://github.com/azurice/aoike", branch = "main" }
 aoike-sycamore = { git = "https://github.com/azurice/aoike", branch = "main" }
