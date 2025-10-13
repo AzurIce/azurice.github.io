@@ -1,12 +1,14 @@
 # Macos launchd
 
+*launchd* 是 MacOS 中所有进程的父进程，对应的是 linux 中的 systemd 系统：
+
 ```bash
 ➜  ~ ps -ef | awk 'NR==1 || /launchd/'
   UID   PID  PPID   C STIME   TTY           TIME CMD
     0     1     0   0  5:27PM ??         0:34.04 /sbin/launchd
 ```
 
-*launchd* 是 MacOS 中所有进程的父进程，可以通过 `launchctl` 命令来和它交互。比如停止 `org.nixos.skhd` “服务”：
+通过 `launchctl` 命令可以与 *launchd* 进程进行交互。比如停止 `org.nixos.skhd` “服务”：
 
 ```bash
 launchctl stop org.nixos.skhd
@@ -43,13 +45,11 @@ launchctl stop org.nixos.skhd
 
 除了 `~/LIbrary/LaunchAgents` 目录外，`/` 和 `/System` 下也有对应的 `LaunchDaemons` 和 `LaunchAgents` 文件夹，分别存储了管理员和苹果提供的 *Daemon* 和 *Agent*。
 
-## nix
-
-- nix-darwin
-    - `launchd.user.agents`：对应 `~/Library/LaunchAgents`
-    - `launchd.agents`：对应 `/Library/LaunchAgents`
-- nix-darwin Home Manager
-    - `launchd.agents`：对应 `~/Library/LaunchAgents`
-
-`lauunchd.user.agents.<name>.serviceConfig` 有一些服务的设置选项：
+> *nix* 下的相关配置入口：
+>
+> - nix-darwin
+>     - `launchd.user.agents`：对应 `~/Library/LaunchAgents`
+>     - `launchd.agents`：对应 `/Library/LaunchAgents`
+> - nix-darwin Home Manager
+>     - `launchd.agents`：对应 `~/Library/LaunchAgents`
 
