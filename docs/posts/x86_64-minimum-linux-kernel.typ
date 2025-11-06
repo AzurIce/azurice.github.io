@@ -18,6 +18,7 @@ make menuconfig # 进入配置菜单 可能需要 ncurses 库
 ```
 
 ```
+[*] 64-bit kernel
 General setup -> [*] Initial RAM filesystem and RAM disk (initramfs/initrd) support
 General setup -> [*] Configure standard kernel features (expert users) -> [*] Enable support for printk
 Executable file formats -> [*] Kernel support for ELF binaries
