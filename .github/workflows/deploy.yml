@@ -28,6 +28,10 @@ jobs:
       - uses: Swatinem/rust-cache@v2
       - uses: taiki-e/install-action@trunk
 
+      - uses: taiki-e/cache-cargo-install-action@v2
+        with:
+          tool: typst-cli
+
       - name: Cargo build
         run: cargo build --release --target wasm32-unknown-unknown
 
