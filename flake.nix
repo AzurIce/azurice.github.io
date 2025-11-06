@@ -38,6 +38,10 @@
             export PATH=/usr/bin:$PATH
           '';
 
+          packages = with pkgs; [
+            typst
+          ];
+
           buildInputs = with pkgs; [
           ] ++ [
             trunk
