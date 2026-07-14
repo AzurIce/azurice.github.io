@@ -5,9 +5,9 @@ Hello！这里是 Azur冰弦（AzurIce），一个热爱音乐、动漫、代码
 
 简单来说就是用 `build.rs` 解析文件（比如 `.md` 以及 `.typ`）然后 codegen 到 sycamore 的 Rust 代码。
 
-因为是拿来放一堆文章笔记的，所以叫它「池」，又因为喜欢蓝色，所以叫它「青池」，这里是仓库 [AzurIce/aoike](https://github.com/AzurIce/aoike)，不过目前还非常的 experimental。
+因为是拿来放一堆文章笔记的，所以叫它「池」，又因为喜欢蓝色，所以叫它「青池」，这里是仓库 [AzurIce/aoike-ssg](https://github.com/AzurIce/aoike-ssg)，不过目前还非常的 experimental。
 
-细数一路来用的框架 Wordpress -> Hexo -> Hugo -> Typecho -> Mkdocs -> 手搓 Mkdocs -> zola -> 手搓 zola -> \手搓 aoike/ 折腾过来，看来生命在于折腾。
+细数一路来用的框架 Wordpress -> Hexo -> Hugo -> Typecho -> Mkdocs -> 手搓 Mkdocs -> zola -> 手搓 zola -> \aoike/ 折腾过来，看来生命在于折腾。
 
 ---
 
