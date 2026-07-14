@@ -57,6 +57,7 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 - 需要联调框架改动时,可临时把 `Cargo.toml` 里的 workspace dependencies 切到本地 path:
   - `aoike = { path = "../aoike-ssg" }`
   - `aoike-sycamore = { path = "../aoike-ssg/packages/aoike-sycamore" }`
+- **重要: 提交前必须恢复成 git 依赖,禁止把本地 path 依赖 commit 到 main。** CI 只使用 Git 依赖,本地 path 会导致部署失败。
 - `Cargo.lock` 当前锁定的远端提交为 `8e3787aa8f757fca6096d849ce0ab676f2d71597`。
 - `E:\aoike-ssg` 自身也是 Git 仓库;修改框架时先检查它的 `git status`,避免覆盖已有改动。
 
