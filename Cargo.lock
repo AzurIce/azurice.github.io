@@ -120,6 +120,7 @@ checksum = "a23eb6b1614318a8071c9b2521f36b424b2c83db5eb3a0fead4a6c0809af6e61"
 [[package]]
 name = "aoike"
 version = "0.1.0"
+source = "git+https://github.com/azurice/aoike-ssg?branch=main#b241dd66c1f9fd0938136d98e4b7a2ddf5977d0f"
 dependencies = [
  "anyhow",
  "imagesize",
@@ -140,6 +141,7 @@ dependencies = [
 [[package]]
 name = "aoike-sycamore"
 version = "0.1.0"
+source = "git+https://github.com/azurice/aoike-ssg?branch=main#b241dd66c1f9fd0938136d98e4b7a2ddf5977d0f"
 dependencies = [
  "anyhow",
  "aoike",
