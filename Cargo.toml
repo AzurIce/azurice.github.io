@@ -1,3 +1,7 @@
+[workspace]
+members = [".", "tools/exif-tool"]
+resolver = "2"
+
 [package]
 name = "azurice-blog"
 version = "0.1.0"
