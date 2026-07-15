@@ -4,3 +4,8 @@
 
 docsgen.rs
 .direnv/
+.env
+
+# shadow
+static/gallery/**/*.jpg
+static/gallery/**/*.png

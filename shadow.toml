@@ -1,0 +1,9 @@
+version = 1
+name = "azurice.github.io"
+
+[backend]
+type = "volcengine_tos"
+endpoint = "https://tos-cn-beijing.volces.com"
+region = "cn-beijing"
+bucket = "azurice-shadow"
+prefix = ""
