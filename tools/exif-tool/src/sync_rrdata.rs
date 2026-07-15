@@ -1,9 +1,19 @@
+//! sync-rrdata：把 RapidRAW 的 .rrdata sidecar 里的评分/色标同步到图片。
+//!
+//! 设计原则：
+//! - EXIF 是相机原始数据的地盘，不动它。
+//! - 评分（rating）和色标（color label）只写入 XMP：
+//!   - JPEG：嵌入图片内部的 XMP APP1 segment（xmp:Rating + xmp:Label）。
+//!   - 非 JPEG：生成同目录 .xmp sidecar。
+//! - 只读 .rrdata 里的 `rating` 和 `tags` 中 `color:*` 标签；
+//!   不读 `adjustments`，也不读 `exif` 里的相机参数。
+//! - 目录结构按约定一致，支持按文件名 stem 或 EXIF DateTimeOriginal 匹配。
+
 use std::collections::HashMap;
 use std::path::{Path, PathBuf};
 
 use anyhow::Context;
 use little_exif::exif_tag::ExifTag;
-use little_exif::ifd::ExifTagGroup;
 use little_exif::metadata::Metadata;
 use serde::Deserialize;
 use walkdir::WalkDir;
@@ -11,6 +21,9 @@ use walkdir::WalkDir;
 const RRDATA_EXT: &str = "rrdata";
 const XMP_SIGNATURE: &[u8] = b"http://ns.adobe.com/xap/1.0/\0";
 
+/// RapidRAW .rrdata 的 JSON 结构。
+/// 我们只关心 `rating` 和 `tags` 里的 color 标签；
+/// `adjustments` 和 `exif` 被忽略。
 #[derive(Debug, Clone, Default, Deserialize)]
 #[serde(default)]
 struct RrData {
@@ -21,6 +34,7 @@ struct RrData {
     exif: Option<HashMap<String, String>>,
 }
 
+/// 从 .rrdata 提取出的、后续匹配要用的信息。
 #[derive(Debug, Clone)]
 struct RrDataInfo {
     relative_dir: PathBuf,
@@ -30,10 +44,14 @@ struct RrDataInfo {
     datetime: Option<String>,
 }
 
+/// 目标图片与 .rrdata 的匹配策略。
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum MatchMode {
+    /// 按去掉 suffix 后的文件名 stem 匹配。
     Stem,
+    /// 按 EXIF DateTimeOriginal 匹配（用于文件名带序号/日期的模板）。
     Datetime,
+    /// 先尝试 stem，失败再回退到 datetime。
     Auto,
 }
 
@@ -50,6 +68,8 @@ impl std::str::FromStr for MatchMode {
     }
 }
 
+/// 入口函数：递归遍历 `source_dir` 的 .rrdata 和 `target_dir` 的图片，
+/// 按匹配策略配对后把 rating/label 写入 XMP。
 pub fn run(
     source_dir: &Path,
     target_dir: &Path,
@@ -193,11 +213,7 @@ fn collect_rrdata(source_dir: &Path) -> anyhow::Result<HashMap<PathBuf, RrDataIn
             .unwrap_or(Path::new(""))
             .to_path_buf();
 
-        let source_stem = path
-            .file_stem()
-            .and_then(|s| s.to_str())
-            .unwrap_or("")
-            .to_string();
+        let source_stem = rrdata_source_stem(path);
 
         let content = std::fs::read_to_string(path)
             .with_context(|| format!("read rrdata {}", path.display()))?;
@@ -245,6 +261,19 @@ fn collect_rrdata(source_dir: &Path) -> anyhow::Result<HashMap<PathBuf, RrDataIn
     }
 
     Ok(map)
+}
+
+/// RapidRAW sidecars are named `<image filename>.<image ext>.rrdata`.
+/// Strip both the sidecar extension and the original image extension so the
+/// result can be compared with an exported target image's stem.
+fn rrdata_source_stem(path: &Path) -> String {
+    let sidecar_stem = path.file_stem().and_then(|s| s.to_str()).unwrap_or("");
+
+    Path::new(sidecar_stem)
+        .file_stem()
+        .and_then(|s| s.to_str())
+        .unwrap_or(sidecar_stem)
+        .to_string()
 }
 
 fn collect_images(dir: &Path) -> Vec<PathBuf> {
@@ -324,6 +353,8 @@ fn read_target_datetime(path: &Path) -> Option<String> {
         })
 }
 
+/// 检查目标图片是否已经有 XMP Rating/Label。
+/// 注意：不检查 EXIF Rating，因为 EXIF 应保留给相机原始数据。
 fn has_existing_rating_or_label(path: &Path) -> anyhow::Result<bool> {
     let ext = path
         .extension()
@@ -333,12 +364,12 @@ fn has_existing_rating_or_label(path: &Path) -> anyhow::Result<bool> {
 
     if ext == "jpg" || ext == "jpeg" {
         let bytes = std::fs::read(path)?;
-        if has_exif_rating(&bytes) || has_embedded_xmp_label(&bytes) {
+        if has_embedded_xmp_rating_or_label(&bytes) {
             return Ok(true);
         }
     }
 
-    // Check for sidecar XMP.
+    // 检查是否存在同名的 .xmp sidecar。
     let xmp_path = path.with_extension("xmp");
     if xmp_path.exists() {
         let content = std::fs::read_to_string(&xmp_path).unwrap_or_default();
@@ -350,25 +381,7 @@ fn has_existing_rating_or_label(path: &Path) -> anyhow::Result<bool> {
     Ok(false)
 }
 
-fn has_exif_rating(jpeg_bytes: &[u8]) -> bool {
-    // EXIF Rating tag 0x4746 is encoded as an unknown INT16U in the generic IFD.
-    let Ok(metadata) = Metadata::new_from_vec(
-        &jpeg_bytes.to_vec(),
-        little_exif::filetype::FileExtension::JPEG,
-    ) else {
-        return false;
-    };
-    metadata
-        .get_tag(&ExifTag::UnknownINT16U(
-            Vec::new(),
-            0x4746,
-            ExifTagGroup::GENERIC,
-        ))
-        .next()
-        .is_some()
-}
-
-fn has_embedded_xmp_label(jpeg_bytes: &[u8]) -> bool {
+fn has_embedded_xmp_rating_or_label(jpeg_bytes: &[u8]) -> bool {
     let Some(packet) = extract_xmp_packet(jpeg_bytes) else {
         return false;
     };
@@ -376,6 +389,9 @@ fn has_embedded_xmp_label(jpeg_bytes: &[u8]) -> bool {
     text.contains("xmp:Rating") || text.contains("xmp:Label")
 }
 
+/// 将 rating/label 写入目标图片的 XMP。
+/// JPEG 直接嵌入 XMP APP1 segment；其他格式生成 .xmp sidecar。
+/// 整个过程不修改 EXIF。
 fn apply_metadata(
     path: &Path,
     rating: Option<u8>,
@@ -391,23 +407,8 @@ fn apply_metadata(
 
     match ext.as_str() {
         "jpg" | "jpeg" => {
-            let mut metadata = read_metadata(path)?;
-
-            // Write EXIF Rating tag (0x4746) first so that the EXIF block is
-            // preserved by little_exif before we rewrite the JPEG to embed XMP.
-            if let Some(r) = rating {
-                metadata.set_tag(ExifTag::UnknownINT16U(
-                    vec![r as u16],
-                    0x4746,
-                    ExifTagGroup::GENERIC,
-                ));
-            }
-
-            metadata
-                .write_to_file(path)
-                .with_context(|| format!("write EXIF metadata to {}", path.display()))?;
-
-            // Embed XMP packet into the JPEG that already contains the updated EXIF.
+            // Keep the original EXIF untouched; only embed/refresh the XMP APP1
+            // segment with rating and label.
             let jpeg_bytes = std::fs::read(path)?;
             let embedded = embed_xmp_in_jpeg(&jpeg_bytes, &xmp_packet)?;
             std::fs::write(path, embedded)?;
@@ -423,14 +424,8 @@ fn apply_metadata(
     Ok(())
 }
 
-fn read_metadata(path: &Path) -> anyhow::Result<Metadata> {
-    match Metadata::new_from_path(path) {
-        Ok(m) => Ok(m),
-        Err(e) if e.to_string().contains("No metadata found") => Ok(Metadata::new()),
-        Err(e) => Err(e).with_context(|| format!("read metadata from {}", path.display())),
-    }
-}
-
+/// 构造仅含 xmp:Rating 和 xmp:Label 的最小 XMP packet。
+/// 如果 rating 和 label 都为空，返回空字符串，调用方跳过写入。
 fn build_xmp_packet(rating: Option<u8>, label: Option<&str>) -> String {
     let mut body = String::new();
     if let Some(r) = rating {
@@ -459,7 +454,8 @@ fn build_xmp_packet(rating: Option<u8>, label: Option<&str>) -> String {
     )
 }
 
-fn extract_xmp_packet(jpeg_bytes: &[u8]) -> Option<Vec<u8>> {
+/// 从 JPEG 字节流里提取已有的内嵌 XMP packet。
+pub(crate) fn extract_xmp_packet(jpeg_bytes: &[u8]) -> Option<Vec<u8>> {
     let mut i = 0;
     if jpeg_bytes.len() < 2 || jpeg_bytes[0] != 0xFF || jpeg_bytes[1] != 0xD8 {
         return None;
@@ -498,7 +494,13 @@ fn extract_xmp_packet(jpeg_bytes: &[u8]) -> Option<Vec<u8>> {
     None
 }
 
-fn embed_xmp_in_jpeg(jpeg_bytes: &[u8], xmp_packet: &str) -> anyhow::Result<Vec<u8>> {
+/// 把 XMP packet 嵌入 JPEG：删除旧的 XMP APP1 segment，
+/// 在非 APP 标记前插入新的 XMP APP1 segment。
+/// 其他所有 segment（包括 EXIF）原样保留。
+pub(crate) fn embed_xmp_in_jpeg(
+    jpeg_bytes: &[u8],
+    xmp_packet: &str,
+) -> anyhow::Result<Vec<u8>> {
     if xmp_packet.is_empty() {
         return Ok(jpeg_bytes.to_vec());
     }
@@ -590,4 +592,36 @@ fn append_xmp_app1(output: &mut Vec<u8>, xmp_payload: &[u8]) {
     output.extend_from_slice(&[0xFF, 0xE1]);
     output.extend_from_slice(&len.to_be_bytes());
     output.extend_from_slice(xmp_payload);
+}
+
+#[cfg(test)]
+mod tests {
+    use super::rrdata_source_stem;
+    use std::path::Path;
+
+    #[test]
+    fn strips_original_image_extension_from_rrdata_sidecar() {
+        assert_eq!(
+            rrdata_source_stem(Path::new("DSC02645-2.jpg.rrdata")),
+            "DSC02645-2"
+        );
+        assert_eq!(
+            rrdata_source_stem(Path::new("DSC01545.ARW.rrdata")),
+            "DSC01545"
+        );
+    }
+
+    #[test]
+    fn preserves_complex_image_stems() {
+        assert_eq!(
+            rrdata_source_stem(Path::new("堆栈_stacked-堆栈 6400 0.25.jpg.rrdata")),
+            "堆栈_stacked-堆栈 6400 0.25"
+        );
+        assert_eq!(
+            rrdata_source_stem(Path::new(
+                "堆栈-带楼前景_stacked-堆栈-带楼前景 6400 0.25-前景重合成.jpg.rrdata"
+            )),
+            "堆栈-带楼前景_stacked-堆栈-带楼前景 6400 0.25-前景重合成"
+        );
+    }
 }

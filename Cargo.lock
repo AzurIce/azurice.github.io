@@ -120,7 +120,7 @@ checksum = "2a4385e2e34eb35d6b3efe798b9eb88096925d87726c0798709bf56d9ed84af3"
 [[package]]
 name = "aoike"
 version = "0.1.0"
-source = "git+https://github.com/azurice/aoike-ssg?branch=main#b241dd66c1f9fd0938136d98e4b7a2ddf5977d0f"
+source = "git+https://github.com/azurice/aoike-ssg?branch=main#b06fd1b569b4f9860080a071329ee9ffd878c506"
 dependencies = [
  "anyhow",
  "imagesize",
@@ -141,7 +141,7 @@ dependencies = [
 [[package]]
 name = "aoike-sycamore"
 version = "0.1.0"
-source = "git+https://github.com/azurice/aoike-ssg?branch=main#b241dd66c1f9fd0938136d98e4b7a2ddf5977d0f"
+source = "git+https://github.com/azurice/aoike-ssg?branch=main#b06fd1b569b4f9860080a071329ee9ffd878c506"
 dependencies = [
  "anyhow",
  "aoike",
@@ -420,6 +420,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "clap",
+ "kamadak-exif",
  "little_exif",
  "regex",
  "serde",
