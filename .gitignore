@@ -7,5 +7,5 @@ docsgen.rs
 .env
 
 # shadow
-static/gallery/**/*.jpg
-static/gallery/**/*.png
+gallery/**/*.jpg
+gallery/**/*.png
