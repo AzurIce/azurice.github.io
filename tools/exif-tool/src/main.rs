@@ -1,3 +1,5 @@
+mod sync_rrdata;
+
 use std::path::{Path, PathBuf};
 
 use anyhow::Context;
@@ -34,6 +36,26 @@ enum Commands {
         #[arg(long)]
         dry_run: bool,
     },
+    /// Sync RapidRAW .rrdata sidecar rating/label into target images.
+    #[command(name = "sync-rrdata")]
+    SyncRrData {
+        /// Source directory containing .rrdata sidecar files.
+        source_dir: PathBuf,
+        /// Target directory with images to update.
+        target_dir: PathBuf,
+        /// Matching strategy: stem | datetime | auto.
+        #[arg(long, default_value = "auto")]
+        match_mode: sync_rrdata::MatchMode,
+        /// Suffix to strip from target filenames when matching (e.g. "_gallery").
+        #[arg(long, default_value = "_gallery")]
+        suffix: String,
+        /// Overwrite existing rating/label.
+        #[arg(long)]
+        force: bool,
+        /// Dry run: print what would be changed without writing.
+        #[arg(long)]
+        dry_run: bool,
+    },
 }
 
 fn main() -> anyhow::Result<()> {
@@ -41,6 +63,14 @@ fn main() -> anyhow::Result<()> {
     match cli.command {
         Commands::Check { path } => check(path),
         Commands::Set { path, force, dry_run } => set(path, force, dry_run),
+        Commands::SyncRrData {
+            source_dir,
+            target_dir,
+            match_mode,
+            suffix,
+            force,
+            dry_run,
+        } => sync_rrdata::run(&source_dir, &target_dir, match_mode, &suffix, dry_run, force),
     }
 }
 
