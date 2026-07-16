@@ -46,7 +46,7 @@ jobs:
             ${{ runner.os }}-shadow-
 
       - name: Restore gallery
-        run: shadow restore gallery
+        run: shadow restore
         env:
           TOS_ACCESS_KEY: ${{ secrets.TOS_ACCESS_KEY }}
           TOS_SECRET_KEY: ${{ secrets.TOS_SECRET_KEY }}
@@ -57,7 +57,7 @@ jobs:
 
       - name: Trunk build
         run: trunk build --release
-      
+
       - run: cp dist/index.html dist/404.html
 
       - name: Setup Pages
