@@ -1,8 +1,15 @@
-use aoike::build::{Entity, post::Post, utils::patch_file};
+use aoike::build::{
+    Entity,
+    gallery::{GalleryBuildMode, build_gallery},
+    post::Post,
+    utils::patch_file,
+};
 
 fn main() {
     println!("cargo:rerun-if-changed=docs");
-    println!("cargo:rerun-if-changed=static/gallery");
+    println!("cargo:rerun-if-changed=gallery");
+    println!("cargo:rerun-if-changed=.shadow/refs/gallery");
+    println!("cargo:rerun-if-changed=shadow.toml");
 
     aoike_sycamore::build::init_aoike_sycamore();
 
@@ -11,10 +18,16 @@ fn main() {
     let index = Entity::new("docs/index.md");
     let index = Post::try_from(index).unwrap();
 
-    // Parse gallery directory
-    let gallery = aoike::build::gallery::parse_gallery("static/gallery");
+    // Use Embed here to copy gallery/ into the site artifact instead.
+    let gallery = build_gallery("gallery", GalleryBuildMode::ShadowTos).unwrap();
 
-    let assets = aoike::build::get_assets_trunk_data(&posts, &index, "docs");
+    let mut assets = aoike::build::get_assets_trunk_data(&posts, &index, "docs");
+    if !gallery.trunk_assets.is_empty() {
+        if !assets.is_empty() {
+            assets.push('\n');
+        }
+        assets.push_str(&gallery.trunk_assets);
+    }
     patch_file(
         "index.html",
         &assets,
@@ -25,7 +38,9 @@ fn main() {
     let out_dir = std::env::current_dir().unwrap().join("src");
     let code = std::fs::read_to_string(out_dir.join("docsgen.rs")).unwrap_or(String::new());
     let mut gen_code = aoike::build::generate_code(posts, index);
-    gen_code.push_str(&aoike::build::gallery::generate_gallery_code(gallery));
+    gen_code.push_str(&aoike::build::gallery::generate_gallery_code(
+        gallery.categories,
+    ));
     if code != gen_code {
         std::fs::write(out_dir.join("docsgen.rs"), gen_code).unwrap();
     }
