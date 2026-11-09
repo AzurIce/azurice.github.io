@@ -15,9 +15,10 @@
     nixpkgs.url      = "github:NixOS/nixpkgs/nixos-unstable";
     rust-overlay.url = "github:oxalica/rust-overlay";
     flake-utils.url  = "github:numtide/flake-utils";
+    notist.url = "github:AzurIce/notist";
   };
 
-  outputs = { nixpkgs, rust-overlay, flake-utils, ... }:
+  outputs = { nixpkgs, rust-overlay, flake-utils, notist, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         overlays = [ (import rust-overlay) ];
@@ -40,7 +41,11 @@
 
           packages = with pkgs; [
             typst
-          ];
+            just
+            nodejs
+            (python3.withPackages (ps: [ ps.pillow ]))
+          ] ++ pkgs.lib.optional (builtins.hasAttr system notist.packages)
+            notist.packages.${system}.default;
 
           buildInputs = with pkgs; [
           ] ++ [

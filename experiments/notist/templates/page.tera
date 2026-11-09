@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{page.title}} · {{site.title}}</title>
+  <link rel="stylesheet" href="{{url(path='trial.css')}}">
+  <link rel="stylesheet" href="{{assets.highlight}}">
+</head>
+<body>
+  <header><img src="{{url(path='avatar.jpg')}}" alt="头像" width="48" height="48"><a href="{{url(path='/')}}">{{site.title}}</a></header>
+  <p class="notice">隔离验证样站 · 原始目录与生产构建未改动 · 非最终主题</p>
+  <nav aria-label="页面">{% for other in site.pages %}<a href="{{url(path=other.route.url)}}">{{other.title}}</a> {% endfor %}</nav>
+  <main>
+    <h1>{{page.title}}</h1>
+    {% if page.attrs.created %}<p class="meta">创建 {{page.attrs.created}} · 更新 {{page.attrs.updated}} · 来源 {{page.attrs.original_source}}</p>{% endif %}
+    {% if page.attrs.kind == 'posts' %}
+      {% for post in site.data.trial.posts %}
+        <article><h2><a href="{{url(path=post.url)}}">{{post.title}}</a></h2><p class="meta">{{post.created}} · {{post.updated}}</p><p>{{post.summary}}</p></article>
+      {% endfor %}
+    {% endif %}
+    {{page.html | safe}}
+    {% if page.attrs.kind == 'gallery' %}
+      <p class="notice">仅验证 ref → TOS 图片接入；无原图，未提取 EXIF / 评分 / 颜色标签。分组按目录名，不代表原相册时间线。</p>
+      {% for category in site.data.trial.gallery %}
+        <section><h2>{{category.name}}（{{category.count}} 张）</h2>
+        {% for group in category.groups %}
+          <h3>{{group.name}}</h3><div class="photos">
+          {% for image in group.images %}<figure><button type="button" class="photo" aria-label="查看 {{image.name}}" data-src="{{image.url}}" data-caption="{{image.name}}"><img loading="lazy" src="{{image.url}}" alt="{{image.name}}"></button><figcaption>{{image.name}}</figcaption></figure>{% endfor %}
+          </div>
+        {% endfor %}</section>
+      {% endfor %}
+    {% endif %}
+    {% if page.attrs.comment_path %}<section><h2>评论接入验证</h2><p>评论路径：<code>{{page.attrs.comment_path}}</code>。采用当前页面地址，不兼容旧 slug；首页仍使用 /。点击才连接现有 Waline 服务；本试验不提交评论。</p><button id="load-comments" data-path="{{page.attrs.comment_path}}">加载 Waline</button><div id="waline"></div></section>{% endif %}
+  </main>
+  <dialog id="lightbox"><button id="close-lightbox">关闭</button><img alt=""><p></p></dialog>
+  <script type="module">
+    const dialog = document.querySelector('#lightbox');
+    document.querySelectorAll('.photo').forEach(button => button.addEventListener('click', () => {
+      dialog.querySelector('img').src = button.dataset.src;
+      dialog.querySelector('img').alt = button.dataset.caption;
+      dialog.querySelector('p').textContent = button.dataset.caption;
+      dialog.showModal();
+    }));
+    document.querySelector('#close-lightbox').onclick = () => dialog.close();
+    document.querySelector('#load-comments')?.addEventListener('click', async event => {
+      const button = event.currentTarget;
+      button.disabled = true;
+      try {
+        const css = document.createElement('link');
+        css.rel = 'stylesheet'; css.href = 'https://unpkg.com/@waline/client@v3/dist/waline.css'; document.head.append(css);
+        const {init} = await import('https://unpkg.com/@waline/client@v3/dist/waline.js');
+        init({el: '#waline', serverURL: 'https://waline.azurice.top', path: button.dataset.path, login: 'enable', pageSize: 10});
+      } catch (error) { button.disabled = false; button.textContent = `加载失败：${error.message}`; }
+    });
+  </script>
+  {% if assets.components %}<script type="module" src="{{assets.components}}"></script>{% endif %}
+</body>
+</html>

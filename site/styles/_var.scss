@@ -1,0 +1,45 @@
+:root {
+    // ========== 主题色 ==========
+    --accent-color: #f67c91;
+    --accent-color-light: color-mix(in srgb, var(--accent-color) 60%, white);
+    --gray: #cccccc;
+
+    // ========== 基础颜色 ==========
+    --background-color: white;
+    --text-primary: #333;
+    --text-secondary: #555;
+
+    // ========== 链接 ==========
+    --link-color: var(--accent-color);
+    --link-hover-color: color-mix(in srgb, var(--accent-color) 70%, black);
+
+    // ========== 列表 ==========
+    --list-marker-color: var(--accent-color);
+
+    // ========== 引用块 ==========
+    --blockquote-bg: #f9f9f9;
+    --blockquote-border: var(--accent-color-light);
+    --blockquote-text: var(--text-secondary);
+
+    // ========== 代码 ==========
+    // 内联代码
+    --code-bg: color-mix(in srgb, var(--accent-color) 8%, white);
+    --code-text: color-mix(in srgb, var(--accent-color) 80%, black);
+    --code-border: color-mix(in srgb, var(--accent-color) 20%, white);
+
+    // 代码块
+    --pre-bg: #fdfcfd;
+    --pre-border: color-mix(in srgb, var(--accent-color) 25%, white);
+    --pre-shadow: color-mix(in srgb, var(--accent-color) 10%, transparent);
+    --pre-code-text: #333;
+
+    // ========== 图片 ==========
+    --figcaption-text: var(--text-secondary);
+
+    // ========== 表格 ==========
+    --table-header-bg: #f5f5f5;
+    --table-header-text: #333;
+    --table-border: #ddd;
+    --table-row-even: #fafafa;
+    --table-row-hover: #f0f0f0;
+}

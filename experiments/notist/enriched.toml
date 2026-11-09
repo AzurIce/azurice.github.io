@@ -1,0 +1,17 @@
+[project]
+name = "blog-enriched-trial"
+
+[[site]]
+name = "enriched"
+root = "../.."
+content = "docs"
+output = "target/notist-trial/enriched"
+templates = "experiments/notist/templates"
+sass = "experiments/notist/sass"
+static_dir = "site/static"
+title = "冰弦のBlog · Notist 试验"
+
+[[site.extensions]]
+kind = "command"
+command = ["python3", "experiments/notist/prepare.py"]
+watch = ["experiments/notist/prepare.py", "docs", "gallery", ".shadow/refs/gallery", "shadow.toml", ".git/HEAD", ".git/refs"]

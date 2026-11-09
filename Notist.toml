@@ -1,0 +1,23 @@
+[package]
+name = "azurice-blog"
+
+[site]
+title = "冰弦のBlog"
+base_url = "/"
+content = "docs"
+output = "target/notist-site"
+templates = "site/templates"
+theme = "site"
+static_dir = "target/site-static"
+sass = "site/styles"
+data = "site/data"
+# Only handwritten data lives here; site extensions manage the generated
+# content-hash cache under target/gallery-metadata, outside published assets.
+
+[site.extensions.assets]
+command = ["python3", "tools/site_assets.py"]
+watch = ["tools/site_assets.py", "tools/site_extension.py", "site/styles"]
+
+[site.extensions.prepare]
+command = ["python3", "tools/site_prepare.py"]
+watch = ["tools/site_prepare.py", "tools/site_extension.py", "tools/site_summaries.py", "tools/gallery_metadata.py", "site/data", "docs", "gallery", ".shadow/refs/gallery", "shadow.toml", ".git/HEAD", ".git/refs"]

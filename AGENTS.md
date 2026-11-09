@@ -4,6 +4,17 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 
 ## 项目概述
 
+**当前主发布链已迁移为 Notist SSG。** 以下 Rust/Sycamore 说明保留作旧实现参考，不再是默认构建：
+
+- 在 `nix develop` 中使用 `just build`、`just check`、`just serve`；产物为 `target/notist-site/`。
+- 根 `Notist.toml` 配置生产 Site；`site/templates`、`site/styles`、`site/static` 是主题源码。样式统一放在 `site/styles/`：SCSS 由 Notist 编译，UnoCSS 快照由 `tools/site_assets.py` 暂存到 `target/site-static/css/uno.css` 后发布。
+- `tools/site_prepare.py` 在内存里注入元数据、转换当前 Typst 子集、生成列表/相册入口；不要为迁移移动或覆写 `docs/`、`gallery/`。
+- 相册元数据是中间产物：`target/gallery-metadata/metadata.json`，不放 Git。按 Shadow ref 内容哈希缓存，构建/预览自动补齐缺失对象；`just gallery-sync` 可单独预热。缺失对象获取/校验/解析失败必须阻止构建；不要伪造尺寸、日期、评分或颜色。
+- 聚合缓存格式 `version: 2`，提取器 `extractor_version: 3`；提取逻辑变化须升级版本。元数据工具需要 Pillow（flake 已提供），完整校验对象大小及 SHA-256、完整扫描 PNG chunk；缓存是可丢弃产物，CI 保存 JSON，不保存临时原图。细节见 `site/README.md`。
+- 静态资源统一放在 `site/static/`，头像为 `site/static/avatar.jpg`，新站 URL `/avatar.jpg`；根 `static/` 已移除。`tools/build_site.py` 只暂存 `xiv-market-lite/`，只替换带所有权标记的生成目录。旧 `build-legacy` 会再生成根 `static/css/`，不要用它调整 Notist 主题。
+- 不兼容旧文章 slug；保留首页 Waline path `/`，文章使用新的 `.html` 路径。不要在测试时提交评论或修改线上数据库。
+- `.github/workflows/deploy.yml` 用同一 Nix 构建/测试并发布新产物。旧 `Cargo.toml`、`build.rs`、`src/` 保留，以 `just build-legacy` 手动构建。
+
 这是一个使用 Rust + Sycamore 框架构建的个人博客静态网站,基于 [aoike](https://github.com/azurice/aoike) 框架实现。
 
 ## 构建系统

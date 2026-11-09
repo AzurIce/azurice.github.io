@@ -1,0 +1,119 @@
+.comment-overlay {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+
+  > * {
+    pointer-events: auto;
+  }
+}
+
+.comment-overlay-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.comment-overlay-bar {
+  width: 100%;
+  max-width: 1600px;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-bottom: none;
+  border-radius: 0.75rem 0.75rem 0 0;
+  background-color: var(--background-color, #ffffff);
+  color: var(--text-color, #1e293b);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  overflow: hidden;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: var(--hover-bg, #f8fafc);
+  }
+}
+
+.comment-overlay-title {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.comment-overlay-title-text {
+  flex-shrink: 0;
+}
+
+.comment-overlay-path {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.comment-overlay-chevron {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.comment-overlay-panel {
+  width: 100%;
+  max-width: 1600px;
+  max-height: 0;
+  overflow: hidden;
+  border-left: 1px solid var(--border-color, #e2e8f0);
+  border-right: 1px solid var(--border-color, #e2e8f0);
+  background-color: var(--background-color, #ffffff);
+  transition: max-height 0.3s ease;
+
+  &.expanded {
+    max-height: 75vh;
+  }
+}
+
+.comment-overlay-content {
+  max-height: 75vh;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+@media (max-width: 640px) {
+  .comment-overlay-bar,
+  .comment-overlay-panel {
+    max-width: 100%;
+  }
+
+  .comment-overlay-panel.expanded {
+    max-height: 85vh;
+  }
+
+  .comment-overlay-content {
+    max-height: 85vh;
+    padding: 0.75rem;
+  }
+}

@@ -1,0 +1,362 @@
+@counter-style emoticon {
+  system: cyclic;
+  symbols: "(´▽`ʃ♡ƪ)" "ヾ(^▽^*)))" "ԅ(¯﹃¯ԅ)" "φ(゜▽゜*)♪" "_(:з)∠)_" "(*/ω＼*)" "(❁´◡`❁)" "Ψ(￣∀￣)Ψ" "～(∠・ω< )⌒☆";
+}
+
+.markdown {
+  display: flex;
+  flex-direction: column;
+  max-width: 80ch;
+  margin-inline: auto;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: 'LXGW Bright';
+
+  p {
+    margin: 0.5em 0;
+  }
+
+  // MARK: headings
+  $heading-size: 2em, 1.8em, 1.5em, 1.25em;
+  $heading-margin: 1rem 0, 1em 0 .64em, 0.5em 0 .8em, 1em 0;
+  $heading-before: '<', '##', '###', '####';
+  $heading-after: '/>', '', '', '';
+
+  @for $i from 1 through 4 {
+    h#{$i} {
+      position: relative;
+      font-size: nth($heading-size, $i);
+      margin: nth($heading-margin, $i) 0;
+      font-family: 'LXGW Bright', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+      &:target {
+        scroll-margin-top: 3.5rem + 0.5rem;
+      }
+
+      a.zola-anchor {
+        transition: all 0.2s ease-in-out;
+        text-decoration-color: transparent;
+
+        &::before {
+          padding-right: 0.25em;
+          content: nth($heading-before, $i);
+        }
+
+        &::after {
+          padding-left: 0.3em;
+          content: nth($heading-after, $i);
+        }
+
+        &::before,
+        &::after {
+          display: inline-block;
+          transition: all 0.2s;
+          font-size: 0.8em;
+          color: var(--accent-color-light);
+        }
+
+        &:hover {
+          text-decoration: var(--accent-color) underline;
+
+          &::before,
+          &::after {
+            transform: scale(1.2);
+            color: var(--accent-color);
+          }
+        }
+      }
+    }
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h2::after {
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    content: "--------------------------------------------------";
+    letter-spacing: 8px;
+    color: var(--accent-color-light);
+    max-width: 100%;
+    font-size: 0.8em;
+    text-wrap: nowrap;
+    overflow-x: hidden;
+  }
+
+  // MARK: hr
+  hr {
+    position: relative;
+    border-bottom: 1px solid #cccccc;
+    opacity: 66%;
+    counter-increment: hr;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5em;
+
+    &::after {
+      background-color: var(--background-color);
+      content: counter(hr, emoticon);
+      line-height: 20px;
+      text-align: center;
+      padding: 0 4px;
+      letter-spacing: 0.1rem;
+    }
+  }
+
+  a {
+    color: var(--link-color);
+    text-decoration: underline;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: var(--link-hover-color);
+    }
+  }
+
+  // Soften only the strike; preserve the text and link styles.
+  del, s {
+    text-decoration-color: var(--accent-color-light);
+  }
+
+  // MARK: lists
+  ul, ol {
+    margin: 0.5em 0;
+    padding-left: 2em;
+  }
+
+  ul {
+    list-style-type: disc;
+
+    ul {
+      list-style-type: circle;
+
+      ul {
+        list-style-type: square;
+      }
+    }
+  }
+
+  ol {
+    list-style-type: decimal;
+
+    ol {
+      list-style-type: lower-alpha;
+
+      ol {
+        list-style-type: lower-roman;
+      }
+    }
+  }
+
+  li {
+    margin: 0.25em 0;
+    line-height: 1.8;
+
+    &::marker {
+      color: var(--list-marker-color);
+    }
+  }
+
+  // MARK: blockquote
+  blockquote {
+    margin: 1em 0;
+    padding: 0.75em 1em 0.75em 1.5em;
+    border-left: 4px solid var(--blockquote-border);
+    background-color: var(--blockquote-bg);
+    font-style: italic;
+    color: var(--blockquote-text);
+
+    p:first-child {
+      margin-top: 0;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    cite {
+      display: block;
+      margin-top: 0.5em;
+      font-size: 0.9em;
+      text-align: right;
+      font-style: normal;
+
+      &::before {
+        content: '— ';
+      }
+    }
+  }
+
+  // MARK: code and pre
+  code {
+    font-family: "JetBrainsMono Nerd Font Mono", Consolas, monospace;
+    font-size: 0.9em;
+    padding: 0.2em 0.4em;
+    background-color: var(--code-bg);
+    border-radius: 0.25rem;
+    color: var(--code-text);
+    border: 1px solid var(--code-border);
+  }
+
+  pre {
+    font-size: 90%;
+    padding: 1em;
+    margin: 1em 0;
+    overflow-x: auto;
+    border-radius: 0.5rem;
+    background-color: var(--pre-bg);
+    border: 1px solid var(--pre-border);
+    box-shadow: 0 2px 8px var(--pre-shadow);
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
+      border-radius: 0.5rem 0.5rem 0 0;
+    }
+
+    code {
+      background-color: transparent;
+      padding: 0;
+      color: var(--pre-code-text);
+      font-size: 1em;
+      border: none;
+    }
+  }
+
+  // MARK: images and media
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1em 0;
+    display: block;
+  }
+
+  figure {
+    margin: 1.5em 0;
+    text-align: center;
+
+    img {
+      margin: 0 auto;
+    }
+
+    figcaption {
+      margin-top: 0.5em;
+      font-size: 0.9em;
+      color: var(--figcaption-text);
+      font-style: italic;
+    }
+  }
+
+  // MARK: tables
+  table {
+    width: 100%;
+    margin: 1em 0;
+    border-collapse: collapse;
+    overflow-x: auto;
+    display: block;
+
+    thead {
+      background-color: var(--table-header-bg);
+    }
+
+    th, td {
+      padding: 0.75em 1em;
+      text-align: left;
+      border: 1px solid var(--table-border);
+    }
+
+    th {
+      font-weight: 600;
+      color: var(--table-header-text);
+    }
+
+    tbody tr {
+      &:nth-child(even) {
+        background-color: var(--table-row-even);
+      }
+
+      &:hover {
+        background-color: var(--table-row-hover);
+      }
+    }
+  }
+
+  // MARK: responsive design
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+
+    h1 {
+      font-size: 1.75em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+    }
+
+    h3 {
+      font-size: 1.25em;
+    }
+
+    h4 {
+      font-size: 1.1em;
+    }
+
+    ul, ol {
+      padding-left: 1.5em;
+    }
+
+    blockquote {
+      padding: 0.5em 0.75em 0.5em 1em;
+      border-left-width: 3px;
+    }
+
+    pre {
+      padding: 0.75em;
+      font-size: 85%;
+    }
+
+    table {
+      font-size: 0.9em;
+
+      th, td {
+        padding: 0.5em 0.75em;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+
+    h1 {
+      font-size: 1.5em;
+    }
+
+    h2 {
+      font-size: 1.35em;
+
+      &::after {
+        letter-spacing: 4px;
+      }
+    }
+
+    h3 {
+      font-size: 1.15em;
+    }
+
+    h4 {
+      font-size: 1.05em;
+    }
+  }
+}

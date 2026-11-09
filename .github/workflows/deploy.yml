@@ -22,43 +22,43 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Rust (nightly)
-        uses: dtolnay/rust-toolchain@nightly
-        with:
-          targets: wasm32-unknown-unknown
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
 
-      - uses: Swatinem/rust-cache@v2
-      - uses: taiki-e/install-action@trunk
-
-      - uses: taiki-e/cache-cargo-install-action@v2
-        with:
-          tool: typst-cli
-
-      - name: Install Shadow
-        run: cargo install --git https://github.com/AzurIce/shadow.git --locked
-
-      - name: Restore Shadow cache
+      - name: Cache Nix input downloads
         uses: actions/cache@v4
         with:
-          path: .shadow/cache
-          key: ${{ runner.os }}-shadow-${{ hashFiles('shadow.toml', '.shadow/refs/**/*.ref') }}
+          path: ~/.cache/nix
+          key: ${{ runner.os }}-nix-${{ hashFiles('flake.lock') }}
+
+      # A unique save key lets repaired/partial caches persist even for the
+      # same ref set; restore first prefers that ref set, then older ref sets.
+      - name: Restore gallery metadata
+        id: gallery-cache
+        uses: actions/cache/restore@v4
+        continue-on-error: true
+        with:
+          path: target/gallery-metadata/metadata.json
+          key: ${{ runner.os }}-gallery-metadata-${{ hashFiles('tools/gallery_metadata.py', 'flake.lock') }}-${{ hashFiles('.shadow/refs/gallery/**/*.ref', 'shadow.toml') }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            ${{ runner.os }}-shadow-
+            ${{ runner.os }}-gallery-metadata-${{ hashFiles('tools/gallery_metadata.py', 'flake.lock') }}-${{ hashFiles('.shadow/refs/gallery/**/*.ref', 'shadow.toml') }}-
+            ${{ runner.os }}-gallery-metadata-${{ hashFiles('tools/gallery_metadata.py', 'flake.lock') }}-
 
-      - name: Restore gallery
-        run: shadow restore
-        env:
-          TOS_ACCESS_KEY: ${{ secrets.TOS_ACCESS_KEY }}
-          TOS_SECRET_KEY: ${{ secrets.TOS_SECRET_KEY }}
-          TOS_SECURITY_TOKEN: ${{ secrets.TOS_SECURITY_TOKEN }}
+      # Only missing object hashes are downloaded from public TOS and fully
+      # verified. Warm builds need neither original photos nor TOS credentials.
+      - name: Build Notist site
+        run: nix --max-jobs 1 --cores 2 develop --no-update-lock-file --command just build
 
-      - name: Cargo build
-        run: cargo build --release --target wasm32-unknown-unknown
+      - name: Validate generated site
+        run: nix --max-jobs 1 --cores 2 develop --no-update-lock-file --command just check
 
-      - name: Trunk build
-        run: trunk build --release
-
-      - run: cp dist/index.html dist/404.html
+      - name: Save gallery metadata
+        if: ${{ always() && steps.gallery-cache.outputs.cache-primary-key != '' && hashFiles('target/gallery-metadata/metadata.json') != '' }}
+        uses: actions/cache/save@v4
+        continue-on-error: true
+        with:
+          path: target/gallery-metadata/metadata.json
+          key: ${{ steps.gallery-cache.outputs.cache-primary-key }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -66,7 +66,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: './dist'
+          path: './target/notist-site'
 
   deploy:
     environment:
