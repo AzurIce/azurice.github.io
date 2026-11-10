@@ -14,6 +14,10 @@ data = "site/data"
 # Only handwritten data lives here; site extensions manage the generated
 # content-hash cache under target/gallery-metadata, outside published assets.
 
+[[site.mounts]]
+source = "xiv-market"
+path = "xiv-market"
+
 [site.extensions.assets]
 command = ["python3", "tools/site_assets.py"]
 watch = ["tools/site_assets.py", "tools/site_extension.py", "site/styles"]
