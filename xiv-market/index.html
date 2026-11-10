@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>xiv-market-lite 已迁移</title>
+  <title>XIV Market 已迁移</title>
   <style>
     :root {
       color-scheme: light dark;
@@ -35,6 +35,7 @@
       border-radius: 8px;
       background: #ffffff;
       box-shadow: 0 16px 48px rgb(23 32 51 / 8%);
+      box-sizing: border-box;
     }
 
     h1 {
@@ -69,6 +70,29 @@
       font-weight: 600;
     }
 
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .links .button {
+      flex: 1 1 180px;
+    }
+
+    .button.secondary {
+      border: 1px solid #d8d8d0;
+      background: transparent;
+      color: #172033;
+    }
+
+    .note {
+      margin: 24px 0 0;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
     @media (prefers-color-scheme: dark) {
       :root {
         color: #f4f6fb;
@@ -93,18 +117,27 @@
         background: #e5e7eb;
         color: #111827;
       }
+
+      .button.secondary {
+        border-color: #374151;
+        color: #f4f6fb;
+      }
     }
   </style>
 </head>
 
 <body>
   <main>
-    <h1>xiv-market 地址已迁移</h1>
-    <p>
-      当前页面已迁移到
-      <a href="https://market.icexiv.top/">https://market.icexiv.top</a>。
+    <h1>XIV Market 已迁移</h1>
+    <p>请选择新的站点：</p>
+    <div class="links">
+      <a class="button" href="https://market.icexiv.top/">国内站</a>
+      <a class="button secondary" href="https://icexiv.github.io/icexiv-market/">国际站</a>
+    </div>
+    <p class="note">
+      国内站：<a href="https://market.icexiv.top/">https://market.icexiv.top/</a><br />
+      国际站：<a href="https://icexiv.github.io/icexiv-market/">https://icexiv.github.io/icexiv-market/</a>
     </p>
-    <a class="button" href="https://market.icexiv.top">前往新地址</a>
   </main>
 </body>
 
