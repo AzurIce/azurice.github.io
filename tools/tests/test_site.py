@@ -255,7 +255,7 @@ class ArtifactTests(unittest.TestCase):
 
     def test_all_local_links_resolve(self):
         for path in OUTPUT.rglob("*.html"):
-            if "xiv-market-lite" in path.parts:
+            if "xiv-market" in path.parts:
                 continue  # External application content is preserved, not rewritten.
             for link in HTML(path.read_text()).links:
                 url = urlsplit(link)
@@ -277,7 +277,8 @@ class ArtifactTests(unittest.TestCase):
         self.assertEqual((OUTPUT / "avatar.jpg").read_bytes(), (ROOT / "site/static/avatar.jpg").read_bytes())
         self.assertFalse((OUTPUT / "static/avatar.jpg").exists())
         self.assertFalse((ROOT / "target/site-static/static").exists())
-        self.assertEqual((OUTPUT / "xiv-market-lite/index.html").read_bytes(), (ROOT / "xiv-market-lite/index.html").read_bytes())
+        self.assertEqual((OUTPUT / "xiv-market/index.html").read_bytes(), (ROOT / "xiv-market/index.html").read_bytes())
+        self.assertFalse((OUTPUT / "xiv-market-lite").exists())
         for name in ["main.css", "site.js", "github.svg", "_notist/highlight.css"]:
             self.assertTrue((OUTPUT / name).is_file())
         count = 0

@@ -13,7 +13,7 @@ just serve          # Notist 实时预览，默认 http://127.0.0.1:8000
 
 直接运行：`nix develop --command just build`。首次需要下载/构建 flake.lock 固定的 Notist。上游 Nix 包支持 x86_64-linux、aarch64-linux、aarch64-darwin；Intel Mac 的旧开发环境仍保留，但不含 Notist。
 
-`Notist.toml` 声明站点。原有 `docs/`、`gallery/` 和 `xiv-market-lite/` 目录不移动；静态资源统一放在 `site/static/`（头像为 `avatar.jpg`），样式在 `site/styles/`，根 `static/` 已移除。构建适配在 `tools/site_prepare.py`。不兼容旧文章 slug，文章按原相对路径生成 `.html`。
+`Notist.toml` 声明站点。原有 `docs/`、`gallery/` 和 `xiv-market/` 目录不移动，`xiv-market/` 通过 `[[site.mounts]]` 原样发布；静态资源统一放在 `site/static/`（头像为 `avatar.jpg`），样式在 `site/styles/`，根 `static/` 已移除。构建适配在 `tools/site_prepare.py`。不兼容旧文章 slug，文章按原相对路径生成 `.html`。
 
 ## 相册
 
@@ -34,10 +34,10 @@ CI 使用 Actions Cache 恢复/保存这一个 JSON。缓存键区分提取器/�
 
 ## 发布与主题
 
-GitHub Actions 使用同一 Nix/Just 构建和测试，发布 `target/notist-site/`。`404.html` 是真实 404 页面，不再复制首页充当 SPA fallback。`xiv-market-lite/` 原样包含在产物中；其自身的远程依赖没有改写。
+GitHub Actions 使用同一 Nix/Just 构建和测试，发布 `target/notist-site/`。`404.html` 是真实 404 页面，不再复制首页充当 SPA fallback。`xiv-market/` 通过 Notist 挂载原样包含在产物中；其自身的远程依赖没有改写。
 
 主题以 2026-11-06 的线上 aoike 版本为参考：粉色强调色 `#f67c91`、白底、顶栏、首页头像区、正文、文章卡片、画廊时间线/年份筛选、评分布局/红色精选和底部评论抽屉。布局算法由 aoike 的 Rust 实现移植为可测试的纯 JS；不依赖 `static/css/` 的旧生成文件。见 [site/README.md](site/README.md)。
 
 正文 Markdown 由 Notist 直接解析；两篇 Typst 仅转换当前使用的标题、段落和 raw code 子集，不是通用 Typst 支持。原 `.typ` 目前也作为可下载资源发布。Waline 服务不变，首页评论路径仍为 `/`，文章采用新路径；没有修改评论数据库。
 
-旧 Rust/Sycamore 实现保留，可用 `just build-legacy` 构建；不会被当前部署工作流调用。先前的探索记录在 `experiments/notist/`。
+旧 Rust/Sycamore 实现保留，可用 `just build-legacy` 构建；不会被当前部署工作流调用。

@@ -2,9 +2,7 @@
 
 评估日期：2026-11-06。结论：**可行，但属于重做展示层，不是替换一个依赖即可完成。**
 
-后续已完成原目录样站试验，实测结果、命令及 extension / 预处理边界见 [experiments/notist/README.md](experiments/notist/README.md)。下文保留初次源码评估的范围说明。
-
-最新决定：按用户意见放弃旧文章 slug 兼容。公开 Waline 查询目前仅发现首页 `/` 的 1 条评论、四篇旧文章路径均为 0；样站已改用默认 `.html` 路径，首页仍保留 `/`。详见 [公开评论调查](experiments/notist/WALINE-AUDIT.md)；待审核等非公开记录未经管理员核验，下文旧 URL 兼容建议不再作为当前样站目标。
+迁移约束：不兼容旧文章 slug，文章采用 `.html` 路径，首页 Waline path 保留 `/`。2026-11-06 的只读公开接口查询发现首页 `/` 有 1 条公开评论，四篇旧文章路径均为 0；该查询不覆盖待审核等非公开记录，不代表数据库全量调查。下文旧 URL 兼容建议不作为当前目标。
 
 正式实现已完成：根 `Notist.toml`、`site/` 主题、`tools/site_prepare.py` 及新的 Just/CI 发布链。默认构建为 `just build`，输出 `target/notist-site/`；旧 Rust 实现保留。实际使用说明以 [README.md](README.md) 和 [site/README.md](site/README.md) 为准，以下为迁移前评估记录。
 

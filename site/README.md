@@ -12,7 +12,7 @@
 - `../target/gallery-metadata/metadata.json`：生成的单文件元数据缓存，按图片内容哈希索引，不进 Git。`data/` 只保存手写站点配置。
 - `../tools/site_prepare.py`：git 时间、摘要、Typst 子集转换、虚拟入口、相册描述/时间线；不改源文件。
 - `../tools/site_summaries.py`：用同一 Notist SSG 无主题渲染文章，再提取保留 HTML 结构的卡片摘要；搜索纯文本与摘要分离。
-- `../tools/build_site.py`：先暂存独立 XIV 页面，再运行 Notist。仅在带所有权标记的 `target/site-static/` 内替换生成资源；主题静态资源由 Notist 直接从 `site/static/` 收集。
+- `../tools/build_site.py`：重置带所有权标记的 `target/site-static/` 后运行 Notist；独立 XIV 页面由 `Notist.toml` 的 `[[site.mounts]]` 发布，主题静态资源由 Notist 直接从 `site/static/` 收集。
 - `../tools/site_assets.py`：Site prepare extension，每次构建/重建将 UnoCSS 快照原子更新到 `target/site-static/css/uno.css`，再由普通 static 管线发布。
 
 ## 临时复用旧样式
@@ -25,7 +25,7 @@
 
 内容、文章链接、分类入口和图片都在静态 HTML 中。禁用 JS 时仍能阅读和浏览；JS 只增强搜索、年份筛选、精确排布、灯箱和评论。默认选择最新年份，可用 `?year=2024` 分享年份状态。灯箱支持按钮、左右方向键、触摸滑动、Escape、焦点返回，并联动底下的图片位置。
 
-底部评论抽屉保持线上外观，但改为第一次展开才加载固定版本 Waline；不主动发送测试评论。弹层有键盘焦点约束和背景 inert。首页 `/` 的评论身份保留；放弃旧文章 slug，详见 `../experiments/notist/WALINE-AUDIT.md`。
+底部评论抽屉第一次展开才加载固定版本 Waline；不主动发送测试评论。弹层有键盘焦点约束和背景 inert。首页 `/` 的评论身份保留；不兼容旧文章 slug，文章评论采用新页面路径。
 
 ## 相册数据的真实性
 
@@ -69,7 +69,7 @@ Typst 转换保留 `shell-unix-generic`，Notist 能直接识别。主题补齐�
 
 ## 运行与检查
 
-在根目录的 Nix shell 中执行 `just build`、`just check`、`just serve`。`just serve` 可热更新正文、模板、样式、脚本、`site/static/` 资源和相册数据；独立 `xiv-market-lite/` 的变化需要重启一次 serve 以重新暂存资源。旧版 `just build-legacy` 仍会自动生成根 `static/css/`，但主构建不会创建或读取它；旧 Trunk 入口从 `site/static/` 复制资源到旧产物的 `/static/`。
+在根目录的 Nix shell 中执行 `just build`、`just check`、`just serve`。`just serve` 可热更新正文、模板、样式、脚本、`site/static/` 资源、挂载目录（如 `xiv-market/`）和相册数据。旧版 `just build-legacy` 仍会自动生成根 `static/css/`，但主构建不会创建或读取它；旧 Trunk 入口从 `site/static/` 复制资源到旧产物的 `/static/`。
 
 浏览器验收应对照线上首页、文章列表、正文、画廊及移动端；静态检查覆盖代码块保留、内部链接、首页评论路径、缓存过期/冲突阻止构建、所有图片和独立 XIV 页面。生成目录只在 `target/`，不覆盖旧的 `dist/`。
 
